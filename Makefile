@@ -5,7 +5,12 @@
 ## Makefile
 ##
 
-SRC			=	src/main.c
+SRC			=	src/main.c \
+				src/main_loop.c \
+				src/manage_event.c \
+				src/ini_all_data.c \
+				src/create_all_data.c \
+				src/free_all_data.c
 
 CFLAGS		=	-W -Wall -Wextra -I ./include \
 				-lcsfml-system -lcsfml-graphics \
