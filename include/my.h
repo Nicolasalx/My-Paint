@@ -14,7 +14,6 @@
 
 void main_loop(void);
 void manage_event(sfRenderWindow *window, sfEvent *event);
-void ini_all_data(void);
 void create_all_data(void);
 void free_all_data(void);
 
