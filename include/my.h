@@ -30,6 +30,11 @@ void ini_draw_img_user_interface(void);
 void create_button(int i);
 void init_all_button_selection(void);
 
-void ini_chromatic_wheel();
+void ini_chromatic_wheel(void);
+
+void init_all_text_selection_color(void);
+
+void ini_button_header(void);
+void ini_text_button_header(void);
 
 #endif /* !MY_H_ */

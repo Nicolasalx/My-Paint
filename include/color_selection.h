@@ -24,6 +24,7 @@ typedef struct selection_color_t {
     sfColor color;
     sfVector2f pos;
     char *path;
+    sfVector2f size;
 } selection_color_t;
 
 typedef struct chromatic_wheel_t {
@@ -33,9 +34,20 @@ typedef struct chromatic_wheel_t {
     sfVector2f size;
 } chromatic_wheel_t;
 
+typedef struct text_color_selection_t {
+    sfText *text;
+    sfFont *font;
+    sfVector2f pos;
+    char *path;
+    char *font_path;
+} text_color_selection_t;
+
 extern selection_color_t selection_color[];
 extern const int size_selection_color;
 
 extern chromatic_wheel_t chromatic_wheel;
+
+extern text_color_selection_t text_color_selection[];
+extern const int size_text_selection_color;
 
 #endif /* !BUTTON_H_ */

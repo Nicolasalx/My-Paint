@@ -2,39 +2,55 @@
 
 int main()
 {
-    // Create the window
     sfVideoMode mode = {800, 600, 32};
-    sfRenderWindow* window = sfRenderWindow_create(mode, "My window", sfResize | sfClose, NULL);
+    sfRenderWindow* window;
+    sfConvexShape* rectangle;
 
-    // Set the window size to a fixed value
-    sfRenderWindow_setSize(window, mode);
+    // Créer une fenêtre
+    window = sfRenderWindow_create(mode, "Arrondir les bords d'un rectangle avec sfConvexShape en CSFML en C", sfResize | sfClose, NULL);
 
-    // Prevent the window from being resized
-    sfRenderWindow_setSize(window, mode.width, mode.height);
-sfRenderWindow_setSizeable
-    // Run the main loop
+    // Créer un rectangle
+    rectangle = sfConvexShape_create();
+    sfConvexShape_setPointCount(rectangle, 16); // Nombre de sommets
+    sfConvexShape_setFillColor(rectangle, sfBlue);
+    sfConvexShape_setPosition(rectangle, (sfVector2f){300, 250});
+
+    // Définir les sommets du rectangle
+    float width = 200;
+    float height = 100;
+    float radius = 20;
+    sfVector2f point;
+    for (int i = 0; i < 4; i++)
+    {
+        point.x = i % 2 ? width - radius : radius;
+        point.y = i < 2 ? height - radius : radius;
+        sfConvexShape_setPoint(rectangle, i * 4, point);
+        sfConvexShape_setPoint(rectangle, i * 4 + 1, (sfVector2f){point.x + radius, point.y});
+        sfConvexShape_setPoint(rectangle, i * 4 + 2, (sfVector2f){point.x + radius, point.y + radius});
+        sfConvexShape_setPoint(rectangle, i * 4 + 3, (sfVector2f){point.x, point.y + radius});
+    }
+
     while (sfRenderWindow_isOpen(window))
     {
-        // Handle events
+        // Gérer les événements
         sfEvent event;
         while (sfRenderWindow_pollEvent(window, &event))
         {
             if (event.type == sfEvtClosed)
-            {
                 sfRenderWindow_close(window);
-            }
         }
 
-        // Clear the window
-        sfRenderWindow_clear(window, sfBlack);
+        // Rotation du rectangle
+        sfConvexShape_setRotation(rectangle, 45);
 
-        // Draw objects here
-
-        // Display the window
+        // Afficher le rectangle dans la fenêtre
+        sfRenderWindow_clear(window, sfWhite);
+        sfRenderWindow_drawConvexShape(window, rectangle, NULL);
         sfRenderWindow_display(window);
     }
 
-    // Cleanup
+    // Libérer les ressources
+    sfConvexShape_destroy(rectangle);
     sfRenderWindow_destroy(window);
 
     return 0;

@@ -10,6 +10,7 @@
 
 #include "user_interface.h"
 #include "color_selection.h"
+#include "header.h"
 
 sfVector2u window_size;
 
@@ -37,6 +38,18 @@ void main_loop()
             sfRenderWindow_drawRectangleShape(window, selection_color[i].rectangle, NULL);
         }
         sfRenderWindow_drawSprite(window, chromatic_wheel.sprite, NULL);
+        
+        for (int i = 0; i < size_text_selection_color; ++i) {
+            sfRenderWindow_drawText(window, text_color_selection[i].text, NULL);
+        }
+
+        for (int i = 0; i < size_button_header; ++i) {
+            sfRenderWindow_drawRectangleShape(window, button_header[i].rectangle, NULL);
+        }
+        for (int i = 0; i < size_text_button_header; ++i) {
+            sfRenderWindow_drawText(window, text_button_header[i].text, NULL);
+        }
+
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
