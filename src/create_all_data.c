@@ -16,4 +16,5 @@ void create_all_data(void)
     init_all_text_selection_color();
     ini_button_header();
     ini_text_button_header();
+    ini_file_menu_header();
 }

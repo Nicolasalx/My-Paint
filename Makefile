@@ -15,7 +15,8 @@ SRC			=	src/main.c \
 				src/color_selection/declaration_button_color.c \
 				src/user_interface/declaration_ui.c \
 				src/header/declaration_header.c \
-				src/header/ini_button_header.c
+				src/header/ini_button_header.c \
+				src/header/declaration_file_header.c
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include\
 				-lcsfml-system -lcsfml-graphics \

@@ -42,3 +42,20 @@ void ini_text_button_header(void)
         create_text_button_header(i);
     }
 }
+
+void create_file_menu_header(int i)
+{
+    file_menu_header[i].rectangle = sfRectangleShape_create();
+    sfRectangleShape_setOutlineThickness(file_menu_header[i].rectangle, 1);
+    sfRectangleShape_setOutlineColor(file_menu_header[i].rectangle, sfBlack);
+    sfRectangleShape_setSize(file_menu_header[i].rectangle, file_menu_header[i].size);
+    sfRectangleShape_setFillColor(file_menu_header[i].rectangle, sfWhite);
+    sfRectangleShape_setPosition(file_menu_header[i].rectangle, file_menu_header[i].pos);
+}
+
+void ini_file_menu_header(void)
+{
+    for (int i = 0; i < size_file_menu_header; ++i) {
+        create_file_menu_header(i);
+    }
+}

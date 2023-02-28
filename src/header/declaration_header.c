@@ -9,11 +9,11 @@
 #include "header.h"
 
 button_header_t button_header [] = {
-    {.color = BG_COLOR, .pos = {50, 15}, .size = {75, 50}},
-    {.color = BG_COLOR, .pos = {150, 15}, .size = {75, 50}},
-    {.color = BG_COLOR, .pos = {250, 15}, .size = {75, 50}},
-    {.color = BG_COLOR, .pos = {350, 15}, .size = {75, 50}},
-    {.color = BG_COLOR, .pos = {450, 15}, .size = {75, 50}},
+    {.color = BG_COLOR, .pos = {60, 15}, .size = {75, 50}},
+    {.color = BG_COLOR, .pos = {160, 15}, .size = {75, 50}},
+    {.color = BG_COLOR, .pos = {260, 15}, .size = {75, 50}},
+    {.color = BG_COLOR, .pos = {360, 15}, .size = {75, 50}},
+    {.color = BG_COLOR, .pos = {460, 15}, .size = {75, 50}},
 
     {.color = BG_COLOR, .pos = {5, 90}, .size = {40, 40}}, // Souris -> 0
     {.color = BG_COLOR, .pos = {0, 140}, .size = {47, 1}}, // Séparation -> 0
@@ -46,13 +46,11 @@ button_header_t button_header [] = {
 const int size_button_header = sizeof(button_header) / sizeof(button_header_t);
 
 text_button_header_t text_button_header [] = {
-    {.pos = {55, 25}, .path = "File", .font_path = "game_data/font/JetBrainsMono-Regular.ttf"},
-    {.pos = {155, 25}, .path = "Edit", .font_path = "game_data/font/JetBrainsMono-Regular.ttf"},
-    {.pos = {255, 25}, .path = "View", .font_path = "game_data/font/JetBrainsMono-Regular.ttf"},
-    {.pos = {350, 25}, .path = "Layer", .font_path = "game_data/font/JetBrainsMono-Regular.ttf"},
-    {.pos = {455, 25}, .path = "Help", .font_path = "game_data/font/JetBrainsMono-Regular.ttf"}
+    {.pos = {65, 25}, .path = "File", .font_path = "game_data/font/JetBrainsMono-Regular.ttf"},
+    {.pos = {165, 25}, .path = "Edit", .font_path = "game_data/font/JetBrainsMono-Regular.ttf"},
+    {.pos = {265, 25}, .path = "View", .font_path = "game_data/font/JetBrainsMono-Regular.ttf"},
+    {.pos = {360, 25}, .path = "Layer", .font_path = "game_data/font/JetBrainsMono-Regular.ttf"},
+    {.pos = {465, 25}, .path = "Help", .font_path = "game_data/font/JetBrainsMono-Regular.ttf"}
 };
 
 const int size_text_button_header = sizeof(text_button_header) / sizeof(text_button_header_t);
-
-

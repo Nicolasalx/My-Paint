@@ -24,11 +24,25 @@ typedef struct text_button_header_t {
     char *font_path;
 } text_button_header_t;
 
+typedef struct file_menu_header_t {
+    sfRectangleShape *rectangle;
+    sfColor color;
+    sfVector2f pos;
+    char *path;
+    sfVector2f size;
+} file_menu_header_t;
+
 extern button_header_t button_header[];
 extern const int size_button_header;
 
 extern text_button_header_t text_button_header[];
 extern const int size_text_button_header;
+
+extern file_menu_header_t file_menu_header[];
+extern const int size_file_menu_header;
+
+
+void ini_file_menu_header(void);
 
 
 #endif /* !HEADER_H_ */
