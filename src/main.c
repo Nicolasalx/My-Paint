@@ -9,6 +9,8 @@
 
 int main(int argc, char **argv)
 {
+    UNUSED(argc);
+    UNUSED(argv);
 
     main_loop();
 

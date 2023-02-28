@@ -33,10 +33,10 @@ void main_loop()
         for (int i = 0; i < size_user_interface; ++i) {
             sfRenderWindow_drawSprite(window, ui_sprite[i].sprite, NULL);
         }
-        for (int i = 0; i < size_button_color; ++i) {
-            sfRenderWindow_drawRectangleShape(window, color_selection_data.selection_color[i].rectangle, NULL);
+        for (int i = 0; i < size_selection_color; ++i) {
+            sfRenderWindow_drawRectangleShape(window, selection_color[i].rectangle, NULL);
         }
-        sfRenderWindow_drawSprite(window, color_selection_data.chromatic_wheel.sprite, NULL);
+        sfRenderWindow_drawSprite(window, chromatic_wheel.sprite, NULL);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);

@@ -8,7 +8,7 @@
 #include "my.h"
 #include "color_selection.h"
 
-selection_color_t sel_color [] = {
+selection_color_t selection_color [] = {
     {.color = RED, .pos = {1620, 300}},
     {.color = MAGENTA, .pos = {1620, 350}},
     {.color = BLUE, .pos = {1690, 300}},
@@ -19,7 +19,6 @@ selection_color_t sel_color [] = {
     {.color = WHITE, .pos = {1830, 350}}
 };
 
-chromatic_wheel_t chromatic_wheel[] = {
-    {.pos = {1500, 50}, .size = {0.8, 0.8}}
-};
+const int size_selection_color = sizeof(selection_color) / sizeof(selection_color_t);
 
+chromatic_wheel_t chromatic_wheel = {.pos = {1500, 50}, .size = {0.8, 0.8}};
