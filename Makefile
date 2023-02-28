@@ -8,11 +8,14 @@
 SRC			=	src/main.c \
 				src/main_loop.c \
 				src/manage_event.c \
-				src/ini_all_data.c \
 				src/create_all_data.c \
-				src/free_all_data.c
+				src/free_all_data.c	\
+				src/user_interface/ini_user_interface.c \
+				src/color_selection/ini_color_select.c \
+				src/color_selection/declaration_button_color.c \
+				src/user_interface/declaration_ui.c
 
-CFLAGS		=	-W -Wall -Wextra -I ./include \
+CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include\
 				-lcsfml-system -lcsfml-graphics \
 				-lcsfml-window -lm
 

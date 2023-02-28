@@ -6,8 +6,14 @@
 */
 
 #include "my.h"
+#include <stdio.h>
 
-void main_loop(void)
+#include "user_interface.h"
+#include "color_selection.h"
+
+sfVector2u window_size;
+
+void main_loop()
 {
     sfRenderWindow *window;
     sfEvent event;
@@ -16,11 +22,21 @@ void main_loop(void)
     "my_paint", sfResize | sfClose, NULL);
     if (!window)
         return;
+    sfRenderWindow_setFramerateLimit(window, 60);
+
+    window_size = sfRenderWindow_getSize(window);
+    create_all_data();
 
     while (sfRenderWindow_isOpen(window)) {
         manage_event(window, &event);
-        sfRenderWindow_clear(window, sfBlack);
-
+        sfRenderWindow_clear(window, BG_COLOR);
+        for (int i = 0; i < size_user_interface; ++i) {
+            sfRenderWindow_drawSprite(window, ui_sprite[i].sprite, NULL);
+        }
+        for (int i = 0; i < size_button_color; ++i) {
+            sfRenderWindow_drawRectangleShape(window, color_selection_data.selection_color[i].rectangle, NULL);
+        }
+        sfRenderWindow_drawSprite(window, color_selection_data.chromatic_wheel.sprite, NULL);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);

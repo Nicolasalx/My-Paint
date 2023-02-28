@@ -5,7 +5,12 @@
 ** create_all_data
 */
 
-void create_all_data(void)
-{
+#include "my.h"
 
+void create_all_data()
+{
+    ini_bg_user_interface();
+    ini_draw_img_user_interface();
+    init_all_button_selection();
+    ini_chromatic_wheel();
 }
