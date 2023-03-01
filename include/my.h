@@ -37,4 +37,6 @@ void init_all_text_selection_color(void);
 void ini_button_header(void);
 void ini_text_button_header(void);
 
+void ini_file_menu_header(void);
+
 #endif /* !MY_H_ */
