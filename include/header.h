@@ -7,6 +7,7 @@
 
 #ifndef HEADER_H_
     #define HEADER_H_
+    #define SIZE_OUTLINE_BUTTON 2
 
 typedef struct button_header_t {
     sfRectangleShape *rectangle;

@@ -11,7 +11,7 @@
 void create_button_header(int i)
 {
     button_header[i].rectangle = sfRectangleShape_create();
-    sfRectangleShape_setOutlineThickness(button_header[i].rectangle, 3);
+    sfRectangleShape_setOutlineThickness(button_header[i].rectangle, SIZE_OUTLINE_BUTTON);
     sfRectangleShape_setOutlineColor(button_header[i].rectangle, sfBlack);
     sfRectangleShape_setSize(button_header[i].rectangle, button_header[i].size);
     sfRectangleShape_setFillColor(button_header[i].rectangle, BG_COLOR);
@@ -46,7 +46,7 @@ void ini_text_button_header(void)
 void create_file_menu_header(int i)
 {
     file_menu_header[i].rectangle = sfRectangleShape_create();
-    sfRectangleShape_setOutlineThickness(file_menu_header[i].rectangle, 1);
+    sfRectangleShape_setOutlineThickness(file_menu_header[i].rectangle, SIZE_OUTLINE_BUTTON);
     sfRectangleShape_setOutlineColor(file_menu_header[i].rectangle, sfBlack);
     sfRectangleShape_setSize(file_menu_header[i].rectangle, file_menu_header[i].size);
     sfRectangleShape_setFillColor(file_menu_header[i].rectangle, sfWhite);

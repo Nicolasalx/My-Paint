@@ -19,6 +19,9 @@
 
     #define SIZE_BUTTON {30, 30}
 
+    #define SIZE_OUTLINE_BUTTON_SEL_COLOR 2
+
+
 typedef struct selection_color_t {
     sfRectangleShape *rectangle;
     sfColor color;
