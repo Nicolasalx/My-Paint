@@ -17,4 +17,6 @@ void create_all_data(void)
     ini_button_header();
     ini_text_button_header();
     ini_file_menu_header();
+    ini_icon_rectangle();
+    ini_icon_sprite();
 }

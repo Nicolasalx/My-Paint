@@ -16,7 +16,10 @@ SRC			=	src/main.c \
 				src/user_interface/declaration_ui.c \
 				src/header/declaration_header.c \
 				src/header/ini_button_header.c \
-				src/header/declaration_file_header.c
+				src/header/declaration_file_header.c \
+				src/toolbar/declaration_toolbar.c \
+				src/toolbar/ini_toolbar.c \
+				src/toolbar/declaration_icon.c
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include\
 				-lcsfml-system -lcsfml-graphics \
