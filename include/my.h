@@ -17,6 +17,8 @@
     #define DEFAULT_WINDOW_SIZE_X 1920
     #define DEFAULT_WINDOW_SIZE_Y 1080
 
+    #define FPS 60
+
 extern sfVector2u window_size;
 
 void main_loop(void);

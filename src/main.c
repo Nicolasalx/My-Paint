@@ -12,9 +12,8 @@ int main(int argc, char **argv)
     UNUSED(argc);
     UNUSED(argv);
 
+    create_all_data();
     main_loop();
-
     free_all_data();
-
     return 0;
 }
