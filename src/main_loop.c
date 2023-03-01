@@ -6,50 +6,49 @@
 */
 
 #include "my.h"
-#include <stdio.h>
-
+#include "my_error.h"
 #include "user_interface.h"
 #include "color_selection.h"
 #include "header.h"
+#include <stdbool.h>
 
 sfVector2u window_size;
 
-int gestion_header_file_menu(sfEvent event, sfRenderWindow *window, int *verif_open_file_menu)
+void gestion_header_file_menu(sfEvent event, sfRenderWindow *window)
 {
+    static bool verif_open_file_menu = false;
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(window);
     if (event.type == sfEvtMouseButtonPressed) {
         if ((mouse_pos.x >= 61 && mouse_pos.x <= 137) && (mouse_pos.y >= 16 && mouse_pos.y <= 69)) {
-            *verif_open_file_menu = true;
+            verif_open_file_menu = true;
         }
     }
-    if (*verif_open_file_menu == true) {
+    if (verif_open_file_menu == true) {
         for (int i = 0; i < size_file_menu_header; ++i) {
             sfRenderWindow_drawRectangleShape(window, file_menu_header[i].rectangle, NULL);
         }
     }
-    if (*verif_open_file_menu == true) {
+    if (verif_open_file_menu == true) {
         if (event.type == sfEvtMouseButtonPressed) {
             if ((mouse_pos.x <= 60 || mouse_pos.x >= 210) || (mouse_pos.y <= 15 || mouse_pos.y >= 220)) {
-                *verif_open_file_menu = false;
+                verif_open_file_menu = false;
             }
         }
     }
-    return *verif_open_file_menu;
 }
 
 void main_loop()
 {
     sfRenderWindow *window;
     sfEvent event;
-    int verif_open_file_menu = 0;
-    window = sfRenderWindow_create((sfVideoMode) {1920, 1080, 32},
-    "my_paint", sfResize | sfClose, NULL);
-    if (!window)
-        return;
-    sfRenderWindow_setFramerateLimit(window, 60);
+    sfVideoMode mode = {1920, 1080, 32};
 
+    window = sfRenderWindow_create(mode, "my_paint", sfResize | sfClose, NULL);
+    if (window == 0) {
+        print_fatal_error_and_exit(WINDOW_CREATION_FAIL);
+    }
+    sfRenderWindow_setFramerateLimit(window, FPS);
     window_size = sfRenderWindow_getSize(window);
-    create_all_data();
 
     while (sfRenderWindow_isOpen(window)) {
         manage_event(window, &event);
@@ -61,7 +60,7 @@ void main_loop()
             sfRenderWindow_drawRectangleShape(window, selection_color[i].rectangle, NULL);
         }
         sfRenderWindow_drawSprite(window, chromatic_wheel.sprite, NULL);
-        
+
         for (int i = 0; i < size_text_selection_color; ++i) {
             sfRenderWindow_drawText(window, text_color_selection[i].text, NULL);
         }
@@ -73,7 +72,7 @@ void main_loop()
             sfRenderWindow_drawText(window, text_button_header[i].text, NULL);
         }
 
-        verif_open_file_menu = gestion_header_file_menu(event , window, &verif_open_file_menu);
+        gestion_header_file_menu(event , window);
 
         sfRenderWindow_display(window);
     }
