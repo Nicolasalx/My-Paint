@@ -34,3 +34,9 @@ bool mouse_is_over_anim_sprite(anim_sprite_t anim_sprite, sfVector2i mouse)
         return false;
     }
 }
+
+sfBool is_mouse_over_rectangle_shape(sfRectangleShape* rectangle_shape, sfVector2i mouse)
+{
+    sfFloatRect rectangle_bound = sfRectangleShape_getGlobalBounds(rectangle_shape);
+    return sfFloatRect_contains(&rectangle_bound, mouse.x, mouse.y);
+}

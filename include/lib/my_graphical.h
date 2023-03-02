@@ -56,6 +56,7 @@ void destroy_music(music_t music);
 
 bool mouse_is_over_sprite(sprite_t sprite, sfVector2i mouse);
 bool mouse_is_over_anim_sprite(anim_sprite_t anim_sprite, sfVector2i mouse);
+sfBool is_mouse_over_rectangle_shape(sfRectangleShape* rectangle_shape, sfVector2i mouse);
 
 int rand_int(int min, int max);
 

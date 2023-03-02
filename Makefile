@@ -5,18 +5,33 @@
 ## Makefile
 ##
 
-SRC			=	src/main.c \
+MAIN_SRC	=	src/main.c \
 				src/main_loop.c \
 				src/manage_event.c \
 				src/create_all_data.c \
-				src/free_all_data.c	\
-				src/user_interface/ini_user_interface.c \
-				src/color_selection/ini_color_select.c \
-				src/color_selection/declaration_button_color.c \
-				src/user_interface/declaration_ui.c \
-				src/header/declaration_header.c \
+				src/free_all_data.c
+
+UI_SRC 		=	src/user_interface/ini_user_interface.c \
+				src/user_interface/declaration_ui.c
+
+COLOR_SRC	=	src/color_selection/ini_color_select.c \
+				src/color_selection/declaration_button_color.c
+
+HEADER_SRC	=	src/header/declaration_header.c \
 				src/header/ini_button_header.c \
 				src/header/declaration_file_header.c
+
+LAYER_SRC	=	src/layer/declaration_layer.c \
+				src/layer/create_default_layer.c \
+				src/layer/create_new_layer.c \
+				src/layer/render_layer.c \
+				src/layer/create_screen_shot.c
+
+SRC			=	$(MAIN_SRC) \
+				$(UI_SRC) \
+				$(COLOR_SRC) \
+				$(HEADER_SRC) \
+				$(LAYER_SRC)
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include\
 				-lcsfml-system -lcsfml-graphics \
