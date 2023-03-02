@@ -9,3 +9,4 @@
 #include <stdlib.h>
 
 node_t *head_layer = NULL;
+node_t *selected_layer = NULL;

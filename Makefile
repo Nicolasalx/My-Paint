@@ -32,11 +32,18 @@ LAYER_SRC	=	src/layer/declaration_layer.c \
 				src/layer/render_layer.c \
 				src/layer/create_screen_shot.c
 
+TOOL_SRC	=	src/tool/create_all_tool.c \
+				src/tool/render_all_tool.c \
+				src/tool/declaration_all_tool.c \
+				src/tool/pencil/create_pencil.c \
+				src/tool/pencil/render_pencil.c
+
 SRC			=	$(MAIN_SRC) \
 				$(UI_SRC) \
 				$(COLOR_SRC) \
 				$(HEADER_SRC) \
-				$(LAYER_SRC)
+				$(LAYER_SRC) \
+				$(TOOL_SRC)
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include\
 				-lcsfml-system -lcsfml-graphics \

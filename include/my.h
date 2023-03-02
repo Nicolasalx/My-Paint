@@ -17,7 +17,7 @@
     #define DEFAULT_WINDOW_SIZE_X 1920
     #define DEFAULT_WINDOW_SIZE_Y 1080
 
-    #define FPS 60
+    #define FPS 160
 
     #define SIZE_IMAGE_X 1920
     #define SIZE_IMAGE_Y 1080
@@ -25,6 +25,7 @@
 extern sfVector2u window_size;
 extern sfVector2f render_window_pos;
 extern sfVector2f render_window_scale;
+extern sfVector2i mouse_pos;
 
 void main_loop(void);
 void manage_event(sfRenderWindow *window, sfEvent *event);

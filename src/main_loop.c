@@ -16,10 +16,12 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "my_graphical.h"
+#include "tool.h"
 
 sfVector2u window_size;
-sfVector2f render_window_pos = {85, 140};
-sfVector2f render_window_scale = {0.75, 0.75};
+sfVector2f render_window_pos = {0, 0};
+sfVector2f render_window_scale = {1, 1};
+sfVector2i mouse_pos = {0, 0};
 
 void gestion_header_file_menu(sfEvent event, sfRenderWindow *window, sfVector2i mouse_pos)
 {
@@ -125,14 +127,16 @@ void main_loop(void)
     int index_view_icon = 0;
 
     while (sfRenderWindow_isOpen(window)) {
+        mouse_pos = sfMouse_getPositionRenderWindow(window);
         manage_event(window, &event);
         sfRenderWindow_clear(window, BG_COLOR);
 
-        // ! --- white sheet start
+        // ! layer
         render_layer(window, render_window_pos, render_window_scale);
-        // ! --- white sheet end
 
-        sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(window);
+        // ! tool
+        render_pencil();
+
         for (int i = 0; i < size_user_interface; ++i) {
             sfRenderWindow_drawSprite(window, ui_sprite[i].sprite, NULL);
         }

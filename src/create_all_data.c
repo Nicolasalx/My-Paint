@@ -7,6 +7,7 @@
 
 #include "my.h"
 #include "layer.h"
+#include "tool.h"
 
 void create_all_data(void)
 {
@@ -29,4 +30,7 @@ void create_all_data(void)
     ini_edit_menu_header();
     ini_view_text();
     ini_edit_menu_header_rectangle_icon();
+
+    // ? tool
+    create_all_tool();
 }
