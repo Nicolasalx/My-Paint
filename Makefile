@@ -36,6 +36,11 @@ LAYER_SRC	=	src/layer/declaration_layer.c \
 
 UI_LAYER_SRC =  src/ui_layer/declaration_layer.c \
 				src/ui_layer/ini_layer.c
+TOOL_SRC	=	src/tool/create_all_tool.c \
+				src/tool/render_all_tool.c \
+				src/tool/declaration_all_tool.c \
+				src/tool/pencil/create_pencil.c \
+				src/tool/pencil/render_pencil.c
 
 SRC			=	$(MAIN_SRC) \
 				$(UI_SRC) \
@@ -43,6 +48,7 @@ SRC			=	$(MAIN_SRC) \
 				$(HEADER_SRC) \
 				$(LAYER_SRC) \
 				$(UI_LAYER_SRC)
+				$(TOOL_SRC)
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include\
 				-lcsfml-system -lcsfml-graphics \

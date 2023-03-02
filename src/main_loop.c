@@ -16,13 +16,18 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "my_graphical.h"
+<<<<<<< HEAD
 #include "ui_layer.h"
 #include <SFML/Graphics.h>
 
+=======
+#include "tool.h"
+>>>>>>> 002540681dfa39de62ca78e54ed6a05bbf678c66
 
 sfVector2u window_size;
-sfVector2f render_window_pos = {85, 140};
-sfVector2f render_window_scale = {0.75, 0.75};
+sfVector2f render_window_pos = {0, 0};
+sfVector2f render_window_scale = {1, 1};
+sfVector2i mouse_pos = {0, 0};
 
 void gestion_header_file_menu(sfRenderWindow *window, sfVector2i mouse_pos, bool is_button_pressed)
 {
@@ -230,19 +235,22 @@ void main_loop(void)
 
     int index_view_icon = 0;
     while (sfRenderWindow_isOpen(window)) {
+        mouse_pos = sfMouse_getPositionRenderWindow(window);
         manage_event(window, &event);
         sfRenderWindow_clear(window, BG_COLOR);
 
-        sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(window);
+        // ! layer
+        render_layer(window, render_window_pos, render_window_scale);
+
+        // ! tool
+        render_pencil();
+
         if (event.type == sfEvtMouseButtonPressed) {
             is_button_pressed = true;
         }
         if (event.type == sfEvtMouseButtonReleased) {
             is_button_pressed = false;
         }
-        // ! --- white sheet start
-        render_layer(window, render_window_pos, render_window_scale);
-        // ! --- white sheet end
 
         // ! LAYER MOVE
 

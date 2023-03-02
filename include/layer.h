@@ -28,6 +28,7 @@ typedef struct undo_t {
 } undo_t;
 
 extern node_t *head_layer;
+extern node_t *selected_layer;
 
 void create_default_layer(void);
 void create_new_layer(char *layer_name);

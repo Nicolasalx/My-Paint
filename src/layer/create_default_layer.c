@@ -22,4 +22,5 @@ void create_default_layer(void)
 
     append_node(&GET_DATA(head_layer, layer_t)->head_undo,
     create_node(create_screen_shot(GET_DATA(head_layer, layer_t)->texture_render_texture)));
+    selected_layer = head_layer;
 }
