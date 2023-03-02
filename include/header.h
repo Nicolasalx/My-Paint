@@ -74,6 +74,44 @@ typedef struct text_view_header_t {
     char *font_path;
 } text_view_header_t;
 
+typedef struct layer_menu_header_t {
+    sfRectangleShape *rectangle;
+    sfColor color;
+    sfVector2f pos;
+    char *path;
+    sfVector2f size;
+} layer_menu_header_t;
+
+typedef struct text_layer_header_t {
+    sfText *text;
+    sfFont *font;
+    sfVector2f pos;
+    char *path;
+    char *font_path;
+} text_layer_header_t;
+
+typedef struct help_menu_header_t {
+    sfRectangleShape *rectangle;
+    sfColor color;
+    sfVector2f pos;
+    char *path;
+    sfVector2f size;
+} help_menu_header_t;
+
+typedef struct text_help_header_t {
+    sfText *text;
+    sfFont *font;
+    sfVector2f pos;
+    char *path;
+    char *font_path;
+} text_help_header_t;
+
+extern help_menu_header_t help_menu_header[];
+extern const int size_help_menu_header;
+
+extern text_help_header_t text_help_header[];
+extern const int size_text_help_header;
+
 
 extern edit_menu_header_t edit_menu_header[];
 extern const int size_edit_menu_header;
@@ -87,6 +125,11 @@ extern const int size_view_menu_header;
 extern text_view_header_t text_view_header[];
 extern const int size_text_view_header;
 
+extern layer_menu_header_t layer_menu_header[];
+extern const int size_layer_menu_header;
+
+extern text_layer_header_t text_layer_header[];
+extern const int size_text_layer_header;
 
 extern button_header_t button_header[];
 extern const int size_button_header;

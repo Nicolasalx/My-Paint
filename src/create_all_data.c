@@ -29,4 +29,8 @@ void create_all_data(void)
     ini_edit_menu_header();
     ini_view_text();
     ini_edit_menu_header_rectangle_icon();
+    ini_layer_menu_header_rectangle_icon();
+    ini_layer_text();
+    ini_help_menu_header_rectangle_icon();
+    ini_help_text();
 }
