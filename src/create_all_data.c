@@ -33,4 +33,8 @@ void create_all_data(void)
 
     // ? tool
     create_all_tool();
+    ini_layer_menu_header_rectangle_icon();
+    ini_layer_text();
+    ini_help_menu_header_rectangle_icon();
+    ini_help_text();
 }

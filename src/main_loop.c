@@ -23,69 +23,75 @@ sfVector2f render_window_pos = {0, 0};
 sfVector2f render_window_scale = {1, 1};
 sfVector2i mouse_pos = {0, 0};
 
-void gestion_header_file_menu(sfEvent event, sfRenderWindow *window, sfVector2i mouse_pos)
+void gestion_header_file_menu(sfRenderWindow *window, sfVector2i mouse_pos, bool is_button_pressed)
 {
     static bool verif_open_file_menu = false;
-    if (event.type == sfEvtMouseButtonPressed) {
-        if (mouse_pos.x >= button_header[0].pos.x && mouse_pos.x <= button_header[0].pos.x + button_header[0].size.x) {
-            if (mouse_pos.y >= button_header[0].pos.y && mouse_pos.y <= button_header[0].pos.y + button_header[0].size.y) {
-                verif_open_file_menu = true;
-            }
+    int verif_close_menu = 0;
+    if (is_button_pressed == true) {
+        if (is_mouse_over_rectangle_shape(button_header[0].rectangle, mouse_pos)) {
+            verif_open_file_menu = true;
         }
     }
     if (verif_open_file_menu == true) {
         for (int i = 0; i < size_file_menu_header; ++i) {
             sfRenderWindow_drawRectangleShape(window, file_menu_header[i].rectangle, NULL);
-        }
-        for (int i = 0; i < size_text_file_header; ++i) {
-            sfRenderWindow_drawText(window, text_file_header[i].text, NULL);
+            for (int i = 0; i < size_text_file_header; ++i) {
+                sfRenderWindow_drawText(window, text_file_header[i].text, NULL);
+            }
         }
     }
     if (verif_open_file_menu == true) {
-        if (event.type == sfEvtMouseButtonPressed) {
-            if (mouse_pos.x <= button_header[0].pos.x || mouse_pos.x >= edit_menu_header[0].pos.x + edit_menu_header[0].size.x || mouse_pos.y <= button_header[0].pos.y || mouse_pos.y >= edit_menu_header[0].pos.y + edit_menu_header[0].size.y) {
-                    verif_open_file_menu = false;
+        for (int i = 0; i < size_file_menu_header; ++i) {
+            if (is_mouse_over_rectangle_shape(file_menu_header[i].rectangle, mouse_pos) == true)
+                ++verif_close_menu;
+            if (is_mouse_over_rectangle_shape(button_header[0].rectangle, mouse_pos) == true) {
+                ++verif_close_menu;
             }
         }
+    }
+    if (verif_close_menu == 0 && is_button_pressed == true) {
+        verif_open_file_menu = false;
     }
 }
 
-void gestion_header_edit_menu(sfEvent event, sfRenderWindow *window, sfVector2i mouse_pos)
+void gestion_header_edit_menu(sfRenderWindow *window, sfVector2i mouse_pos, bool is_button_pressed)
 {
     static bool verif_open_file_menu = false;
-    if (event.type == sfEvtMouseButtonPressed) {
-        if (mouse_pos.x >= button_header[1].pos.x && mouse_pos.x <= button_header[1].pos.x + button_header[1].size.x) {
-            if (mouse_pos.y >= button_header[1].pos.y && mouse_pos.y <= button_header[1].pos.y + button_header[1].size.y) {
-                verif_open_file_menu = true;
-            }
+    int verif_close_menu = 0;
+    if (is_button_pressed == true) {
+        if (is_mouse_over_rectangle_shape(button_header[1].rectangle, mouse_pos)) {
+            verif_open_file_menu = true;
         }
     }
     if (verif_open_file_menu == true) {
-
         for (int i = 0; i < size_edit_menu_header; ++i) {
             sfRenderWindow_drawRectangleShape(window, edit_menu_header[i].rectangle, NULL);
             for (int i = 0; i < size_text_edit_header; ++i) {
-            sfRenderWindow_drawText(window, text_edit_header[i].text, NULL);
-        }
+                sfRenderWindow_drawText(window, text_edit_header[i].text, NULL);
+            }
         }
     }
     if (verif_open_file_menu == true) {
-        if (event.type == sfEvtMouseButtonPressed) {
-            if (mouse_pos.x <= button_header[1].pos.x || mouse_pos.x >= edit_menu_header[0].pos.x + edit_menu_header[0].size.x || mouse_pos.y <= button_header[1].pos.y || mouse_pos.y >= edit_menu_header[0].pos.y + edit_menu_header[0].size.y) {
-                    verif_open_file_menu = false;
+        for (int i = 0; i < size_edit_menu_header; ++i) {
+            if (is_mouse_over_rectangle_shape(edit_menu_header[i].rectangle, mouse_pos) == true)
+                ++verif_close_menu;
+            if (is_mouse_over_rectangle_shape(button_header[1].rectangle, mouse_pos) == true) {
+                ++verif_close_menu;
             }
         }
     }
+    if (verif_close_menu == 0 && is_button_pressed == true) {
+        verif_open_file_menu = false;
+    }
 }
 
-void gestion_header_view_menu(sfEvent event, sfRenderWindow *window, sfVector2i mouse_pos)
+void gestion_header_view_menu(sfRenderWindow *window, sfVector2i mouse_pos, bool is_button_pressed)
 {
     static bool verif_open_file_menu = false;
-    if (event.type == sfEvtMouseButtonPressed) {
-        if (mouse_pos.x >= button_header[2].pos.x && mouse_pos.x <= button_header[2].pos.x + button_header[2].size.x) {
-            if (mouse_pos.y >= button_header[2].pos.y && mouse_pos.y <= button_header[2].pos.y + button_header[2].size.y) {
-                verif_open_file_menu = true;
-            }
+    int verif_close_menu = 0;
+    if (is_button_pressed == true) {
+        if (is_mouse_over_rectangle_shape(button_header[2].rectangle, mouse_pos)) {
+            verif_open_file_menu = true;
         }
     }
     if (verif_open_file_menu == true) {
@@ -97,11 +103,78 @@ void gestion_header_view_menu(sfEvent event, sfRenderWindow *window, sfVector2i 
         }
     }
     if (verif_open_file_menu == true) {
-        if (event.type == sfEvtMouseButtonPressed) {
-            if (mouse_pos.x <= button_header[2].pos.x || mouse_pos.x >= edit_menu_header[0].pos.x + edit_menu_header[0].size.x || mouse_pos.y <= button_header[2].pos.y || mouse_pos.y >= edit_menu_header[0].pos.y + edit_menu_header[0].size.y) {
-                    verif_open_file_menu = false;
+        for (int i = 0; i < size_view_menu_header; ++i) {
+            if (is_mouse_over_rectangle_shape(view_menu_header[i].rectangle, mouse_pos) == true)
+                ++verif_close_menu;
+            if (is_mouse_over_rectangle_shape(button_header[2].rectangle, mouse_pos) == true) {
+                ++verif_close_menu;
             }
         }
+    }
+    if (verif_close_menu == 0 && is_button_pressed == true) {
+        verif_open_file_menu = false;
+    }
+}
+
+void gestion_header_layer_menu(sfRenderWindow *window, sfVector2i mouse_pos, bool is_button_pressed)
+{
+    static bool verif_open_file_menu = false;
+    int verif_close_menu = 0;
+    if (is_button_pressed == true) {
+        if (is_mouse_over_rectangle_shape(button_header[3].rectangle, mouse_pos)) {
+            verif_open_file_menu = true;
+        }
+    }
+    if (verif_open_file_menu == true) {
+        for (int i = 0; i < size_layer_menu_header; ++i) {
+            sfRenderWindow_drawRectangleShape(window, layer_menu_header[i].rectangle, NULL);
+            for (int i = 0; i < size_text_layer_header; ++i) {
+                sfRenderWindow_drawText(window, text_layer_header[i].text, NULL);
+            }
+        }
+    }
+    if (verif_open_file_menu == true) {
+        for (int i = 0; i < size_layer_menu_header; ++i) {
+            if (is_mouse_over_rectangle_shape(layer_menu_header[i].rectangle, mouse_pos) == true)
+                ++verif_close_menu;
+            if (is_mouse_over_rectangle_shape(button_header[3].rectangle, mouse_pos) == true) {
+                ++verif_close_menu;
+            }
+        }
+    }
+    if (verif_close_menu == 0 && is_button_pressed == true) {
+        verif_open_file_menu = false;
+    }
+}
+
+void gestion_header_help_menu(sfRenderWindow *window, sfVector2i mouse_pos, bool is_button_pressed)
+{
+    static bool verif_open_file_menu = false;
+    int verif_close_menu = 0;
+    if (is_button_pressed == true) {
+        if (is_mouse_over_rectangle_shape(button_header[4].rectangle, mouse_pos)) {
+            verif_open_file_menu = true;
+        }
+    }
+    if (verif_open_file_menu == true) {
+        for (int i = 0; i < size_help_menu_header; ++i) {
+            sfRenderWindow_drawRectangleShape(window, help_menu_header[i].rectangle, NULL);
+            for (int i = 0; i < size_text_help_header; ++i) {
+                sfRenderWindow_drawText(window, text_help_header[i].text, NULL);
+            }
+        }
+    }
+    if (verif_open_file_menu == true) {
+        for (int i = 0; i < size_help_menu_header; ++i) {
+            if (is_mouse_over_rectangle_shape(help_menu_header[i].rectangle, mouse_pos) == true)
+                ++verif_close_menu;
+            if (is_mouse_over_rectangle_shape(button_header[4].rectangle, mouse_pos) == true) {
+                ++verif_close_menu;
+            }
+        }
+    }
+    if (verif_close_menu == 0 && is_button_pressed == true) {
+        verif_open_file_menu = false;
     }
 }
 
@@ -136,6 +209,13 @@ void main_loop(void)
 
         // ! tool
         render_pencil();
+
+        if (event.type == sfEvtMouseButtonPressed) {
+            is_button_pressed = true;
+        }
+        if (event.type == sfEvtMouseButtonReleased) {
+            is_button_pressed = false;
+        }
 
         for (int i = 0; i < size_user_interface; ++i) {
             sfRenderWindow_drawSprite(window, ui_sprite[i].sprite, NULL);
@@ -213,16 +293,57 @@ void main_loop(void)
         }
 
 
-        if (event.type == sfEvtMouseButtonPressed) {
-            is_button_pressed = true;
+
+        // ! FILE HEADER
+        for (int i = 0; i < size_file_menu_header; ++i) {
+            if (is_mouse_over_rectangle_shape(file_menu_header[i].rectangle, mouse_pos) == true) {
+                sfRectangleShape_setFillColor(file_menu_header[i].rectangle, (sfColor) {102, 255, 102, 255});
+            } else {
+                sfRectangleShape_setFillColor(file_menu_header[i].rectangle, sfWhite);
+            }
         }
-        if (event.type == sfEvtMouseButtonReleased) {
-            is_button_pressed = false;
+        gestion_header_file_menu(window, mouse_pos, is_button_pressed);
+
+        // ! EDIT HEADER
+        for (int i = 0; i < size_edit_menu_header; ++i) {
+            if (is_mouse_over_rectangle_shape(edit_menu_header[i].rectangle, mouse_pos) == true) {
+                sfRectangleShape_setFillColor(edit_menu_header[i].rectangle, (sfColor) {102, 255, 102, 255});
+            } else {
+                sfRectangleShape_setFillColor(edit_menu_header[i].rectangle, sfWhite);
+            }
         }
-        
-        gestion_header_file_menu(event , window, mouse_pos);
-        gestion_header_edit_menu(event, window, mouse_pos);
-        gestion_header_view_menu(event, window, mouse_pos);
+        gestion_header_edit_menu(window, mouse_pos, is_button_pressed);
+
+        // ! VIEW HEADER
+        for (int i = 0; i < size_view_menu_header; ++i) {
+            if (is_mouse_over_rectangle_shape(view_menu_header[i].rectangle, mouse_pos) == true) {
+                sfRectangleShape_setFillColor(view_menu_header[i].rectangle, (sfColor) {102, 255, 102, 255});
+            } else {
+                sfRectangleShape_setFillColor(view_menu_header[i].rectangle, sfWhite);
+            }
+        }
+        gestion_header_view_menu(window, mouse_pos, is_button_pressed);
+
+        // ! LAYER HEADER
+        for (int i = 0; i < size_layer_menu_header; ++i) {
+            if (is_mouse_over_rectangle_shape(layer_menu_header[i].rectangle, mouse_pos) == true) {
+                sfRectangleShape_setFillColor(layer_menu_header[i].rectangle, (sfColor) {102, 255, 102, 255});
+            } else {
+                sfRectangleShape_setFillColor(layer_menu_header[i].rectangle, sfWhite);
+            }
+        }
+        gestion_header_layer_menu(window, mouse_pos, is_button_pressed);
+
+        // ! HELP HEADER
+        for (int i = 0; i < size_help_menu_header; ++i) {
+            if (is_mouse_over_rectangle_shape(help_menu_header[i].rectangle, mouse_pos) == true) {
+                sfRectangleShape_setFillColor(help_menu_header[i].rectangle, (sfColor) {102, 255, 102, 255});
+            } else {
+                sfRectangleShape_setFillColor(help_menu_header[i].rectangle, sfWhite);
+            }
+        }
+        gestion_header_help_menu(window, mouse_pos, is_button_pressed);
+
         if (is_button_pressed == true || (is_button_pressed == true && event.type == sfEvtMouseMoved)) {
             if (mouse_pos.x >= icon_rectangle[size_icon_rectangle].pos.x && mouse_pos.x <= icon_rectangle[size_icon_rectangle].pos.x + icon_rectangle[size_icon_rectangle].size.x) {
                 if (mouse_pos.y <= icon_rectangle[size_icon_rectangle].pos.y && mouse_pos.y >= icon_rectangle[size_icon_rectangle].pos.y - icon_rectangle[size_icon_rectangle - 1].size.y) {

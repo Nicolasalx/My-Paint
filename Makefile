@@ -24,7 +24,9 @@ HEADER_SRC	=	src/header/declaration_header.c \
 				src/toolbar/ini_toolbar.c \
 				src/toolbar/declaration_icon.c \
 				src/header/declaration_edit_header.c \
-				src/header/declaration_view.c
+				src/header/declaration_view.c \
+				src/header/declaration_layer.c \
+				src/header/declaration_help.c
 
 LAYER_SRC	=	src/layer/declaration_layer.c \
 				src/layer/create_default_layer.c \
