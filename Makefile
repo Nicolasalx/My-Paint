@@ -34,6 +34,8 @@ LAYER_SRC	=	src/layer/declaration_layer.c \
 				src/layer/render_layer.c \
 				src/layer/create_screen_shot.c
 
+UI_LAYER_SRC =  src/ui_layer/declaration_layer.c \
+				src/ui_layer/ini_layer.c
 TOOL_SRC	=	src/tool/create_all_tool.c \
 				src/tool/render_all_tool.c \
 				src/tool/declaration_all_tool.c \
@@ -45,6 +47,7 @@ SRC			=	$(MAIN_SRC) \
 				$(COLOR_SRC) \
 				$(HEADER_SRC) \
 				$(LAYER_SRC) \
+				$(UI_LAYER_SRC)
 				$(TOOL_SRC)
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include\

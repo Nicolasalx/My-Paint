@@ -17,8 +17,7 @@ selection_color_t selection_color [] = {
     {.color = GREEN, .pos = {1770, 350}, .size = {30, 30}},
     {.color = BLACK, .pos = {1840, 300}, .size = {30, 30}},
     {.color = WHITE, .pos = {1840, 350}, .size = {30, 30}},
-    {.color = BG_COLOR, .pos = {1600, 500}, .size = {290, 200}},
-    {.color = BG_COLOR, .pos = {1600, 750}, .size = {290, 200}}
+    {.color = BG_COLOR, .pos = {1600, 500}, .size = {290, 200}}
 };
 
 const int size_selection_color = sizeof(selection_color) / sizeof(selection_color_t);

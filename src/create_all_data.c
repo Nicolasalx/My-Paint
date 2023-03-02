@@ -37,4 +37,8 @@ void create_all_data(void)
     ini_layer_text();
     ini_help_menu_header_rectangle_icon();
     ini_help_text();
+    ini_text_layer_box();
+    ini_layer_box();
+    ini_eye_sprite();
+    ini_button_eye_layer();
 }
