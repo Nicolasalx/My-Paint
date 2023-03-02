@@ -6,6 +6,7 @@
 */
 
 #include "my.h"
+#include "layer.h"
 
 void create_all_data(void)
 {
@@ -17,6 +18,9 @@ void create_all_data(void)
     ini_button_header();
     ini_text_button_header();
     ini_file_menu_header();
+
+    // ? layer
+    create_default_layer();
     ini_icon_rectangle();
     ini_icon_sprite();
     ini_size_pen();

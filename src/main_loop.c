@@ -10,12 +10,16 @@
 #include "user_interface.h"
 #include "color_selection.h"
 #include "header.h"
+#include "data.h"
 #include "toolbar.h"
+#include "layer.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include "my_graphical.h"
 
 sfVector2u window_size;
+sfVector2f render_window_pos = {85, 140};
+sfVector2f render_window_scale = {0.75, 0.75};
 
 void gestion_header_file_menu(sfEvent event, sfRenderWindow *window, sfVector2i mouse_pos)
 {
@@ -123,6 +127,11 @@ void main_loop(void)
     while (sfRenderWindow_isOpen(window)) {
         manage_event(window, &event);
         sfRenderWindow_clear(window, BG_COLOR);
+
+        // ! --- white sheet start
+        render_layer(window, render_window_pos, render_window_scale);
+        // ! --- white sheet end
+
         sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(window);
         for (int i = 0; i < size_user_interface; ++i) {
             sfRenderWindow_drawSprite(window, ui_sprite[i].sprite, NULL);
