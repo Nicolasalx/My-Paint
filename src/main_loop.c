@@ -16,6 +16,9 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "my_graphical.h"
+#include "ui_layer.h"
+#include <SFML/Graphics.h>
+
 
 sfVector2u window_size;
 sfVector2f render_window_pos = {85, 140};
@@ -176,6 +179,34 @@ void gestion_header_help_menu(sfRenderWindow *window, sfVector2i mouse_pos, bool
     }
 }
 
+void gestion_header_menu(sfVector2i mouse_pos, bool is_button_pressed, int *stay_on_icon_header)
+{
+    int verif_mouse_in_box = 0;
+    static int pressed_min_one_time = 0;
+    for (int i = 0; i < size_button_header; ++i) {
+        if (is_mouse_over_rectangle_shape(button_header[i].rectangle, mouse_pos) == true && is_button_pressed == true) {
+            sfRectangleShape_setFillColor(button_header[* stay_on_icon_header].rectangle, BG_COLOR);
+            sfRectangleShape_setFillColor(button_header[i].rectangle, sfBlue);
+            * stay_on_icon_header = i;
+            ++ pressed_min_one_time;
+        }
+    }
+
+    if (pressed_min_one_time > 0) {
+        for (int i = 0; i < size_button_header; ++i) {
+            if (is_mouse_over_rectangle_shape(button_header[i].rectangle, mouse_pos) == false && is_button_pressed == true) {
+                ++ verif_mouse_in_box;
+            }
+        }
+    }
+
+    if (pressed_min_one_time > 0 && verif_mouse_in_box == size_button_header) {
+        for (int i = 0; i < size_button_header; ++i) {
+            sfRectangleShape_setFillColor(button_header[i].rectangle, BG_COLOR);
+        }
+    }
+}
+
 void main_loop(void)
 {
     sfRenderWindow *window;
@@ -195,8 +226,9 @@ void main_loop(void)
     bool verif = false;
     bool is_button_pressed = false;
 
-    int index_view_icon = 0;
+    int stay_on_icon_header = 0;
 
+    int index_view_icon = 0;
     while (sfRenderWindow_isOpen(window)) {
         manage_event(window, &event);
         sfRenderWindow_clear(window, BG_COLOR);
@@ -211,6 +243,59 @@ void main_loop(void)
         // ! --- white sheet start
         render_layer(window, render_window_pos, render_window_scale);
         // ! --- white sheet end
+
+        // ! LAYER MOVE
+
+        if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp) {
+            if (box_icon_layer[size_box_icon_layer - 1].pos.y - 60 > 750) { // ? Mod valeur en dur
+                for (int i = 0; i < size_box_icon_layer; ++i) {
+                    sfRectangleShape_setPosition(box_icon_layer[i].rectangle, (sfVector2f) {.x = box_icon_layer[i].pos.x, .y = box_icon_layer[i].pos.y - 60});
+                    sfText_setPosition(text_icon_layer[i].text, (sfVector2f) {1670 , .y = text_icon_layer[i].pos.y - 60});
+                    sfSprite_setPosition(icon_eye_layer[i].sprite, (sfVector2f) {.x = 1619, .y = icon_eye_layer[i].pos.y - 60});
+                    sfRectangleShape_setPosition(button_eye_layer[i].rectangle, (sfVector2f) {.x = 1624, .y = button_eye_layer[i].pos.y - 60});
+                    text_icon_layer[i].pos.y -= 60;
+                    icon_eye_layer[i].pos.y -= 60;
+                    button_eye_layer[i].pos.y -= 60;
+                    box_icon_layer[i].pos.y -= 60;
+                }
+                event.type = sfEvtKeyReleased;
+            }
+        }
+        if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown) {
+            if (box_icon_layer[size_box_icon_layer - 1].pos.y - 60 < 800) { // ? Mod valeur en dur
+                for (int i = 0; i < size_box_icon_layer; ++i) {
+                    sfRectangleShape_setPosition(box_icon_layer[i].rectangle, (sfVector2f) {.x = box_icon_layer[i].pos.x, .y = box_icon_layer[i].pos.y + 60});
+                    sfText_setPosition(text_icon_layer[i].text, (sfVector2f) {.x = 1670, .y = text_icon_layer[i].pos.y + 60});
+                    sfSprite_setPosition(icon_eye_layer[i].sprite, (sfVector2f) {.x = 1619, .y = icon_eye_layer[i].pos.y + 60});
+                    sfRectangleShape_setPosition(button_eye_layer[i].rectangle, (sfVector2f) {.x = 1624, .y = button_eye_layer[i].pos.y + 60});
+                    text_icon_layer[i].pos.y += 60;
+                    icon_eye_layer[i].pos.y += 60;
+                    button_eye_layer[i].pos.y += 60;
+                    box_icon_layer[i].pos.y += 60;
+                }
+                event.type = sfEvtKeyReleased;
+            }
+        }
+
+        // ! LAYER (Draw dans le bon ordre)
+        for (int i = 0; i < size_box_icon_layer; ++i) {
+            sfRenderWindow_drawRectangleShape(window, box_icon_layer[i].rectangle, NULL);
+        }
+
+        for (int i = 0; i < size_text_icon_layer; ++i) {
+            sfRenderWindow_drawText(window, text_icon_layer[i].text, NULL);
+        }
+
+        for (int i = 0; i < size_button_eye_layer; ++i) {
+            sfRenderWindow_drawRectangleShape(window, button_eye_layer[i].rectangle, NULL);
+        }
+
+        for (int i = 0; i < size_icon_eye_layer; ++i) {
+            sfRenderWindow_drawSprite(window, icon_eye_layer[i].sprite, NULL);
+        }
+
+        // ! FIN LAYER
+
 
         for (int i = 0; i < size_user_interface; ++i) {
             sfRenderWindow_drawSprite(window, ui_sprite[i].sprite, NULL);
@@ -251,6 +336,8 @@ void main_loop(void)
             }
         }
 
+
+
         // ! Icon Toolbar
         if (event.type == sfEvtMouseButtonPressed) {
             for (int i = 0; i < size_icon_rectangle; ++i) {
@@ -287,7 +374,8 @@ void main_loop(void)
             }
         }
 
-
+        // ! HEADER
+        gestion_header_menu(mouse_pos, is_button_pressed, &stay_on_icon_header);
 
         // ! FILE HEADER
         for (int i = 0; i < size_file_menu_header; ++i) {

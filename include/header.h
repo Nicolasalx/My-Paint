@@ -8,6 +8,7 @@
 #ifndef HEADER_H_
     #define HEADER_H_
     #define SIZE_OUTLINE_BUTTON 2
+    #define COLOR_OVERHEAD_HEADER (sfColor) {0, 204, 204, 255}
 
 typedef struct button_header_t {
     sfRectangleShape *rectangle;

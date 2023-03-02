@@ -54,5 +54,9 @@ void ini_layer_menu_header_rectangle_icon(void);
 void ini_layer_text(void);
 void ini_help_menu_header_rectangle_icon(void);
 void ini_help_text(void);
+void ini_text_layer_box(void);
+void ini_layer_box(void);
+void ini_eye_sprite(void);
+void ini_button_eye_layer(void);
 
 #endif /* !MY_H_ */
