@@ -19,7 +19,10 @@ COLOR_SRC	=	src/color_selection/ini_color_select.c \
 
 HEADER_SRC	=	src/header/declaration_header.c \
 				src/header/ini_button_header.c \
-				src/header/declaration_file_header.c
+				src/header/declaration_file_header.c \
+				src/toolbar/declaration_toolbar.c \
+				src/toolbar/ini_toolbar.c \
+				src/toolbar/declaration_icon.c
 
 LAYER_SRC	=	src/layer/declaration_layer.c \
 				src/layer/create_default_layer.c \

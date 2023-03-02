@@ -21,4 +21,6 @@ void create_all_data(void)
 
     // ? layer
     create_default_layer();
+    ini_icon_rectangle();
+    ini_icon_sprite();
 }
