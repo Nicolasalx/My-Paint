@@ -16,13 +16,9 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "my_graphical.h"
-<<<<<<< HEAD
 #include "ui_layer.h"
 #include <SFML/Graphics.h>
-
-=======
 #include "tool.h"
->>>>>>> 002540681dfa39de62ca78e54ed6a05bbf678c66
 
 sfVector2u window_size = {1920, 1080};
 sfVector2f render_window_pos = {85, 140};
