@@ -15,6 +15,7 @@ typedef struct icon_rectangle_t {
     sfVector2f pos;
     char *path;
     sfVector2f size;
+    bool can_draw;
 } icon_rectangle_t;
 
 typedef struct icon_sprite_t {
@@ -25,10 +26,20 @@ typedef struct icon_sprite_t {
     char *path;
 } icon_sprite_t;
 
+typedef struct size_pen_t {
+    sfRectangleShape *rectangle;
+    sfColor color;
+    sfVector2f pos;
+    char *path;
+    sfVector2f size;
+} size_pen_t;
+
 extern icon_rectangle_t icon_rectangle[];
 extern const int size_icon_rectangle;
 
 extern icon_sprite_t icon_sprite[];
 extern const int size_icon_sprite;
+
+extern size_pen_t size_pen;
 
 #endif /* !TOOLBAR_H_ */

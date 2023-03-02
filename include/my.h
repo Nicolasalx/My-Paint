@@ -39,5 +39,11 @@ void ini_text_button_header(void);
 void ini_file_menu_header(void);
 void ini_icon_rectangle(void);
 void ini_icon_sprite(void);
+void ini_size_pen(void);
+void ini_file_text(void);
+void ini_edit_text(void);
+void ini_edit_menu_header(void);
+void ini_view_text(void);
+void ini_edit_menu_header_rectangle_icon(void);
 
 #endif /* !MY_H_ */

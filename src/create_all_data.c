@@ -19,4 +19,10 @@ void create_all_data(void)
     ini_file_menu_header();
     ini_icon_rectangle();
     ini_icon_sprite();
+    ini_size_pen();
+    ini_file_text();
+    ini_edit_text();
+    ini_edit_menu_header();
+    ini_view_text();
+    ini_edit_menu_header_rectangle_icon();
 }

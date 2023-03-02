@@ -41,3 +41,13 @@ void ini_icon_sprite(void)
         create_icon_sprite(i);
     }
 }
+
+void ini_size_pen(void)
+{
+    size_pen.rectangle = sfRectangleShape_create();
+    sfRectangleShape_setOutlineThickness(size_pen.rectangle, SIZE_OUTLINE_BUTTON);
+    sfRectangleShape_setOutlineColor(size_pen.rectangle, sfBlack);
+    sfRectangleShape_setSize(size_pen.rectangle, size_pen.size);
+    sfRectangleShape_setFillColor(size_pen.rectangle, size_pen.color);
+    sfRectangleShape_setPosition(size_pen.rectangle, size_pen.pos);
+}
