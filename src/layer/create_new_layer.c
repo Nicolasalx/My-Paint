@@ -15,12 +15,7 @@ void create_new_layer(char *layer_name)
     layer_t *new_layer = my_malloc(sizeof(layer_t));
     new_layer->render_texture = sfRenderTexture_create(SIZE_IMAGE_X, SIZE_IMAGE_Y, sfFalse);
 
-//    sfRenderTexture_setSmooth(new_layer->render_texture, true);
-
-//    sfView *view = sfView_createFromRect((sfFloatRect) {0, 0, window_size.x, window_size.y});
-
-//    sfView *view = sfView_createFromRect((sfFloatRect) {0, 0, window_size.x, window_size.y});
-//    sfRenderTexture_setView(new_layer->render_texture, view);
+    sfRenderTexture_setSmooth(new_layer->render_texture, sfTrue);
 
     my_strcpy(new_layer->layer_name, layer_name);
     new_layer->hidden = false;

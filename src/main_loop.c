@@ -18,9 +18,9 @@
 #include "my_graphical.h"
 #include "tool.h"
 
-sfVector2u window_size;
-sfVector2f render_window_pos = {0, 0};
-sfVector2f render_window_scale = {1, 1};
+sfVector2u window_size = {1920, 1080};
+sfVector2f render_window_pos = {85, 140};
+sfVector2f render_window_scale = {0.75, 0.75};
 sfVector2i mouse_pos = {0, 0};
 
 void gestion_header_file_menu(sfRenderWindow *window, sfVector2i mouse_pos, bool is_button_pressed)
@@ -189,7 +189,6 @@ void main_loop(void)
         print_fatal_error_and_exit(WINDOW_CREATION_FAIL);
     }
     sfRenderWindow_setFramerateLimit(window, FPS);
-    window_size = sfRenderWindow_getSize(window);
 
     int index_button_color = 0;
     int index_icon_color = 0;

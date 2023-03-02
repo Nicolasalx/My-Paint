@@ -10,7 +10,8 @@
 
     #include "SFML/Graphics.h"
 
-    #define DEFAULT_PENCIL_COLOR {0, 0, 0, 255}
+    #define DEFAULT_PENCIL_COLOR {255, 0, 0, 255}
+    #define DEFAULT_PENCIL_RADIUS 10
 
 typedef struct pencil_t {
     sfCircleShape *circle;

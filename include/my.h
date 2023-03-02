@@ -13,11 +13,11 @@
     #include <SFML/Graphics.h>
     #include "data.h"
 
-    #define BG_COLOR (sfColor) {.r = 128, .g = 128, .b = 128, .a = 255}
+    #define BG_COLOR (sfColor) {128, 128, 128, 255}
     #define DEFAULT_WINDOW_SIZE_X 1920
     #define DEFAULT_WINDOW_SIZE_Y 1080
 
-    #define FPS 160
+    #define FPS 240
 
     #define SIZE_IMAGE_X 1920
     #define SIZE_IMAGE_Y 1080

@@ -13,7 +13,7 @@ void render_layer(sfRenderWindow *window, sfVector2f pos, sfVector2f scale)
     node_t *current = head_layer;
 
     do {
-        sfSprite_setTexture(GET_DATA(current, layer_t)->render_sprite, GET_DATA(current, layer_t)->texture_render_texture, sfTrue);
+        sfSprite_setTexture(GET_DATA(current, layer_t)->render_sprite, GET_DATA(current, layer_t)->texture_render_texture, sfFalse);
 
         sfSprite_setPosition(GET_DATA(current, layer_t)->render_sprite, pos);
         sfSprite_setScale(GET_DATA(current, layer_t)->render_sprite, scale);
@@ -22,9 +22,3 @@ void render_layer(sfRenderWindow *window, sfVector2f pos, sfVector2f scale)
         current = current->next;
     } while (current != head_layer);
 }
-
-// ?      sfSprite *renderSprite = sfSprite_create();
-// ?      sfTexture *renderTextureTexture = sfRenderTexture_getTexture(renderTexture);
-
-// ?      sfRenderTexture_drawCircleShape(renderTexture, circle, NULL);
-// ?      sfSprite_setTexture(renderSprite, renderTextureTexture, sfTrue);
