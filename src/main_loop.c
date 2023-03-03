@@ -10,23 +10,20 @@
 #include "user_interface.h"
 #include "color_selection.h"
 #include "header.h"
-#include "data.h"
 #include "toolbar.h"
 #include "layer.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include "my_graphical.h"
-<<<<<<< HEAD
 #include "ui_layer.h"
 #include <SFML/Graphics.h>
-
-=======
 #include "tool.h"
->>>>>>> 002540681dfa39de62ca78e54ed6a05bbf678c66
 
-sfVector2u window_size;
-sfVector2f render_window_pos = {0, 0};
-sfVector2f render_window_scale = {1, 1};
+sfVector2i window_pos = {0, 0};
+sfVector2u window_size = {1920, 1080};
+sfVector2f render_sheet_resolution = {1920, 1080};
+sfVector2f render_sheet_pos = {85, 140};
+sfVector2f render_sheet_scale = {0.75, 0.75};
 sfVector2i mouse_pos = {0, 0};
 
 void gestion_header_file_menu(sfRenderWindow *window, sfVector2i mouse_pos, bool is_button_pressed)
@@ -223,7 +220,6 @@ void main_loop(void)
         print_fatal_error_and_exit(WINDOW_CREATION_FAIL);
     }
     sfRenderWindow_setFramerateLimit(window, FPS);
-    window_size = sfRenderWindow_getSize(window);
 
     int index_button_color = 0;
     int index_icon_color = 0;
@@ -236,11 +232,14 @@ void main_loop(void)
     int index_view_icon = 0;
     while (sfRenderWindow_isOpen(window)) {
         mouse_pos = sfMouse_getPositionRenderWindow(window);
+        window_pos = sfRenderWindow_getPosition(window);
+        window_size = sfRenderWindow_getSize(window);
+
         manage_event(window, &event);
         sfRenderWindow_clear(window, BG_COLOR);
 
         // ! layer
-        render_layer(window, render_window_pos, render_window_scale);
+        render_layer(window);
 
         // ! tool
         render_pencil();
@@ -285,6 +284,11 @@ void main_loop(void)
             }
         }
 
+        // ! draw back user interface
+        for (int i = 0; i < size_ui_sprite - 1; ++i) {
+            sfRenderWindow_drawSprite(window, ui_sprite[i].sprite, NULL);
+        }
+
         // ! LAYER (Draw dans le bon ordre)
         for (int i = 0; i < size_box_icon_layer; ++i) {
             sfRenderWindow_drawRectangleShape(window, box_icon_layer[i].rectangle, NULL);
@@ -301,13 +305,11 @@ void main_loop(void)
         for (int i = 0; i < size_icon_eye_layer; ++i) {
             sfRenderWindow_drawSprite(window, icon_eye_layer[i].sprite, NULL);
         }
-
         // ! FIN LAYER
 
+        // ! FRONT
+        sfRenderWindow_drawSprite(window, ui_sprite[size_ui_sprite - 1].sprite, NULL);
 
-        for (int i = 0; i < size_user_interface; ++i) {
-            sfRenderWindow_drawSprite(window, ui_sprite[i].sprite, NULL);
-        }
         for (int i = 0; i < size_selection_color; ++i) {
             sfRenderWindow_drawRectangleShape(window, selection_color[i].rectangle, NULL);
         }

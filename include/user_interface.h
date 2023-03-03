@@ -17,23 +17,12 @@ typedef struct ui_sprite_t {
     char *path;
 } ui_sprite_t;
 
-typedef struct user_interface {
-    sfSprite *user_interface;
-    sfRectangleShape* background_draw;
-    sfVector2u windowSize;
-    sfVector2f size;
-} user_interface_t;
-
 typedef struct color_selection {
     sfSprite *sprite;
 } color_selection_t;
 
 extern ui_sprite_t ui_sprite[];
 
-extern user_interface_t user_interface[];
-
-extern const int size_user_interface;
-
-
+extern const int size_ui_sprite;
 
 #endif /* !USER_INTERFACE_H_ */

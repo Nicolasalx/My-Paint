@@ -33,6 +33,6 @@ extern node_t *selected_layer;
 void create_default_layer(void);
 void create_new_layer(char *layer_name);
 sfSprite *create_screen_shot(sfTexture *texture_render_texture);
-void render_layer(sfRenderWindow *window, sfVector2f pos, sfVector2f scale);
+void render_layer(sfRenderWindow *window);
 
 #endif /* !LAYER_H_ */

@@ -7,4 +7,4 @@
 
 #include "tool.h"
 
-pencil_t pencil = {.radius = 10, .color = DEFAULT_PENCIL_COLOR};
+pencil_t pencil = {.radius = DEFAULT_PENCIL_RADIUS, .color = DEFAULT_PENCIL_COLOR};

@@ -8,11 +8,31 @@
 #include "my.h"
 #include "layer.h"
 #include "tool.h"
+#include <stdlib.h>
 
 void render_pencil(void)
 {
-    sfCircleShape_setPosition(pencil.circle, (sfVector2f) {mouse_pos.x, mouse_pos.y});
+    sfVector2f render_texture_pos = {
+        (mouse_pos.x - render_sheet_pos.x) / render_sheet_scale.x,
+        (mouse_pos.y - render_sheet_pos.y) / render_sheet_scale.y
+    };
+
+    sfVector2f render_texture_size = {
+        (float) render_sheet_resolution.x / render_sheet_scale.x,
+        (float) render_sheet_resolution.y / render_sheet_scale.y
+    };
+
+    sfVector2f circle_draw_pos = {
+        render_texture_pos.x + (pencil.radius / render_texture_size.x),
+        render_texture_pos.y + (pencil.radius / render_texture_size.y)
+    };
+
+    circle_draw_pos.x -= pencil.radius;
+    circle_draw_pos.y -= pencil.radius;
+
+    sfCircleShape_setPosition(pencil.circle, circle_draw_pos);
     sfCircleShape_setRadius(pencil.circle, pencil.radius);
     sfCircleShape_setFillColor(pencil.circle, pencil.color);
     sfRenderTexture_drawCircleShape(GET_DATA(selected_layer, layer_t)->render_texture, pencil.circle, NULL);
+    sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
 }
