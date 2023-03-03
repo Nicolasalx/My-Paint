@@ -12,7 +12,6 @@
 void create_all_data(void)
 {
     ini_bg_user_interface();
-    ini_draw_img_user_interface();
     init_all_button_selection();
     ini_chromatic_wheel();
     init_all_text_selection_color();
