@@ -7,8 +7,7 @@
 
 #ifndef USER_INTERFACE_H_
     #define USER_INTERFACE_H_
-
-#include <SFML/Graphics.h>
+    #include <SFML/Graphics.h>
 
 typedef struct ui_sprite_t {
     sfSprite *sprite;
@@ -24,5 +23,8 @@ typedef struct color_selection {
 extern ui_sprite_t ui_sprite[];
 
 extern const int size_ui_sprite;
+
+void display_ui(sfRenderWindow *window);
+void ini_bg_user_interface(void);
 
 #endif /* !USER_INTERFACE_H_ */

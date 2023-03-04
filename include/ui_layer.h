@@ -52,4 +52,10 @@ extern const int size_icon_eye_layer;
 extern button_eye_layer_t button_eye_layer[];
 extern const int size_button_eye_layer;
 
+void layer_display(sfRenderWindow *window, sfEvent *event);
+void ini_text_layer_box(void);
+void ini_layer_box(void);
+void ini_eye_sprite(void);
+void ini_button_eye_layer(void);
+
 #endif /* !UI_LAYER_H_ */

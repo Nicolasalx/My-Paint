@@ -7,7 +7,6 @@
 
 #ifndef BUTTON_H_
     #define BUTTON_H_
-
     #include "SFML/Graphics.h"
 
     #define RED {255, 0, 0, 255}
@@ -22,7 +21,6 @@
     #define SIZE_BUTTON {30, 30}
 
     #define SIZE_OUTLINE_BUTTON_SEL_COLOR 2
-
 
 typedef struct selection_color_t {
     sfRectangleShape *rectangle;
@@ -54,5 +52,12 @@ extern chromatic_wheel_t chromatic_wheel;
 
 extern text_color_selection_t text_color_selection[];
 extern const int size_text_selection_color;
+
+void display_color_selection_icon(sfRenderWindow *window,
+    sfEvent event, int *index_button_color);
+void init_all_button_selection(void);
+void ini_chromatic_wheel(void);
+void init_all_text_selection_color(void);
+void create_button(int i);
 
 #endif /* !BUTTON_H_ */

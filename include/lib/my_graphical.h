@@ -16,7 +16,8 @@ typedef enum {
     BUTTON_PRESSED
 } button_state_t;
 
-sfBool is_mouse_over_rectangle_shape(sfRectangleShape *rectangle_shape, sfVector2i mouse);
+sfBool is_mouse_over_rectangle_shape
+    (sfRectangleShape *rectangle_shape, sfVector2i mouse);
 button_state_t get_button_state(sfRectangleShape *button);
 
 #endif /* !MY_GRAPHICAL */

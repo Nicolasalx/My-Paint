@@ -5,37 +5,54 @@
 ## Makefile
 ##
 
-MAIN_SRC	=	src/main.c \
-				src/main_loop.c \
-				src/manage_event.c \
-				src/create_all_data.c \
-				src/free_all_data.c
+MAIN_SRC	=	src/main/main.c \
+				src/main/main_loop.c \
+				src/main/manage_event.c \
+				src/main/create_all_data.c \
+				src/main/free_all_data.c
 
-UI_SRC 		=	src/user_interface/ini_user_interface.c \
-				src/user_interface/declaration_ui.c
+UI_SRC 		=	src/user_interface/ini/ini_user_interface.c \
+				src/user_interface/ini/declaration_ui.c \
+				src/user_interface/render/display_ui.c
 
-COLOR_SRC	=	src/color_selection/ini_color_select.c \
-				src/color_selection/declaration_button_color.c
+COLOR_SRC	=	src/color_selection/ini/ini_color_select.c \
+				src/color_selection/ini/declaration_button_color.c \
+				src/color_selection/render/interaction_tool_color.c
 
-HEADER_SRC	=	src/header/declaration_header.c \
-				src/header/ini_button_header.c \
-				src/header/declaration_file_header.c \
-				src/toolbar/declaration_toolbar.c \
-				src/toolbar/ini_toolbar.c \
-				src/toolbar/declaration_icon.c \
-				src/header/declaration_edit_header.c \
-				src/header/declaration_view.c \
-				src/header/declaration_layer.c \
-				src/header/declaration_help.c
+TOOL_BAR_SRC = 	src/toolbar/ini/declaration_toolbar.c \
+				src/toolbar/ini/ini_toolbar.c \
+				src/toolbar/ini/declaration_icon.c \
+				src/toolbar/render/size_pen.c \
+				src/toolbar/render/display_toolbar.c
 
-LAYER_SRC	=	src/layer/declaration_layer.c \
-				src/layer/create_default_layer.c \
-				src/layer/create_new_layer.c \
-				src/layer/render_layer.c \
-				src/layer/create_screen_shot.c
+HEADER_SRC	=	src/header/ini/declaration/declaration_header.c \
+				src/header/ini/initialisation/ini_button_header.c \
+				src/header/ini/declaration/declaration_file_header.c \
+				src/header/ini/declaration/declaration_edit_header.c \
+				src/header/ini/declaration/declaration_view.c \
+				src/header/ini/declaration/declaration_layer.c \
+				src/header/ini/declaration/declaration_help.c \
+				src/header/render/interaction_file_button.c \
+				src/header/render/interaction_edit_button.c \
+				src/header/render/interaction_view_button.c \
+				src/header/render/interaction_layer_button.c \
+				src/header/render/interaction_help_button.c \
+				src/header/render/interaction_header_all_button.c \
+				src/header/ini/initialisation/ini_button_file.c \
+				src/header/ini/initialisation/ini_button_edit.c \
+				src/header/ini/initialisation/ini_button_view.c \
+				src/header/ini/initialisation/ini_button_layer.c \
+				src/header/ini/initialisation/ini_button_help.c
 
-UI_LAYER_SRC =  src/ui_layer/declaration_layer.c \
-				src/ui_layer/ini_layer.c
+LAYER_SRC	=	src/layer/ini/declaration_layer.c \
+				src/layer/ini/create_default_layer.c \
+				src/layer/ini/create_new_layer.c \
+				src/layer/render/render_layer.c \
+				src/layer/ini/create_screen_shot.c
+
+UI_LAYER_SRC =  src/ui_layer/ini/declaration_layer.c \
+				src/ui_layer/ini/layer_box.c \
+				src/ui_layer/ini/eye_sprite.c
 
 TOOL_SRC	=	src/tool/create_all_tool.c \
 				src/tool/render_all_tool.c \
@@ -49,7 +66,8 @@ SRC			=	$(MAIN_SRC) \
 				$(HEADER_SRC) \
 				$(LAYER_SRC) \
 				$(UI_LAYER_SRC) \
-				$(TOOL_SRC)
+				$(TOOL_SRC)	\
+				$(TOOL_BAR_SRC)
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include\
 				-lcsfml-system -lcsfml-graphics \
