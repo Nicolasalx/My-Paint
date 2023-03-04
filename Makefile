@@ -73,7 +73,7 @@ SRC			=	$(MAIN_SRC) \
 				$(HEADER_SRC) \
 				$(LAYER_SRC) \
 				$(UI_LAYER_SRC) \
-				$(TOOL_SRC)	\
+				$(TOOL_SRC) \
 				$(TOOL_BAR_SRC)
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include \

@@ -46,7 +46,7 @@ void main_loop(void)
         manage_event(window, &event, &is_button_pressed);
         sfRenderWindow_clear(window, BG_COLOR);
         render_layer(window);
-        render_pencil();
+        render_all_tool();
         layer_display(window, &event);
         display_ui(window);
         display_color_selection_icon(window, event, &index_button_color);
