@@ -9,7 +9,10 @@
 
 tool_t selected_tool = BRUSH;
 
-pencil_t pencil = {.radius = DEFAULT_PENCIL_RADIUS, .color = DEFAULT_PENCIL_COLOR};
+pencil_t pencil = {
+    .radius = DEFAULT_PENCIL_RADIUS,
+    .color = DEFAULT_PENCIL_COLOR
+};
 
 eraser_t eraser = {.radius = DEFAULT_ERASER_RADIUS};
 

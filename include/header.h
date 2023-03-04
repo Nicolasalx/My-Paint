@@ -145,6 +145,31 @@ extern text_file_header_t text_file_header[];
 extern const int size_text_file_header;
 
 void ini_file_menu_header(void);
-
+void gestion_header_file_menu(sfRenderWindow *window,
+    sfVector2i mouse_pos, bool is_button_pressed);
+void gestion_header_edit_menu(sfRenderWindow *window,
+    sfVector2i mouse_pos, bool is_button_pressed);
+void gestion_header_view_menu(sfRenderWindow *window,
+    sfVector2i mouse_pos, bool is_button_pressed);
+void gestion_header_layer_menu(sfRenderWindow *window,
+    sfVector2i mouse_pos, bool is_button_pressed);
+void gestion_header_help_menu(sfRenderWindow *window,
+    sfVector2i mouse_pos, bool is_button_pressed);
+void gestion_header_menu(sfVector2i mouse_pos, bool is_button_pressed,
+    int *stay_on_icon_header);
+void management_button_header(sfRenderWindow *window, bool is_button_pressed,
+    int *stay_on_icon_header);
+void ini_help_text(void);
+void ini_edit_menu_header_rectangle_icon(void);
+void ini_layer_menu_header_rectangle_icon(void);
+void ini_layer_text(void);
+void ini_help_menu_header_rectangle_icon(void);
+void ini_file_text(void);
+void ini_edit_text(void);
+void ini_edit_menu_header(void);
+void ini_view_text(void);
+void ini_button_header(void);
+void ini_text_button_header(void);
+void ini_file_menu_header(void);
 
 #endif /* !HEADER_H_ */

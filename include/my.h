@@ -30,35 +30,9 @@ extern sfVector2f render_sheet_scale;
 extern sfVector2i mouse_pos;
 
 void main_loop(void);
-void manage_event(sfRenderWindow *window, sfEvent *event);
+void manage_event(sfRenderWindow *window, sfEvent *event,
+    bool *is_button_pressed);
 void create_all_data(void);
 void free_all_data(void);
-
-void ini_bg_user_interface(void);
-
-void create_button(int i);
-
-void init_all_button_selection(void);
-void ini_chromatic_wheel(void);
-void init_all_text_selection_color(void);
-void ini_button_header(void);
-void ini_text_button_header(void);
-void ini_file_menu_header(void);
-void ini_icon_rectangle(void);
-void ini_icon_sprite(void);
-void ini_size_pen(void);
-void ini_file_text(void);
-void ini_edit_text(void);
-void ini_edit_menu_header(void);
-void ini_view_text(void);
-void ini_edit_menu_header_rectangle_icon(void);
-void ini_layer_menu_header_rectangle_icon(void);
-void ini_layer_text(void);
-void ini_help_menu_header_rectangle_icon(void);
-void ini_help_text(void);
-void ini_text_layer_box(void);
-void ini_layer_box(void);
-void ini_eye_sprite(void);
-void ini_button_eye_layer(void);
 
 #endif /* !MY_H_ */
