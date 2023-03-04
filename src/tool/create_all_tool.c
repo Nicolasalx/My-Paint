@@ -9,5 +9,10 @@
 
 void create_all_tool(void)
 {
-    create_pencil();
+    void (*create_tool_func[])(void) = {create_pencil, create_eraser, create_brush};
+    int nb_create_tool_func = sizeof(create_tool_func) / sizeof(create_tool_func[0]);
+
+    for (int i = 0; i < nb_create_tool_func; ++i) {
+        (*create_tool_func[i])();
+    }
 }

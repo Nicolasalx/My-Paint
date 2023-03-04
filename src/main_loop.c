@@ -19,6 +19,7 @@
 #include <SFML/Graphics.h>
 #include "tool.h"
 
+sfRenderWindow *window;
 sfVector2i window_pos = {0, 0};
 sfVector2u window_size = {1920, 1080};
 sfVector2f render_sheet_resolution = {1920, 1080};
@@ -211,7 +212,6 @@ void gestion_header_menu(sfVector2i mouse_pos, bool is_button_pressed, int *stay
 
 void main_loop(void)
 {
-    sfRenderWindow *window;
     sfEvent event;
     sfVideoMode mode = {1920, 1080, 32};
 
@@ -238,11 +238,11 @@ void main_loop(void)
         manage_event(window, &event);
         sfRenderWindow_clear(window, BG_COLOR);
 
+        // ! tool
+        render_all_tool();
+
         // ! layer
         render_layer(window);
-
-        // ! tool
-        render_pencil();
 
         if (event.type == sfEvtMouseButtonPressed) {
             is_button_pressed = true;

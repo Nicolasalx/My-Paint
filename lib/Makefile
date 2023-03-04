@@ -31,7 +31,8 @@ SRCLINKEDLIST=	linked_list/create_node.c \
 				linked_list/insert_node.c
 
 SRCGRAPHICAL=	graphical/mouse_is_over.c \
-				graphical/get_button_state.c
+				graphical/get_button_state.c \
+				graphical/get_mouse_pos_on_sprite.c
 
 SRCMALLOC	=	malloc/my_malloc.c \
 				malloc/malloc_board.c \

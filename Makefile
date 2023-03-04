@@ -34,14 +34,18 @@ LAYER_SRC	=	src/layer/declaration_layer.c \
 				src/layer/render_layer.c \
 				src/layer/create_screen_shot.c
 
-UI_LAYER_SRC =  src/ui_layer/declaration_layer.c \
+UI_LAYER_SRC =	src/ui_layer/declaration_layer.c \
 				src/ui_layer/ini_layer.c
 
 TOOL_SRC	=	src/tool/create_all_tool.c \
 				src/tool/render_all_tool.c \
 				src/tool/declaration_all_tool.c \
 				src/tool/pencil/create_pencil.c \
-				src/tool/pencil/render_pencil.c
+				src/tool/pencil/render_pencil.c \
+				src/tool/eraser/create_eraser.c \
+				src/tool/eraser/render_eraser.c \
+				src/tool/brush/create_brush.c \
+				src/tool/brush/render_brush.c
 
 SRC			=	$(MAIN_SRC) \
 				$(UI_SRC) \
@@ -51,7 +55,7 @@ SRC			=	$(MAIN_SRC) \
 				$(UI_LAYER_SRC) \
 				$(TOOL_SRC)
 
-CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include\
+CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include \
 				-lcsfml-system -lcsfml-graphics \
 				-lcsfml-window -lm
 

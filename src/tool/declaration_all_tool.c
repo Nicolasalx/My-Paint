@@ -7,4 +7,10 @@
 
 #include "tool.h"
 
+tool_t selected_tool = BRUSH;
+
 pencil_t pencil = {.radius = DEFAULT_PENCIL_RADIUS, .color = DEFAULT_PENCIL_COLOR};
+
+eraser_t eraser = {.radius = DEFAULT_ERASER_RADIUS};
+
+brush_t brush = {.radius = DEFAULT_BRUSH_RADIUS, .color = DEFAULT_BRUSH_COLOR};

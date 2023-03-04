@@ -21,6 +21,7 @@
     #define SIZE_IMAGE_X 1920
     #define SIZE_IMAGE_Y 1080
 
+extern sfRenderWindow *window;
 extern sfVector2i window_pos;
 extern sfVector2u window_size;
 extern sfVector2f render_sheet_resolution;

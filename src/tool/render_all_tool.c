@@ -9,5 +9,12 @@
 
 void render_all_tool(void)
 {
-    render_pencil();
+    void (*tool_func_list[])(void) = {render_pencil, render_eraser, render_brush};
+    int nb_tool_func = sizeof(tool_func_list) / sizeof(tool_func_list[0]);
+
+    for (int i = 0; i < nb_tool_func; ++i) {
+        if (i == (int) selected_tool) {
+            (*tool_func_list[i])();
+        }
+    }
 }
