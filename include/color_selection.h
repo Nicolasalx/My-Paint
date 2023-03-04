@@ -8,6 +8,8 @@
 #ifndef BUTTON_H_
     #define BUTTON_H_
 
+    #include "SFML/Graphics.h"
+
     #define RED {255, 0, 0, 255}
     #define MAGENTA {255, 0, 255, 255}
     #define BLUE {0, 0, 255, 255}

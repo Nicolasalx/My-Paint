@@ -252,7 +252,6 @@ void main_loop(void)
         }
 
         // ! LAYER MOVE
-
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp) {
             if (box_icon_layer[size_box_icon_layer - 1].pos.y - 60 > 750) { // ? Mod valeur en dur
                 for (int i = 0; i < size_box_icon_layer; ++i) {
@@ -284,11 +283,6 @@ void main_loop(void)
             }
         }
 
-        // ! draw back user interface
-        for (int i = 0; i < size_ui_sprite - 1; ++i) {
-            sfRenderWindow_drawSprite(window, ui_sprite[i].sprite, NULL);
-        }
-
         // ! LAYER (Draw dans le bon ordre)
         for (int i = 0; i < size_box_icon_layer; ++i) {
             sfRenderWindow_drawRectangleShape(window, box_icon_layer[i].rectangle, NULL);
@@ -307,8 +301,11 @@ void main_loop(void)
         }
         // ! FIN LAYER
 
-        // ! FRONT
-        sfRenderWindow_drawSprite(window, ui_sprite[size_ui_sprite - 1].sprite, NULL);
+        // ! draw user interface
+        for (int i = 0; i < size_ui_sprite; ++i) {
+            sfRenderWindow_drawSprite(window, ui_sprite[i].sprite, NULL);
+        }
+        // ! FIN draw user interface
 
         for (int i = 0; i < size_selection_color; ++i) {
             sfRenderWindow_drawRectangleShape(window, selection_color[i].rectangle, NULL);
@@ -346,20 +343,17 @@ void main_loop(void)
             }
         }
 
-
-
         // ! Icon Toolbar
         if (event.type == sfEvtMouseButtonPressed) {
             for (int i = 0; i < size_icon_rectangle; ++i) {
                 if (icon_rectangle[i].can_draw == true) {
-                    if (mouse_pos.x >= icon_rectangle[i].pos.x && mouse_pos.x <= icon_rectangle[i].pos.x + icon_rectangle[i].size.x) {
-                        if (mouse_pos.y >= icon_rectangle[i].pos.y && mouse_pos.y <= icon_rectangle[i].pos.y + icon_rectangle[i].size.y) {
-                            sfRectangleShape_setFillColor(icon_rectangle[index_icon_color].rectangle, BG_COLOR);
-                            sfRectangleShape_setFillColor(icon_rectangle[i].rectangle, (sfColor) {51, 51, 255, 255});
-                            index_icon_color = i;
-                            verif = true;
-                        }
-                    }
+                    
+                    sfRectangleShape_setFillColor(icon_rectangle[index_icon_color].rectangle, BG_COLOR);
+                    sfRectangleShape_setFillColor(icon_rectangle[i].rectangle, (sfColor) {51, 51, 255, 255});
+                    index_icon_color = i;
+                    verif = true;
+        
+    
                 }
             }
         }

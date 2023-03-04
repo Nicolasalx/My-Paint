@@ -30,13 +30,8 @@ SRCLINKEDLIST=	linked_list/create_node.c \
 				linked_list/my_listlen.c \
 				linked_list/insert_node.c
 
-SRCGRAPHICAL=	graphical/animated_sprite.c \
-				graphical/sprite.c \
-				graphical/music.c \
-				graphical/time.c \
-				graphical/mouse_is_over.c \
-				graphical/randint.c \
-				graphical/texture.c
+SRCGRAPHICAL=	graphical/mouse_is_over.c \
+				graphical/get_button_state.c
 
 SRCMALLOC	=	malloc/my_malloc.c \
 				malloc/malloc_board.c \
@@ -108,7 +103,7 @@ SRC			=	$(SRCGRAPHICAL) \
 
 OBJ			=	$(SRC:.c=.o)
 
-CFLAGS		=	-W -Wall -Wextra -I ../include/lib -O2 -fno-builtin
+CFLAGS		=	-W -Wall -Wextra -I ../include/lib -I ../include/ -O2 -fno-builtin
 
 LIBFLAG		=
 
