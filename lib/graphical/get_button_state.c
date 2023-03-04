@@ -8,7 +8,7 @@
 #include "my_graphical.h"
 #include "my.h"
 
-button_state_t check_button_interaction(sfRectangleShape* button)
+button_state_t get_button_state(sfRectangleShape *button)
 {
     sfFloatRect bound = sfRectangleShape_getGlobalBounds(button);
     if (sfFloatRect_contains(&bound, mouse_pos.x, mouse_pos.y)) {
