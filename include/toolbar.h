@@ -6,8 +6,10 @@
 */
 
 #ifndef TOOLBAR_H_
+
     #define TOOLBAR_H_
     #define SIZE_OUTLINE_BUTTON 2
+    #include "tool.h"
 
 typedef struct icon_rectangle_t {
     sfRectangleShape *rectangle;
@@ -16,6 +18,7 @@ typedef struct icon_rectangle_t {
     char *path;
     sfVector2f size;
     bool can_draw;
+    tool_t tool_to_select;
 } icon_rectangle_t;
 
 typedef struct icon_sprite_t {
@@ -34,6 +37,14 @@ typedef struct size_pen_t {
     sfVector2f size;
 } size_pen_t;
 
+typedef struct front_toolbar_t {
+    int index_button_pressed;
+    int index_button_hovered;
+    bool verif;
+} front_toolbar_t;
+
+extern front_toolbar_t front_toolbar;
+
 extern icon_rectangle_t icon_rectangle[];
 extern const int size_icon_rectangle;
 
@@ -49,5 +60,6 @@ void display_toolbar(sfRenderWindow *window, sfEvent event,
 void ini_icon_rectangle(void);
 void ini_icon_sprite(void);
 void ini_size_pen(void);
+void interaction_front_toolbar(void);
 
 #endif /* !TOOLBAR_H_ */

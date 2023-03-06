@@ -6,6 +6,7 @@
 */
 
 #include "my.h"
+#include "toolbar.h"
 
 void manage_event(sfRenderWindow *window, sfEvent *event,
     bool *is_button_pressed)

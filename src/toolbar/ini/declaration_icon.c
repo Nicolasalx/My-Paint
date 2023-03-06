@@ -46,4 +46,10 @@ icon_sprite_t icon_sprite [] = {
     .path = "game_data/toolbar/zoom_tool.png"}
 };
 
+front_toolbar_t front_toolbar = {
+    .index_button_hovered = 0,
+    .index_button_pressed = 0,
+    .verif = false
+};
+
 const int size_icon_sprite = sizeof(icon_sprite) / sizeof(icon_sprite_t);

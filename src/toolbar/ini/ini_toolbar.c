@@ -17,7 +17,7 @@ void create_icon_rectangle(int i)
     sfRectangleShape_setOutlineColor(icon_rectangle[i].rectangle, sfBlack);
     sfRectangleShape_setSize(icon_rectangle[i].rectangle,
         icon_rectangle[i].size);
-    sfRectangleShape_setFillColor(icon_rectangle[i].rectangle, BG_COLOR);
+    sfRectangleShape_setFillColor(icon_rectangle[i].rectangle, (sfColor) BG_COLOR);
     sfRectangleShape_setPosition(icon_rectangle[i].rectangle,
         icon_rectangle[i].pos);
 }

@@ -12,7 +12,7 @@
     #include "my_def.h"
     #include <SFML/Graphics.h>
 
-    #define BG_COLOR (sfColor) {128, 128, 128, 255}
+    #define BG_COLOR {128, 128, 128, 255}
     #define DEFAULT_WINDOW_SIZE_X 1920
     #define DEFAULT_WINDOW_SIZE_Y 1080
 
