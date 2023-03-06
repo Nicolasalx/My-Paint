@@ -26,6 +26,7 @@ typedef enum {
     ERASER,
     BRUSH,
     FEATHER_PEN,
+    HAND,
     MOUSE
 } tool_t;
 
@@ -77,5 +78,7 @@ void render_brush(void);
 
 void create_feather_pen(void);
 void render_feather_pen(void);
+
+void render_hand(void);
 
 #endif /* !TOOL_H_ */

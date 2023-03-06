@@ -21,7 +21,7 @@ void render_eraser(void)
 
         sfCircleShape_setPosition(eraser.circle, circle_draw_pos);
         sfCircleShape_setRadius(eraser.circle, eraser.radius);
-        sfCircleShape_setFillColor(eraser.circle, sfTransparent);
+        sfCircleShape_setFillColor(eraser.circle, (sfColor) {0, 0, 0, 0});
         sfRenderTexture_drawCircleShape(GET_DATA(selected_layer, layer_t)->render_texture, eraser.circle, NULL);
         sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
     }

@@ -67,7 +67,8 @@ TOOL_SRC	=	src/tool/create_all_tool.c \
 				src/tool/brush/create_brush.c \
 				src/tool/brush/render_brush.c \
 				src/tool/feather_pen/create_feather_pen.c \
-				src/tool/feather_pen/render_feather_pen.c
+				src/tool/feather_pen/render_feather_pen.c \
+				src/tool/hand/render_hand.c
 
 SRC			=	$(MAIN_SRC) \
 				$(UI_SRC) \

@@ -12,7 +12,7 @@ button_state_t get_button_state(sfRectangleShape *button)
 {
     sfFloatRect bound = sfRectangleShape_getGlobalBounds(button);
     if (sfFloatRect_contains(&bound, mouse_pos.x, mouse_pos.y)) {
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
+        if (sfMouse_isButtonPressed(sfMouseLeft) == sfTrue) {
             return BUTTON_PRESSED;
         }
         return BUTTON_HOVERED;
