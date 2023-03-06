@@ -7,7 +7,7 @@
 
 #include "tool.h"
 
-tool_t selected_tool = FEATHER_PEN;
+tool_t selected_tool = ERASER;
 
 pencil_t pencil = {
     .radius = DEFAULT_PENCIL_RADIUS,
