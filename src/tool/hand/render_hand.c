@@ -15,11 +15,11 @@ void render_hand(void)
 {
     static bool was_pressed = false;
     bool is_pressed = sfMouse_isButtonPressed(sfMouseLeft);
-    static sfVector2i last_pressed_pos;
+    static sfVector2i last_pressed_pos = {0, 0};
 
     if (was_pressed == false && is_pressed == true) {
         last_pressed_pos = mouse_pos;
     }
-    
+
     was_pressed = is_pressed;
 }
