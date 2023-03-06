@@ -70,7 +70,8 @@ SRCNUMBER	=	number/my_pow.c \
 				number/my_put_double.c \
 				number/my_abs.c \
 				number/max_value.c \
-				number/min_value.c
+				number/min_value.c \
+				number/my_delta.c
 
 SRCSTRING	=	string/my_putstr.c \
 				string/my_strcat.c \

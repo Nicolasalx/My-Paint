@@ -27,6 +27,7 @@ double my_pow(double nb, int power);
 int my_abs(int nb);
 int max_value(int value_1, int value_2);
 int min_value(int value_1, int value_2);
+int my_delta(int value_1, int value_2);
 
 int my_get_nb(const char *str);
 int get_min_value(int *array, int size_array);

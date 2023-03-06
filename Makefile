@@ -65,7 +65,9 @@ TOOL_SRC	=	src/tool/create_all_tool.c \
 				src/tool/eraser/create_eraser.c \
 				src/tool/eraser/render_eraser.c \
 				src/tool/brush/create_brush.c \
-				src/tool/brush/render_brush.c
+				src/tool/brush/render_brush.c \
+				src/tool/feather_pen/create_feather_pen.c \
+				src/tool/feather_pen/render_feather_pen.c
 
 SRC			=	$(MAIN_SRC) \
 				$(UI_SRC) \
@@ -78,7 +80,7 @@ SRC			=	$(MAIN_SRC) \
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include \
 				-lcsfml-system -lcsfml-graphics \
-				-lcsfml-window -lm
+				-lcsfml-window
 
 NAME		=	my_paint
 

@@ -7,7 +7,7 @@
 
 #include "tool.h"
 
-tool_t selected_tool = BRUSH;
+tool_t selected_tool = FEATHER_PEN;
 
 pencil_t pencil = {
     .radius = DEFAULT_PENCIL_RADIUS,
@@ -17,3 +17,8 @@ pencil_t pencil = {
 eraser_t eraser = {.radius = DEFAULT_ERASER_RADIUS};
 
 brush_t brush = {.radius = DEFAULT_BRUSH_RADIUS, .color = DEFAULT_BRUSH_COLOR};
+
+feather_pen_t feather_pen = {
+    .radius = DEFAULT_FEATHER_PEN_RADIUS,
+    .color = DEFAULT_FEATHER_PEN_COLOR
+};

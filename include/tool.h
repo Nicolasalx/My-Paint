@@ -15,13 +15,17 @@
 
     #define DEFAULT_ERASER_RADIUS 10
 
-    #define DEFAULT_BRUSH_RADIUS 100
+    #define DEFAULT_BRUSH_RADIUS 10
     #define DEFAULT_BRUSH_COLOR {255, 0, 0, 150}
+
+    #define DEFAULT_FEATHER_PEN_RADIUS 100
+    #define DEFAULT_FEATHER_PEN_COLOR {0, 0, 0, 255}
 
 typedef enum {
     PENCIL,
     ERASER,
     BRUSH,
+    FEATHER_PEN,
     MOUSE
 } tool_t;
 
@@ -39,15 +43,25 @@ typedef struct eraser_t {
 typedef struct brush_t {
     sfSprite *sprite;
     sfTexture *texture;
+    sfVector2u texture_size;
     float radius;
     sfColor color;
 } brush_t;
+
+typedef struct feather_pen_t {
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2u texture_size;
+    float radius;
+    sfColor color;
+} feather_pen_t;
 
 extern tool_t selected_tool;
 
 extern pencil_t pencil;
 extern eraser_t eraser;
 extern brush_t brush;
+extern feather_pen_t feather_pen;
 
 void create_all_tool(void);
 void render_all_tool(void);
@@ -60,5 +74,8 @@ void render_eraser(void);
 
 void create_brush(void);
 void render_brush(void);
+
+void create_feather_pen(void);
+void render_feather_pen(void);
 
 #endif /* !TOOL_H_ */

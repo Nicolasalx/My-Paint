@@ -13,14 +13,16 @@
 
 void render_eraser(void)
 {
-    sfVector2f circle_draw_pos = get_mouse_pos_on_sheet();
+    if (sfMouse_isButtonPressed(sfMouseLeft) == true) {
+        sfVector2f circle_draw_pos = get_mouse_pos_on_sheet();
 
-    circle_draw_pos.x -= eraser.radius;
-    circle_draw_pos.y -= eraser.radius;
+        circle_draw_pos.x -= eraser.radius;
+        circle_draw_pos.y -= eraser.radius;
 
-    sfCircleShape_setPosition(eraser.circle, circle_draw_pos);
-    sfCircleShape_setRadius(eraser.circle, eraser.radius);
-    sfCircleShape_setFillColor(eraser.circle, sfTransparent);
-    sfRenderTexture_drawCircleShape(GET_DATA(selected_layer, layer_t)->render_texture, eraser.circle, NULL);
-    sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
+        sfCircleShape_setPosition(eraser.circle, circle_draw_pos);
+        sfCircleShape_setRadius(eraser.circle, eraser.radius);
+        sfCircleShape_setFillColor(eraser.circle, sfTransparent);
+        sfRenderTexture_drawCircleShape(GET_DATA(selected_layer, layer_t)->render_texture, eraser.circle, NULL);
+        sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
+    }
 }

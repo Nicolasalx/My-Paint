@@ -13,15 +13,15 @@
 
 void render_pencil(void)
 {
-    sfVector2f circle_draw_pos = get_mouse_pos_on_sheet();
-    circle_draw_pos.x -= pencil.radius;
-    circle_draw_pos.y -= pencil.radius;
+    if (sfMouse_isButtonPressed(sfMouseLeft) == true) {
+        sfVector2f circle_draw_pos = get_mouse_pos_on_sheet();
+        circle_draw_pos.x -= pencil.radius;
+        circle_draw_pos.y -= pencil.radius;
 
-    sfCircleShape_setPosition(pencil.circle, circle_draw_pos);
-    sfCircleShape_setRadius(pencil.circle, pencil.radius);
-    sfCircleShape_setFillColor(pencil.circle, pencil.color);
-    sfRenderTexture_drawCircleShape(GET_DATA(selected_layer,
-        layer_t)->render_texture, pencil.circle, NULL);
-    sfRenderTexture_display(GET_DATA(selected_layer,
-        layer_t)->render_texture);
+        sfCircleShape_setPosition(pencil.circle, circle_draw_pos);
+        sfCircleShape_setRadius(pencil.circle, pencil.radius);
+        sfCircleShape_setFillColor(pencil.circle, pencil.color);
+        sfRenderTexture_drawCircleShape(GET_DATA(selected_layer, layer_t)->render_texture, pencil.circle, NULL);
+        sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
+    }
 }
