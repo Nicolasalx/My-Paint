@@ -10,7 +10,8 @@
 
     #include "my_linkedlist.h"
 
-    #define BACKGROUND_COLOR {200, 200, 200, 255}
+    #define BACKGROUND_OUTLINE_COLOR {50, 50, 50, 255}
+    #define BACKGROUND_OUTLINE_THICKNESS 1.0f
 
     #define DEFAULT_LAYER_COLOR {255, 255, 255, 255}
     #define MAX_LAYER_NAME_SIZE 20

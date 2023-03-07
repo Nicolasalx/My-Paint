@@ -11,7 +11,9 @@
 void create_default_layer(void)
 {
     background = sfRectangleShape_create();
-    sfRectangleShape_setFillColor(background, (sfColor) BACKGROUND_COLOR);
+    sfRectangleShape_setFillColor(background, sfTransparent);
+    sfRectangleShape_setOutlineColor(background, (sfColor) BACKGROUND_OUTLINE_COLOR);
+    sfRectangleShape_setOutlineThickness(background, BACKGROUND_OUTLINE_THICKNESS);
 
     create_new_layer("layer_1");
 
