@@ -23,8 +23,9 @@ void render_hand(void)
             last_pressed_pos = mouse_pos;
         }
         if (is_pressed == true) {
-            render_sheet_pos.x = my_delta(last_pressed_pos.x, mouse_pos.x);
-            render_sheet_pos.y = my_delta(last_pressed_pos.y, mouse_pos.y);
+            render_sheet_pos.x += my_delta(last_pressed_pos.x, mouse_pos.x);
+            render_sheet_pos.y += my_delta(last_pressed_pos.y, mouse_pos.y);
+            last_pressed_pos = mouse_pos;
         }
         was_pressed = is_pressed;
     }
