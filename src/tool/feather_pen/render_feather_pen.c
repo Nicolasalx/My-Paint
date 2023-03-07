@@ -22,8 +22,8 @@ void render_feather_pen(void)
         sprite_draw_pos.y -= (feather_pen.radius * BRUSH_SIZE_MULT) / 2.0f;
 
         sfSprite_setPosition(feather_pen.sprite, sprite_draw_pos);
-        sfSprite_setScale(feather_pen.sprite, (sfVector2f) 
-            {(float) (feather_pen.radius * BRUSH_SIZE_MULT) / feather_pen.texture_size.y,
+        sfSprite_setScale(feather_pen.sprite, (sfVector2f) {
+            (float) (feather_pen.radius * BRUSH_SIZE_MULT) / feather_pen.texture_size.y,
             (float) (feather_pen.radius * BRUSH_SIZE_MULT) / feather_pen.texture_size.y});
         sfSprite_setColor(feather_pen.sprite, feather_pen.color);
         sfRenderTexture_drawSprite(GET_DATA(selected_layer, layer_t)->render_texture, feather_pen.sprite, NULL);

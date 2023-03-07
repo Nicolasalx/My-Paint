@@ -52,6 +52,7 @@ void main_loop(void)
         display_color_selection_icon(window, event, &index_button_color);
         management_button_header(window, is_button_pressed, &stay_on_icon_header);
         display_toolbar(window, event, is_button_pressed);
+        render_overview(window);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);

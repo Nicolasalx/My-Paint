@@ -10,17 +10,12 @@
 
 void create_default_layer(void)
 {
+    background = sfRectangleShape_create();
+    sfRectangleShape_setFillColor(background, (sfColor) BACKGROUND_COLOR);
+
     create_new_layer("layer_1");
 
-    sfRectangleShape *background = sfRectangleShape_create();
-    sfRectangleShape_setSize(background,
-        (sfVector2f) {SIZE_IMAGE_X, SIZE_IMAGE_Y});
-    sfRectangleShape_setFillColor(background, (sfColor) DEFAULT_LAYER_COLOR);
-
-    sfRenderTexture_drawRectangleShape(
-        GET_DATA(head_layer, layer_t)->render_texture, background, NULL);
-
-    sfRectangleShape_destroy(background);
+    sfRenderTexture_clear(GET_DATA(head_layer, layer_t)->render_texture, (sfColor) DEFAULT_LAYER_COLOR);
 
     append_node(&GET_DATA(head_layer, layer_t)->head_undo,
     create_node(create_screen_shot(

@@ -6,7 +6,9 @@
 */
 
 #include "my_linkedlist.h"
+#include <SFML/Graphics.h>
 #include <stdlib.h>
 
+sfRectangleShape *background;
 node_t *head_layer = NULL;
 node_t *selected_layer = NULL;

@@ -51,7 +51,9 @@ LAYER_SRC	=	src/layer/ini/declaration_layer.c \
 				src/layer/ini/create_default_layer.c \
 				src/layer/ini/create_new_layer.c \
 				src/layer/render/render_layer.c \
-				src/layer/ini/create_screen_shot.c
+				src/layer/ini/create_screen_shot.c \
+				src/layer/render/render_background.c \
+				src/layer/render/render_overview.c
 
 UI_LAYER_SRC =  src/ui_layer/ini/declaration_layer.c \
 				src/ui_layer/ini/layer_box.c \

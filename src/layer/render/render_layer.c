@@ -13,6 +13,8 @@ void render_layer(sfRenderWindow *window)
 {
     node_t *current = head_layer;
 
+    render_background(window);
+
     do {
         sfSprite_setTexture(GET_DATA(current, layer_t)->render_sprite,
             GET_DATA(current, layer_t)->texture_render_texture, sfFalse);
@@ -22,8 +24,7 @@ void render_layer(sfRenderWindow *window)
         sfSprite_setScale(GET_DATA(current, layer_t)->render_sprite,
             render_sheet_scale);
 
-        sfRenderWindow_drawSprite(window, GET_DATA(current, layer_t)->render_sprite,
-        NULL);
+        sfRenderWindow_drawSprite(window, GET_DATA(current, layer_t)->render_sprite, NULL);
         current = current->next;
     } while (current != head_layer);
 }
