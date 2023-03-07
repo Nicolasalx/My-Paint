@@ -45,14 +45,19 @@ void main_loop(void)
         window_size = sfRenderWindow_getSize(window);
         manage_event(window, &event, &is_button_pressed);
         sfRenderWindow_clear(window, (sfColor) BG_COLOR);
+
         render_layer(window);
         render_all_tool();
         layer_display(window, &event);
+        
         display_ui(window);
+
         display_color_selection_icon(window, event, &index_button_color);
         management_button_header(window, is_button_pressed, &stay_on_icon_header);
         display_toolbar(window, event, is_button_pressed);
         render_overview(window);
+        display_undo_redo(window);
+        
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);

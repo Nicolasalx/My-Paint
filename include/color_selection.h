@@ -35,6 +35,7 @@ typedef struct chromatic_wheel_t {
     sfTexture *texture;
     sfVector2f pos;
     sfVector2f size;
+    char *path;
 } chromatic_wheel_t;
 
 typedef struct text_color_selection_t {

@@ -7,6 +7,26 @@
 
 #include "my.h"
 #include "toolbar.h"
+#include "stdio.h"
+
+void change_size_tool(int size_tool)
+{
+    switch (selected_tool) {
+        case PENCIL:
+            pencil.radius = size_tool;
+            break;
+        case BRUSH:
+            brush.radius = size_tool;
+            break;
+        case FEATHER_PEN:
+            feather_pen.radius = size_tool;
+            break;
+        case ERASER:
+            eraser.radius = size_tool;
+            break;
+        default: break;
+    }
+}
 
 void check_pos_mouse(void)
 {
@@ -19,6 +39,11 @@ void check_pos_mouse(void)
             int size_difference = size_pen.pos.y - mouse_pos.y;
             sfRectangleShape_setSize(size_pen.rectangle,
                 (sfVector2f) {40, -size_difference});
+            if (size_difference == 190) {
+                change_size_tool(100);
+            } else {
+                change_size_tool((size_difference * 100) / 190);
+            }
         }
     }
 }

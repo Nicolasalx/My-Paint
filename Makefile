@@ -72,6 +72,10 @@ TOOL_SRC	=	src/tool/create_all_tool.c \
 				src/tool/feather_pen/render_feather_pen.c \
 				src/tool/hand/render_hand.c
 
+UNDO_REDO_SRC =	src/undo_redo/ini/declaration_icon.c \
+				src/undo_redo/ini/ini_undo_redo.c \
+				src/undo_redo/render/display_icon.c
+
 SRC			=	$(MAIN_SRC) \
 				$(UI_SRC) \
 				$(COLOR_SRC) \
@@ -79,7 +83,8 @@ SRC			=	$(MAIN_SRC) \
 				$(LAYER_SRC) \
 				$(UI_LAYER_SRC) \
 				$(TOOL_SRC) \
-				$(TOOL_BAR_SRC)
+				$(TOOL_BAR_SRC) \
+				$(UNDO_REDO_SRC)
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include \
 				-lcsfml-system -lcsfml-graphics \

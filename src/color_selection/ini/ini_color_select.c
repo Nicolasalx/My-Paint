@@ -54,7 +54,7 @@ void init_all_text_selection_color(void)
 void ini_chromatic_wheel(void)
 {
     chromatic_wheel.texture = sfTexture_createFromFile
-        ("./game_data/color_selection/chromatic_wheel.png", NULL);
+        (chromatic_wheel.path, NULL);
     chromatic_wheel.sprite = sfSprite_create();
     sfSprite_setTexture(chromatic_wheel.sprite,
         chromatic_wheel.texture, sfTrue);

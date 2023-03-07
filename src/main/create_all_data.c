@@ -25,6 +25,7 @@ void create_layer(void)
     ini_edit_menu_header();
     ini_view_text();
     ini_edit_menu_header_rectangle_icon();
+    ini_icon_undo_redo();
 }
 
 void create_tool(void)

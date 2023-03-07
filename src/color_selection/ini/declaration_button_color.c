@@ -23,7 +23,7 @@ selection_color_t selection_color [] = {
 const int size_selection_color =
     sizeof(selection_color) / sizeof(selection_color_t);
 
-chromatic_wheel_t chromatic_wheel = {.pos = {1620, 30}, .size = {0.5, 0.5}};
+chromatic_wheel_t chromatic_wheel = {.pos = {1620, 30}, .size = {0.5, 0.5}, .path = "./game_data/color_selection/chromatic_wheel.png"};
 
 text_color_selection_t text_color_selection [] = {
     {.pos = {1630, 10}, .path = "Color Selector",

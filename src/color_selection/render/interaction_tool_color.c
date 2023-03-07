@@ -7,6 +7,36 @@
 
 #include "my.h"
 #include "color_selection.h"
+#include "my_graphical.h"
+#include "tool.h"
+
+void change_color_tool(sfColor color_chromatic)
+{
+    switch (selected_tool) {
+        case PENCIL:
+            pencil.color = color_chromatic;
+            break;
+        case BRUSH:
+            brush.color = color_chromatic;
+            break;
+        case FEATHER_PEN:
+            feather_pen.color = color_chromatic;
+            break;
+        default: break;
+    }
+}
+
+void select_color(sfRenderWindow *window)
+{
+    if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_sprite(chromatic_wheel.sprite)) {
+        sfImage* image_chromatic_wheel = sfImage_createFromFile(chromatic_wheel.path);
+        unsigned int x = sfMouse_getPositionRenderWindow(window).x;
+        unsigned int y = sfMouse_getPositionRenderWindow(window).y;
+        sfColor color_chromatic = sfImage_getPixel(image_chromatic_wheel, x, y);
+        sfImage_destroy(image_chromatic_wheel);
+        change_color_tool(color_chromatic);
+    }
+}
 
 void set_thickness_icon(int i, int * index_button_color)
 {
@@ -41,4 +71,5 @@ void display_color_selection_icon(sfRenderWindow *window, sfEvent event,
             set_thickness_icon(i, index_button_color);
         }
     }
+    select_color(window);
 }

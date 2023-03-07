@@ -32,9 +32,21 @@ typedef struct undo_t {
     bool is_active;
 } undo_t;
 
+typedef struct icon_undo_redo_t {
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2f pos;
+    sfVector2f size;
+    char *path;
+    void (*redirect)(void);
+} icon_undo_redo_t;
+
 extern sfRectangleShape *background;
 extern node_t *head_layer;
 extern node_t *selected_layer;
+
+extern icon_undo_redo_t icon_undo_redo[];
+extern const int size_icon_undo_redo;
 
 void create_default_layer(void);
 void create_new_layer(char *layer_name);
@@ -42,5 +54,9 @@ sfSprite *create_screen_shot(sfTexture *texture_render_texture);
 void render_layer(sfRenderWindow *window);
 void render_background(sfRenderWindow *window);
 void render_overview(sfRenderWindow *window);
+void ini_icon_undo_redo(void);
+void display_undo_redo(sfRenderWindow *window);
+void redo(void);
+void undo(void);
 
 #endif /* !LAYER_H_ */
