@@ -61,5 +61,6 @@ void ini_icon_rectangle(void);
 void ini_icon_sprite(void);
 void ini_size_pen(void);
 void interaction_front_toolbar(void);
+void set_size_tool_selected(void);
 
 #endif /* !TOOLBAR_H_ */

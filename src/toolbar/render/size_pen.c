@@ -9,6 +9,28 @@
 #include "toolbar.h"
 #include "stdio.h"
 
+void set_size_tool_selected(void)
+{
+    int radius = 0;
+    switch (selected_tool) {
+        case PENCIL:
+            radius = pencil.radius;
+            break;
+        case BRUSH:
+            radius = brush.radius;
+            break;
+        case FEATHER_PEN:
+            radius = feather_pen.radius;
+            break;
+        case ERASER:
+            radius = eraser.radius;
+            break;
+        default: break;
+    }
+    radius = (radius * 190) / 100;
+    sfRectangleShape_setSize(size_pen.rectangle, (sfVector2f) {40, -radius});
+}
+
 void change_size_tool(int size_tool)
 {
     switch (selected_tool) {

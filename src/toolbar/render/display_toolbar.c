@@ -15,6 +15,7 @@ void select_tool(int i, button_state_t button_state)
 {
     if (button_state == BUTTON_PRESSED) {
         selected_tool = icon_rectangle[i].tool_to_select;
+        set_size_tool_selected();
     }
 }
 

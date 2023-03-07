@@ -52,7 +52,7 @@ icon_rectangle_t icon_rectangle [] = {
 
 
     {.color = BG_COLOR, .pos = {5, 740},
-    .size = {40, 40}, .can_draw = true}, // Loupe -> 5
+    .size = {40, 40}, .can_draw = true, .tool_to_select = HAND}, // Loupe -> 5
 
 
     {.color = BG_COLOR, .pos = {5, 800},
