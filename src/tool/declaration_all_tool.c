@@ -7,7 +7,7 @@
 
 #include "tool.h"
 
-tool_t selected_tool = ERASER;
+tool_t selected_tool = HAND;
 
 pencil_t pencil = {
     .radius = DEFAULT_PENCIL_RADIUS,

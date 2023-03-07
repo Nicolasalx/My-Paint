@@ -18,7 +18,7 @@
     #define DEFAULT_BRUSH_RADIUS 10
     #define DEFAULT_BRUSH_COLOR {255, 0, 0, 150}
 
-    #define DEFAULT_FEATHER_PEN_RADIUS 100
+    #define DEFAULT_FEATHER_PEN_RADIUS 10
     #define DEFAULT_FEATHER_PEN_COLOR {0, 0, 0, 255}
 
 typedef enum {

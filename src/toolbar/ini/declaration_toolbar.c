@@ -22,7 +22,7 @@ icon_rectangle_t icon_rectangle [] = {
     .size = {40, 40}, .can_draw = true, .tool_to_select = BRUSH}, // Pencil -> 1
 
     {.color = BG_COLOR, .pos = {5, 300},
-    .size = {40, 40}, .can_draw = true}, // Sceau -> 1
+    .size = {40, 40}, .can_draw = true, .tool_to_select = FEATHER_PEN}, // Sceau -> 1
 
     {.color = BG_COLOR, .pos = {5, 360},
     .size = {40, 40}, .can_draw = true}, // Rond pour dessiner -> 2
