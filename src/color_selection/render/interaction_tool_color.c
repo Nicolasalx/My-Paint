@@ -33,15 +33,27 @@ void select_color_icon(int i)
     }
 }
 
-void select_color_chromatic_wheel(sfRenderWindow *window)
+void select_color_chromatic_wheel(void)
 {
     if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_sprite(chromatic_wheel.sprite)) {
+        sfVector2f render_texture_pos = {
+            (mouse_pos.x - chromatic_wheel.pos.x) / chromatic_wheel.size.x,
+            (mouse_pos.y - chromatic_wheel.pos.y) / chromatic_wheel.size.y
+        };
+        sfVector2f render_texture_size = {
+            (float) 500.0f / 0.5f,
+            (float) 500.0f / 0.5f
+        };
+        sfVector2f result_pos = {
+            render_texture_pos.x + (1.0f / render_texture_size.x),
+            render_texture_pos.y + (1.0f / render_texture_size.y)
+        };
         sfImage* image_chromatic_wheel = sfImage_createFromFile(chromatic_wheel.path);
-        unsigned int x = sfMouse_getPositionRenderWindow(window).x;
-        unsigned int y = sfMouse_getPositionRenderWindow(window).y;
-        sfColor color_chromatic = sfImage_getPixel(image_chromatic_wheel, x, y);
+        sfColor color_chromatic = sfImage_getPixel(image_chromatic_wheel, result_pos.x, result_pos.y);
+        if (color_chromatic.a != sfTransparent.a) {
+            change_color_tool(color_chromatic);
+        }
         sfImage_destroy(image_chromatic_wheel);
-        change_color_tool(color_chromatic);
     }
 }
 
@@ -79,5 +91,5 @@ void display_color_selection_icon(sfRenderWindow *window, sfEvent event,
             set_thickness_icon(i, index_button_color);
         }
     }
-    select_color_chromatic_wheel(window);
+    select_color_chromatic_wheel();
 }

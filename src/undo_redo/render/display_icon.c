@@ -30,6 +30,11 @@ void display_undo_redo(sfRenderWindow *window)
 {
     for (int i = 0; i < size_icon_undo_redo; ++i) {
         sfRenderWindow_drawSprite(window, icon_undo_redo[i].sprite, NULL);
+        if (icon_undo_redo[i].can_make_it == false) {
+            sfSprite_setColor(icon_undo_redo[i].sprite, (sfColor) {170, 170, 170, 255});
+        } else {
+            sfSprite_setColor(icon_undo_redo[i].sprite, sfWhite);
+        }
         if (is_mouse_over_sprite(icon_undo_redo[i].sprite) && sfMouse_isButtonPressed(sfMouseLeft)) {
             select_redirect(i, BUTTON_PRESSED);
         }

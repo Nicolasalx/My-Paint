@@ -10,6 +10,8 @@
     #define SIZE_OUTLINE_BUTTON 2
     #define COLOR_OVERHEAD_HEADER (sfColor) {0, 204, 204, 255}
 
+    #include "tool.h"
+
 typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;
@@ -49,6 +51,7 @@ typedef struct {
     sfVector2f pos;
     char *path;
     sfVector2f size;
+    tool_t tool_to_select;
 } edit_menu_header_t;
 
 typedef struct {

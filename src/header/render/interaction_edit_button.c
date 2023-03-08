@@ -9,12 +9,31 @@
 #include "header.h"
 #include "my_graphical.h"
 #include <stdio.h>
+#include "toolbar.h"
+
+void select_tool_edit(int i)
+{
+    selected_tool = ERASER;
+    switch (edit_menu_header[i].tool_to_select) {
+        case PENCIL:
+            selected_tool = PENCIL;
+        break;
+        case ERASER:
+            selected_tool = ERASER;
+        break;
+        default:
+        break;
+    }
+}
 
 void display_icon_edit(sfRenderWindow *window)
 {
     for (int i = 0; i < size_edit_menu_header; ++i) {
         sfRenderWindow_drawRectangleShape(window, edit_menu_header[i].rectangle,
             NULL);
+        if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_rectangle_shape(edit_menu_header[i].rectangle, mouse_pos)) {
+            select_tool_edit(i);
+        }
         for (int i = 0; i < size_text_edit_header; ++i) {
             sfRenderWindow_drawText(window, text_edit_header[i].text, NULL);
         }

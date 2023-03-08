@@ -44,6 +44,7 @@ typedef struct {
     sfVector2f size;
     char *path;
     void (*redirect)(void);
+    bool can_make_it;
 } icon_undo_redo_t;
 
 extern sfRectangleShape *background;
