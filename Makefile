@@ -7,14 +7,14 @@
 
 MAIN_SRC	=	src/main/main.c \
 				src/main/main_loop.c \
+				src/main/update_window_data.c \
 				src/main/manage_event.c \
 				src/main/create_all_data.c \
 				src/main/free_all_data.c
 
 UI_SRC 		=	src/user_interface/ini/ini_user_interface.c \
 				src/user_interface/ini/declaration_ui.c \
-				src/user_interface/render/display_ui.c \
-				src/user_interface/render/compute_pos_ui.c
+				src/user_interface/render/display_ui.c
 
 COLOR_SRC	=	src/color_selection/ini/ini_color_select.c \
 				src/color_selection/ini/declaration_button_color.c \

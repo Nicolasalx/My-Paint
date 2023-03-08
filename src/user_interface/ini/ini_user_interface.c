@@ -15,10 +15,6 @@ void ini_bg_user_interface(void)
         ui_sprite[i].texture =
             sfTexture_createFromFile(ui_sprite[i].path, NULL);
         sfSprite_setTexture(ui_sprite[i].sprite, ui_sprite[i].texture, sfTrue);
-//        sfSprite_setPosition(ui_sprite[i].sprite, ui_sprite[i].pos);
+        ini_anchor_sprite(ui_sprite[i].sprite, ui_sprite[i].anchor);
     }
-    sfSprite_setOrigin(ui_sprite[0].sprite, (sfVector2f) {0, 0});
-    sfSprite_setOrigin(ui_sprite[1].sprite, (sfVector2f) {0, ui_sprite[1].size.y});
-    sfSprite_setOrigin(ui_sprite[2].sprite, (sfVector2f) {0, 0});
-    sfSprite_setOrigin(ui_sprite[3].sprite, (sfVector2f) {ui_sprite[3].size.x, 0});
 }

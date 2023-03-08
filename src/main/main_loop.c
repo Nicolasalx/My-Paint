@@ -32,22 +32,18 @@ void main_loop(void)
     sfEvent event;
     sfVideoMode mode = {1920, 1080, 32};
     window = sfRenderWindow_create(mode, "my_paint", sfResize | sfClose, NULL);
-    set_render_window_icon(window, "game_data/user_interface/logo.png");
     if (window == FAIL) {
         print_fatal_error_and_exit(WINDOW_CREATION_FAIL);
     }
+    set_render_window_icon(window, "game_data/user_interface/logo.png");
+    sfView *window_view = sfView_createFromRect((sfFloatRect) {0, 0, window_size.x, window_size.y});
     sfRenderWindow_setFramerateLimit(window, FPS);
-    int index_button_color = 0;
-    bool is_button_pressed = false;
-    int stay_on_icon_header = 0;
+    int index_button_color = 0; //! <- doit disparaitre
+    bool is_button_pressed = false; //! <- doit disparaitre
+    int stay_on_icon_header = 0; //! <- doit disparaitre
     while (sfRenderWindow_isOpen(window)) {
-        mouse_pos = sfMouse_getPositionRenderWindow(window);
-        window_pos = sfRenderWindow_getPosition(window);
-        window_size = sfRenderWindow_getSize(window);
-        manage_event(window, &event, &is_button_pressed);
-        sfFloatRect visibleArea = {0, 0, window_size.x, window_size.y}; // !
-        sfView* view = sfView_createFromRect(visibleArea); // !
-        sfRenderWindow_setView(window, view); // !
+        update_window_data(window, window_view);
+        manage_event(window, &event, &is_button_pressed, window_view);
         sfRenderWindow_clear(window, (sfColor) BG_COLOR);
 
         render_layer(window);

@@ -16,7 +16,7 @@
     #define DEFAULT_WINDOW_SIZE_X 1920
     #define DEFAULT_WINDOW_SIZE_Y 1080
 
-    #define FPS 240
+    #define FPS 144
 
     #define FAIL 0
     #define SUCCESS 1
@@ -29,8 +29,9 @@ extern sfVector2f render_sheet_scale;
 extern sfVector2i mouse_pos;
 
 void main_loop(void);
+void update_window_data(sfRenderWindow *window, sfView *window_view);
 void manage_event(sfRenderWindow *window, sfEvent *event,
-    bool *is_button_pressed);
+    bool *is_button_pressed, sfView *window_view);
 void create_all_data(void);
 void free_all_data(void);
 

@@ -9,7 +9,7 @@
 #include "toolbar.h"
 
 void manage_event(sfRenderWindow *window, sfEvent *event,
-    bool *is_button_pressed)
+    bool *is_button_pressed, sfView *window_view)
 {
     while (sfRenderWindow_pollEvent(window, event)) {
         if (event->type == sfEvtClosed) {
@@ -20,6 +20,11 @@ void manage_event(sfRenderWindow *window, sfEvent *event,
         }
         if (event->type == sfEvtMouseButtonReleased) {
             *is_button_pressed = false;
+        }
+        if (event->type == sfEvtResized) {
+            window_size = sfRenderWindow_getSize(window);
+            sfView_reset(window_view, (sfFloatRect) {0, 0, window_size.x, window_size.y});
+            sfRenderWindow_setView(window, window_view);
         }
     }
 }
