@@ -97,6 +97,7 @@ typedef struct help_menu_header_t {
     sfVector2f pos;
     char *path;
     sfVector2f size;
+    void (*redirect)(void);
 } help_menu_header_t;
 
 typedef struct text_help_header_t {
@@ -171,5 +172,8 @@ void ini_view_text(void);
 void ini_button_header(void);
 void ini_text_button_header(void);
 void ini_file_menu_header(void);
+
+void description_edit_menu(void);
+void about_edit_menu(void);
 
 #endif /* !HEADER_H_ */

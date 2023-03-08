@@ -9,8 +9,8 @@
 #include "header.h"
 
 help_menu_header_t help_menu_header [] = {
-    {.color = {255, 255, 255}, .pos = {460, 70}, .size = {210, 30}},
-    {.color = {255, 255, 255}, .pos = {460, 100}, .size = {210, 30}}
+    {.color = {255, 255, 255}, .pos = {460, 70}, .size = {210, 30}, .redirect = description_edit_menu},
+    {.color = {255, 255, 255}, .pos = {460, 100}, .size = {210, 30}, .redirect = about_edit_menu}
 };
 
 const int size_help_menu_header =
