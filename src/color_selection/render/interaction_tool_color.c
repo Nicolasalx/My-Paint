@@ -26,7 +26,14 @@ void change_color_tool(sfColor color_chromatic)
     }
 }
 
-void select_color(sfRenderWindow *window)
+void select_color_icon(int i)
+{
+    if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_rectangle_shape(selection_color[i].rectangle, mouse_pos)) {
+        change_color_tool(selection_color[i].color);
+    }
+}
+
+void select_color_chromatic_wheel(sfRenderWindow *window)
 {
     if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_sprite(chromatic_wheel.sprite)) {
         sfImage* image_chromatic_wheel = sfImage_createFromFile(chromatic_wheel.path);
@@ -61,6 +68,7 @@ void display_color_selection_icon(sfRenderWindow *window, sfEvent event,
     for (int i = 0; i < size_selection_color; ++i) {
         sfRenderWindow_drawRectangleShape(window,
             selection_color[i].rectangle, NULL);
+        select_color_icon(i);
     }
     sfRenderWindow_drawSprite(window, chromatic_wheel.sprite, NULL);
     for (int i = 0; i < size_text_selection_color; ++i) {
@@ -71,5 +79,5 @@ void display_color_selection_icon(sfRenderWindow *window, sfEvent event,
             set_thickness_icon(i, index_button_color);
         }
     }
-    select_color(window);
+    select_color_chromatic_wheel(window);
 }
