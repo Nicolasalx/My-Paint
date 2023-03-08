@@ -11,7 +11,7 @@
     #define SIZE_OUTLINE_BUTTON 2
     #include "tool.h"
 
-typedef struct icon_rectangle_t {
+typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;
     sfVector2f pos;
@@ -21,7 +21,7 @@ typedef struct icon_rectangle_t {
     tool_t tool_to_select;
 } icon_rectangle_t;
 
-typedef struct icon_sprite_t {
+typedef struct {
     sfSprite *sprite;
     sfTexture *texture;
     sfVector2f pos;
@@ -29,7 +29,7 @@ typedef struct icon_sprite_t {
     char *path;
 } icon_sprite_t;
 
-typedef struct size_pen_t {
+typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;
     sfVector2f pos;
@@ -37,7 +37,7 @@ typedef struct size_pen_t {
     sfVector2f size;
 } size_pen_t;
 
-typedef struct front_toolbar_t {
+typedef struct {
     int index_button_pressed;
     int index_button_hovered;
     bool verif;

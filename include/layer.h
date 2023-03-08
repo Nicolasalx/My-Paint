@@ -9,17 +9,21 @@
     #define LAYER_H_
 
     #include "my_linkedlist.h"
+    #include "SFML/Graphics.h"
+    #include "stdbool.h"
 
     #define BACKGROUND_OUTLINE_COLOR {50, 50, 50, 255}
     #define BACKGROUND_OUTLINE_THICKNESS 1.0f
 
     #define DEFAULT_LAYER_COLOR {255, 255, 255, 255}
+
     #define MAX_LAYER_NAME_SIZE 20
+    #define DEFAULT_LAYER_NAME "layer_"
 
     #define OVERVIEW_POS {1611, 524}
     #define OVERVIEW_SCALE {0.14, 0.14}
 
-typedef struct layer_t {
+typedef struct {
     bool hidden;
     char layer_name[MAX_LAYER_NAME_SIZE];
     sfRenderTexture *render_texture;
@@ -28,12 +32,12 @@ typedef struct layer_t {
     node_t *head_undo;
 } layer_t;
 
-typedef struct undo_t {
+typedef struct {
     sfSprite *screen_shoot;
     bool is_active;
 } undo_t;
 
-typedef struct icon_undo_redo_t {
+typedef struct {
     sfSprite *sprite;
     sfTexture *texture;
     sfVector2f pos;
@@ -59,5 +63,6 @@ void ini_icon_undo_redo(void);
 void display_undo_redo(sfRenderWindow *window);
 void redo(void);
 void undo(void);
+char *create_layer_name(char *layer_name_str);
 
 #endif /* !LAYER_H_ */

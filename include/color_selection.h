@@ -22,7 +22,7 @@
 
     #define SIZE_OUTLINE_BUTTON_SEL_COLOR 2
 
-typedef struct selection_color_t {
+typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;
     sfVector2f pos;
@@ -30,7 +30,7 @@ typedef struct selection_color_t {
     sfVector2f size;
 } selection_color_t;
 
-typedef struct chromatic_wheel_t {
+typedef struct {
     sfSprite *sprite;
     sfTexture *texture;
     sfVector2f pos;
@@ -38,7 +38,7 @@ typedef struct chromatic_wheel_t {
     char *path;
 } chromatic_wheel_t;
 
-typedef struct text_color_selection_t {
+typedef struct {
     sfText *text;
     sfFont *font;
     sfVector2f pos;

@@ -18,12 +18,12 @@
 
     #define FPS 240
 
-    #define SIZE_IMAGE_X 1920
-    #define SIZE_IMAGE_Y 1080
+    #define FAIL 0
+    #define SUCCESS 1
 
 extern sfVector2i window_pos;
 extern sfVector2u window_size;
-extern sfVector2f render_sheet_resolution;
+extern sfVector2u render_sheet_res;
 extern sfVector2f render_sheet_pos;
 extern sfVector2f render_sheet_scale;
 extern sfVector2i mouse_pos;

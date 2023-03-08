@@ -16,7 +16,6 @@
 
 void create_layer(void)
 {
-    create_default_layer();
     ini_icon_rectangle();
     ini_icon_sprite();
     ini_size_pen();

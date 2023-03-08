@@ -21,5 +21,6 @@ sfBool is_mouse_over_rectangle_shape(sfRectangleShape *rectangle_shape,
 sfBool is_mouse_over_sprite(sfSprite *sprite);
 button_state_t get_button_state(sfRectangleShape *button);
 sfVector2f get_mouse_pos_on_sheet(void);
-
+sfTexture *resize_texture(sfTexture *texture, sfVector2u new_size);
+void set_render_window_icon(sfRenderWindow* window, char *icon_path);
 #endif /* !MY_GRAPHICAL */

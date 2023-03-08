@@ -13,13 +13,14 @@ MAIN_SRC	=	src/main/main.c \
 
 UI_SRC 		=	src/user_interface/ini/ini_user_interface.c \
 				src/user_interface/ini/declaration_ui.c \
-				src/user_interface/render/display_ui.c
+				src/user_interface/render/display_ui.c \
+				src/user_interface/render/compute_pos_ui.c
 
 COLOR_SRC	=	src/color_selection/ini/ini_color_select.c \
 				src/color_selection/ini/declaration_button_color.c \
 				src/color_selection/render/interaction_tool_color.c
 
-TOOL_BAR_SRC = 	src/toolbar/ini/declaration_toolbar.c \
+TOOL_BAR_SRC= 	src/toolbar/ini/declaration_toolbar.c \
 				src/toolbar/ini/ini_toolbar.c \
 				src/toolbar/ini/declaration_icon.c \
 				src/toolbar/render/size_pen.c \
@@ -44,7 +45,7 @@ HEADER_SRC	=	src/header/ini/declaration/declaration_header.c \
 				src/header/ini/initialisation/ini_button_layer.c \
 				src/header/ini/initialisation/ini_button_help.c
 
-UI_LAYER_SRC =	src/ui_layer/declaration_layer.c \
+UI_LAYER_SRC=	src/ui_layer/declaration_layer.c \
 				src/ui_layer/ini_layer.c
 
 LAYER_SRC	=	src/layer/ini/declaration_layer.c \
@@ -53,9 +54,10 @@ LAYER_SRC	=	src/layer/ini/declaration_layer.c \
 				src/layer/render/render_layer.c \
 				src/layer/ini/create_screen_shot.c \
 				src/layer/render/render_background.c \
-				src/layer/render/render_overview.c
+				src/layer/render/render_overview.c \
+				src/layer/ini/create_layer_name.c
 
-UI_LAYER_SRC =  src/ui_layer/ini/declaration_layer.c \
+UI_LAYER_SRC=	src/ui_layer/ini/declaration_layer.c \
 				src/ui_layer/ini/layer_box.c \
 				src/ui_layer/ini/eye_sprite.c
 
@@ -72,9 +74,13 @@ TOOL_SRC	=	src/tool/create_all_tool.c \
 				src/tool/feather_pen/render_feather_pen.c \
 				src/tool/hand/render_hand.c
 
-UNDO_REDO_SRC =	src/undo_redo/ini/declaration_icon.c \
+UNDO_REDO_SRC=	src/undo_redo/ini/declaration_icon.c \
 				src/undo_redo/ini/ini_undo_redo.c \
 				src/undo_redo/render/display_icon.c
+
+IMAGE_SRC	=	src/image/import_image.c \
+				src/image/export_image.c \
+				src/image/load_image.c
 
 SRC			=	$(MAIN_SRC) \
 				$(UI_SRC) \
@@ -84,7 +90,8 @@ SRC			=	$(MAIN_SRC) \
 				$(UI_LAYER_SRC) \
 				$(TOOL_SRC) \
 				$(TOOL_BAR_SRC) \
-				$(UNDO_REDO_SRC)
+				$(UNDO_REDO_SRC) \
+				$(IMAGE_SRC)
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include \
 				-lcsfml-system -lcsfml-graphics \

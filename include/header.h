@@ -10,7 +10,7 @@
     #define SIZE_OUTLINE_BUTTON 2
     #define COLOR_OVERHEAD_HEADER (sfColor) {0, 204, 204, 255}
 
-typedef struct button_header_t {
+typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;
     sfVector2f pos;
@@ -18,7 +18,7 @@ typedef struct button_header_t {
     sfVector2f size;
 } button_header_t;
 
-typedef struct text_button_header_t {
+typedef struct {
     sfText *text;
     sfFont *font;
     sfVector2f pos;
@@ -26,7 +26,7 @@ typedef struct text_button_header_t {
     char *font_path;
 } text_button_header_t;
 
-typedef struct file_menu_header_t {
+typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;
     sfVector2f pos;
@@ -34,7 +34,7 @@ typedef struct file_menu_header_t {
     sfVector2f size;
 } file_menu_header_t;
 
-typedef struct text_file_header_t {
+typedef struct {
     sfText *text;
     sfFont *font;
     sfVector2f pos;
@@ -43,7 +43,7 @@ typedef struct text_file_header_t {
 } text_file_header_t;
 
 
-typedef struct edit_menu_header_t {
+typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;
     sfVector2f pos;
@@ -51,7 +51,7 @@ typedef struct edit_menu_header_t {
     sfVector2f size;
 } edit_menu_header_t;
 
-typedef struct text_edit_header_t {
+typedef struct {
     sfText *text;
     sfFont *font;
     sfVector2f pos;
@@ -59,7 +59,7 @@ typedef struct text_edit_header_t {
     char *font_path;
 } text_edit_header_t;
 
-typedef struct view_menu_header_t {
+typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;
     sfVector2f pos;
@@ -67,7 +67,7 @@ typedef struct view_menu_header_t {
     sfVector2f size;
 } view_menu_header_t;
 
-typedef struct text_view_header_t {
+typedef struct {
     sfText *text;
     sfFont *font;
     sfVector2f pos;
@@ -75,7 +75,7 @@ typedef struct text_view_header_t {
     char *font_path;
 } text_view_header_t;
 
-typedef struct layer_menu_header_t {
+typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;
     sfVector2f pos;
@@ -83,7 +83,7 @@ typedef struct layer_menu_header_t {
     sfVector2f size;
 } layer_menu_header_t;
 
-typedef struct text_layer_header_t {
+typedef struct {
     sfText *text;
     sfFont *font;
     sfVector2f pos;
@@ -91,7 +91,7 @@ typedef struct text_layer_header_t {
     char *font_path;
 } text_layer_header_t;
 
-typedef struct help_menu_header_t {
+typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;
     sfVector2f pos;
@@ -99,7 +99,7 @@ typedef struct help_menu_header_t {
     sfVector2f size;
 } help_menu_header_t;
 
-typedef struct text_help_header_t {
+typedef struct {
     sfText *text;
     sfFont *font;
     sfVector2f pos;

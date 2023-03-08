@@ -14,7 +14,7 @@ void create_new_layer(char *layer_name)
 {
     layer_t *new_layer = my_malloc(sizeof(layer_t));
     new_layer->render_texture =
-        sfRenderTexture_create(SIZE_IMAGE_X, SIZE_IMAGE_Y, sfFalse);
+        sfRenderTexture_create(render_sheet_res.x, render_sheet_res.y, sfFalse);
 
     sfRenderTexture_setSmooth(new_layer->render_texture, sfTrue);
 

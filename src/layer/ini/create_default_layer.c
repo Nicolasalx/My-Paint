@@ -10,12 +10,14 @@
 
 void create_default_layer(void)
 {
+    char new_layer_name[MAX_LAYER_NAME_SIZE];
+
     background = sfRectangleShape_create();
     sfRectangleShape_setFillColor(background, sfTransparent);
     sfRectangleShape_setOutlineColor(background, (sfColor) BACKGROUND_OUTLINE_COLOR);
     sfRectangleShape_setOutlineThickness(background, BACKGROUND_OUTLINE_THICKNESS);
 
-    create_new_layer("layer_1");
+    create_new_layer(create_layer_name(new_layer_name));
 
     sfRenderTexture_clear(GET_DATA(head_layer, layer_t)->render_texture, (sfColor) DEFAULT_LAYER_COLOR);
 

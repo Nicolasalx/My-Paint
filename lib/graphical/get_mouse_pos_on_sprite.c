@@ -14,8 +14,8 @@ sfVector2f get_mouse_pos_on_sheet(void)
         (mouse_pos.y - render_sheet_pos.y) / render_sheet_scale.y
     };
     sfVector2f render_texture_size = {
-        (float) render_sheet_resolution.x / render_sheet_scale.x,
-        (float) render_sheet_resolution.y / render_sheet_scale.y
+        (float) render_sheet_res.x / render_sheet_scale.x,
+        (float) render_sheet_res.y / render_sheet_scale.y
     };
     sfVector2f result_pos = {
         render_texture_pos.x + (1.0f / render_texture_size.x),

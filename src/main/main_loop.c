@@ -21,7 +21,7 @@
 
 sfVector2i window_pos = {0, 0};
 sfVector2u window_size = {1920, 1080};
-sfVector2f render_sheet_resolution = {1920, 1080};
+sfVector2u render_sheet_res = {1920, 1080};
 sfVector2f render_sheet_pos = {85, 140};
 sfVector2f render_sheet_scale = {0.75, 0.75};
 sfVector2i mouse_pos = {0, 0};
@@ -32,7 +32,8 @@ void main_loop(void)
     sfEvent event;
     sfVideoMode mode = {1920, 1080, 32};
     window = sfRenderWindow_create(mode, "my_paint", sfResize | sfClose, NULL);
-    if (window == 0) {
+    set_render_window_icon(window, "game_data/user_interface/logo.png");
+    if (window == FAIL) {
         print_fatal_error_and_exit(WINDOW_CREATION_FAIL);
     }
     sfRenderWindow_setFramerateLimit(window, FPS);
@@ -44,12 +45,15 @@ void main_loop(void)
         window_pos = sfRenderWindow_getPosition(window);
         window_size = sfRenderWindow_getSize(window);
         manage_event(window, &event, &is_button_pressed);
+        sfFloatRect visibleArea = {0, 0, window_size.x, window_size.y}; // !
+        sfView* view = sfView_createFromRect(visibleArea); // !
+        sfRenderWindow_setView(window, view); // !
         sfRenderWindow_clear(window, (sfColor) BG_COLOR);
 
         render_layer(window);
         render_all_tool();
         layer_display(window, &event);
-        
+
         display_ui(window);
 
         display_color_selection_icon(window, event, &index_button_color);
@@ -57,7 +61,7 @@ void main_loop(void)
         display_toolbar(window, event, is_button_pressed);
         render_overview(window);
         display_undo_redo(window);
-        
+
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);

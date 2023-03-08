@@ -8,7 +8,7 @@
 #ifndef UI_LAYER_H_
     #define UI_LAYER_H_
 
-typedef struct box_icon_layer_t {
+typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;
     sfVector2f pos;
@@ -16,7 +16,7 @@ typedef struct box_icon_layer_t {
     sfVector2f size;
 } box_icon_layer_t;
 
-typedef struct text_icon_layer_t {
+typedef struct {
     sfText *text;
     sfFont *font;
     sfVector2f pos;
@@ -24,7 +24,7 @@ typedef struct text_icon_layer_t {
     char *font_path;
 } text_icon_layer_t;
 
-typedef struct icon_eye_layer_t {
+typedef struct {
     sfSprite *sprite;
     sfTexture *texture;
     sfVector2f pos;
@@ -32,7 +32,7 @@ typedef struct icon_eye_layer_t {
     char *path;
 } icon_eye_layer_t;
 
-typedef struct button_eye_layer_t {
+typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;
     sfVector2f pos;

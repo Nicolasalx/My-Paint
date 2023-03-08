@@ -12,7 +12,7 @@
 
     #define GET_ERROR_VALUE 0
 
-    #define print_error(...) my_put_x_str((char *[]) {__VA_ARGS__, NULL})
+    #define print_error(...) my_put_x_error((char *[]) {__VA_ARGS__, NULL})
 
 typedef enum error_code_enum {
     NO_ERROR,

@@ -32,18 +32,18 @@ typedef enum {
     MOUSE
 } tool_t;
 
-typedef struct pencil_t {
+typedef struct {
     sfCircleShape *circle;
     float radius;
     sfColor color;
 } pencil_t;
 
-typedef struct eraser_t {
+typedef struct {
     sfCircleShape *circle;
     float radius;
 } eraser_t;
 
-typedef struct brush_t {
+typedef struct {
     sfSprite *sprite;
     sfTexture *texture;
     sfVector2u texture_size;
@@ -51,7 +51,7 @@ typedef struct brush_t {
     sfColor color;
 } brush_t;
 
-typedef struct feather_pen_t {
+typedef struct {
     sfSprite *sprite;
     sfTexture *texture;
     sfVector2u texture_size;

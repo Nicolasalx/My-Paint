@@ -9,7 +9,8 @@ SRCERROR	=	error/error_manager.c \
 				error/error_declaration.c \
 				error/my_puterror.c \
 				error/my_exit.c \
-				error/print_fatal_error_and_exit.c
+				error/print_fatal_error_and_exit.c \
+				error/my_put_x_error.c
 
 SRCBITSHIFT	=	bit_shift/get_bit_value.c \
 				bit_shift/set_all_bit_to_zero.c \
@@ -32,7 +33,9 @@ SRCLINKEDLIST=	linked_list/create_node.c \
 
 SRCGRAPHICAL=	graphical/mouse_is_over.c \
 				graphical/get_button_state.c \
-				graphical/get_mouse_pos_on_sprite.c
+				graphical/get_mouse_pos_on_sprite.c \
+				graphical/resize_texture.c \
+				graphical/set_render_window_icon.c
 
 SRCMALLOC	=	malloc/my_malloc.c \
 				malloc/malloc_board.c \

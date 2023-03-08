@@ -9,12 +9,14 @@
 #include "user_interface.h"
 
 ui_sprite_t ui_sprite [] = {
-    {.path = "./game_data/user_interface/left_bar.png", .pos = {0, 0}},
+    {.path = "./game_data/user_interface/left_bar.png",
+        .pos = {0, 0}, .size = {51, 1080}, .anchor = TOP_LEFT},
     {.path = "./game_data/user_interface/bottom_bar.png",
-        .pos = {0, DEFAULT_WINDOW_SIZE_Y - 81}},
-    {.path = "./game_data/user_interface/top_bar.png", .pos = {0, 0}},
+        .pos = {0, 0}, .size = {1920, 31}, .anchor = BOTTOM_LEFT},
+    {.path = "./game_data/user_interface/top_bar.png",
+        .pos = {0, 0}, .size = {1920, 80}, .anchor = TOP_LEFT},
     {.path = "./game_data/user_interface/right_bar.png",
-        .pos = {DEFAULT_WINDOW_SIZE_X - 350, 0}}
+        .pos = {0, 0}, .size = {350, 1080}, .anchor = TOP_RIGHT}
 };
 
 const int size_ui_sprite = sizeof(ui_sprite) / sizeof(ui_sprite_t);
