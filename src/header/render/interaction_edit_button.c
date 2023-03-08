@@ -8,6 +8,7 @@
 #include "my.h"
 #include "header.h"
 #include "my_graphical.h"
+#include <stdio.h>
 
 void display_icon_edit(sfRenderWindow *window)
 {
