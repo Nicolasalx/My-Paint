@@ -8,10 +8,11 @@
 #include "my.h"
 #include "toolbar.h"
 
-void manage_event(sfRenderWindow *window, sfEvent *event,
-    sfView *window_view)
+void manage_event(sfRenderWindow *window, sfEvent *event, sfView *window_view)
 {
     mouse_button_maintain = sfMouse_isButtonPressed(sfMouseLeft);
+    mouse_button_pressed = false;
+    mouse_button_released = false;
     while (sfRenderWindow_pollEvent(window, event)) {
         if (event->type == sfEvtClosed) {
             sfRenderWindow_close(window);
