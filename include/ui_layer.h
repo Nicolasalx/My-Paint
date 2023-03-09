@@ -8,6 +8,8 @@
 #ifndef UI_LAYER_H_
     #define UI_LAYER_H_
 
+    #include "SFML/Graphics.h"
+
 typedef struct {
     sfRectangleShape *rectangle;
     sfColor color;

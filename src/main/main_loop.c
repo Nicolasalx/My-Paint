@@ -38,9 +38,9 @@ void main_loop(void)
     set_render_window_icon(window, "game_data/user_interface/logo.png");
     sfView *window_view = sfView_createFromRect((sfFloatRect) {0, 0, window_size.x, window_size.y});
     sfRenderWindow_setFramerateLimit(window, FPS);
-    int index_button_color = 0; //! <- doit disparaitre
-    bool is_button_pressed = false; //! <- doit disparaitre
-    int stay_on_icon_header = 0; //! <- doit disparaitre
+    int index_button_color = 0;
+    bool is_button_pressed = false;
+    int stay_on_icon_header = 0;
     while (sfRenderWindow_isOpen(window)) {
         update_window_data(window, window_view);
         manage_event(window, &event, &is_button_pressed, window_view);

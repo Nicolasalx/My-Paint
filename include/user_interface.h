@@ -16,6 +16,7 @@ typedef struct {
     sfVector2f pos;
     char *path;
     anchor_t anchor;
+    bool expand;
 } ui_sprite_t;
 
 extern ui_sprite_t ui_sprite[];
