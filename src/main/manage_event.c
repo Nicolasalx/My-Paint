@@ -9,17 +9,18 @@
 #include "toolbar.h"
 
 void manage_event(sfRenderWindow *window, sfEvent *event,
-    bool *is_button_pressed, sfView *window_view)
+    sfView *window_view)
 {
+    mouse_button_maintain = sfMouse_isButtonPressed(sfMouseLeft);
     while (sfRenderWindow_pollEvent(window, event)) {
         if (event->type == sfEvtClosed) {
             sfRenderWindow_close(window);
         }
         if (event->type == sfEvtMouseButtonPressed) {
-            *is_button_pressed = true;
+            mouse_button_pressed = true;
         }
         if (event->type == sfEvtMouseButtonReleased) {
-            *is_button_pressed = false;
+            mouse_button_released = true;
         }
         if (event->type == sfEvtResized) {
             window_size = sfRenderWindow_getSize(window);

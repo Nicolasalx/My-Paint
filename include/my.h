@@ -27,11 +27,13 @@ extern sfVector2u render_sheet_res;
 extern sfVector2f render_sheet_pos;
 extern sfVector2f render_sheet_scale;
 extern sfVector2i mouse_pos;
+extern sfBool mouse_button_pressed;
+extern sfBool mouse_button_maintain;
+extern sfBool mouse_button_released;
 
 void main_loop(void);
 void update_window_data(sfRenderWindow *window, sfView *window_view);
-void manage_event(sfRenderWindow *window, sfEvent *event,
-    bool *is_button_pressed, sfView *window_view);
+void manage_event(sfRenderWindow *window, sfEvent *event, sfView *window_view);
 void create_all_data(void);
 void free_all_data(void);
 

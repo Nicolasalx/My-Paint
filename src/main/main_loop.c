@@ -25,6 +25,9 @@ sfVector2u render_sheet_res = {1920, 1080};
 sfVector2f render_sheet_pos = {85, 140};
 sfVector2f render_sheet_scale = {0.75, 0.75};
 sfVector2i mouse_pos = {0, 0};
+sfBool mouse_button_pressed = false;
+sfBool mouse_button_maintain = false;
+sfBool mouse_button_released = false;
 
 void main_loop(void)
 {
@@ -39,11 +42,10 @@ void main_loop(void)
     sfView *window_view = sfView_createFromRect((sfFloatRect) {0, 0, window_size.x, window_size.y});
     sfRenderWindow_setFramerateLimit(window, FPS);
     int index_button_color = 0;
-    bool is_button_pressed = false;
     int stay_on_icon_header = 0;
     while (sfRenderWindow_isOpen(window)) {
         update_window_data(window, window_view);
-        manage_event(window, &event, &is_button_pressed, window_view);
+        manage_event(window, &event, window_view);
         sfRenderWindow_clear(window, (sfColor) BG_COLOR);
 
         render_layer(window);
