@@ -30,6 +30,7 @@ typedef enum {
 
 sfBool is_mouse_over_rectangle_shape(sfRectangleShape *rectangle_shape);
 sfBool is_mouse_over_sprite(sfSprite *sprite);
+sfBool is_mouse_over_text(sfText* text);
 button_state_t get_button_state(sfRectangleShape *button);
 sfVector2f get_mouse_pos_on_sheet(void);
 sfTexture *resize_texture(sfTexture *texture, sfVector2u new_size);

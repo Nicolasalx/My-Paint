@@ -22,3 +22,10 @@ sfBool is_mouse_over_sprite(sfSprite *sprite)
     sfSprite_getGlobalBounds(sprite);
     return sfFloatRect_contains(&sprite_bound, mouse_pos.x, mouse_pos.y);
 }
+
+sfBool is_mouse_over_text(sfText* text)
+{
+    sfFloatRect text_bound =
+    sfText_getGlobalBounds(text);
+    return sfFloatRect_contains(&text_bound, mouse_pos.x, mouse_pos.y);
+}
