@@ -156,12 +156,12 @@ extern text_file_header_t text_file_header[];
 extern const int size_text_file_header;
 
 void ini_file_menu_header(void);
-void gestion_header_file_menu(sfRenderWindow *window, sfVector2i mouse_pos);
-void gestion_header_edit_menu(sfRenderWindow *window, sfVector2i mouse_pos);
-void gestion_header_view_menu(sfRenderWindow *window, sfVector2i mouse_pos);
-void gestion_header_layer_menu(sfRenderWindow *window, sfVector2i mouse_pos);
-void gestion_header_help_menu(sfRenderWindow *window, sfVector2i mouse_pos);
-void gestion_header_menu(sfVector2i mouse_pos, int *stay_on_icon_header);
+void gestion_header_file_menu(sfRenderWindow *window);
+void gestion_header_edit_menu(sfRenderWindow *window);
+void gestion_header_view_menu(sfRenderWindow *window);
+void gestion_header_layer_menu(sfRenderWindow *window);
+void gestion_header_help_menu(sfRenderWindow *window);
+void gestion_header_menu(int *stay_on_icon_header);
 void management_button_header(sfRenderWindow *window,
     int *stay_on_icon_header);
 void ini_help_text(void);

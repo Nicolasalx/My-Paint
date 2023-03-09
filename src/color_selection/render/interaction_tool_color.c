@@ -28,7 +28,7 @@ void change_color_tool(sfColor color_chromatic)
 
 void select_color_icon(int i)
 {
-    if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_rectangle_shape(selection_color[i].rectangle, mouse_pos)) {
+    if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_rectangle_shape(selection_color[i].rectangle)) {
         change_color_tool(selection_color[i].color);
     }
 }

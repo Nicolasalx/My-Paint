@@ -125,7 +125,8 @@ void about_edit_menu(void)
 
 void interaction_menu_component(int i)
 {
-    if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_rectangle_shape(help_menu_header[i].rectangle, mouse_pos)) {
+    if (sfMouse_isButtonPressed(sfMouseLeft) &&
+        is_mouse_over_rectangle_shape(help_menu_header[i].rectangle)) {
         help_menu_header[i].redirect();
     }
 }
@@ -144,22 +145,19 @@ void display_icon_help(sfRenderWindow *window)
 
 void close_menu_help(int i, int *verif_close_menu)
 {
-    if (is_mouse_over_rectangle_shape
-        (help_menu_header[i].rectangle, mouse_pos) == true)
+    if (is_mouse_over_rectangle_shape(help_menu_header[i].rectangle) == true)
         ++ *verif_close_menu;
-    if (is_mouse_over_rectangle_shape
-        (button_header[4].rectangle, mouse_pos) == true) {
+    if (is_mouse_over_rectangle_shape(button_header[4].rectangle) == true) {
         ++ *verif_close_menu;
     }
 }
 
-void gestion_header_help_menu(sfRenderWindow *window, sfVector2i mouse_pos)
+void gestion_header_help_menu(sfRenderWindow *window)
 {
     static bool verif_open_file_menu = false;
     int verif_close_menu = 0;
     if (mouse_button_pressed == true) {
-        if (is_mouse_over_rectangle_shape
-            (button_header[4].rectangle, mouse_pos)) {
+        if (is_mouse_over_rectangle_shape(button_header[4].rectangle)) {
             verif_open_file_menu = true;
         }
     }

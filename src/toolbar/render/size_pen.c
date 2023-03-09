@@ -8,6 +8,7 @@
 #include "my.h"
 #include "toolbar.h"
 #include "stdio.h"
+#include "my_graphical.h"
 
 void set_size_tool_selected(void)
 {
@@ -52,20 +53,14 @@ void change_size_tool(int size_tool)
 
 void check_pos_mouse(void)
 {
-    if (mouse_pos.x >= icon_rectangle[size_icon_rectangle].pos.x &&
-        mouse_pos.x <= icon_rectangle[size_icon_rectangle].pos.x +
-            icon_rectangle[size_icon_rectangle].size.x) {
-        if (mouse_pos.y <= icon_rectangle[size_icon_rectangle].pos.y &&
-            mouse_pos.y >= icon_rectangle[size_icon_rectangle].pos.y -
-                icon_rectangle[size_icon_rectangle - 1].size.y) {
-            int size_difference = size_pen.pos.y - mouse_pos.y;
-            sfRectangleShape_setSize(size_pen.rectangle,
-                (sfVector2f) {40, -size_difference});
-            if (size_difference == 190) {
-                change_size_tool(100);
-            } else {
-                change_size_tool((size_difference * 100) / 190);
-            }
+    if (is_mouse_over_rectangle_shape(icon_rectangle[size_icon_rectangle].rectangle) == true) {
+        int size_difference = size_pen.pos.y - mouse_pos.y;
+        sfRectangleShape_setSize(size_pen.rectangle,
+            (sfVector2f) {40, -size_difference});
+        if (size_difference == 190) {
+            change_size_tool(100);
+        } else {
+            change_size_tool((size_difference * 100) / 190);
         }
     }
 }

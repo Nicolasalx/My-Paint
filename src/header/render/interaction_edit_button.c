@@ -31,7 +31,7 @@ void display_icon_edit(sfRenderWindow *window)
     for (int i = 0; i < size_edit_menu_header; ++i) {
         sfRenderWindow_drawRectangleShape(window, edit_menu_header[i].rectangle,
             NULL);
-        if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_rectangle_shape(edit_menu_header[i].rectangle, mouse_pos)) {
+        if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_rectangle_shape(edit_menu_header[i].rectangle)) {
             select_tool_edit(i);
         }
         for (int i = 0; i < size_text_edit_header; ++i) {
@@ -43,21 +43,21 @@ void display_icon_edit(sfRenderWindow *window)
 void close_menu_edit(int *verif_close_menu, int i)
 {
     if (is_mouse_over_rectangle_shape
-        (edit_menu_header[i].rectangle, mouse_pos) == true)
+        (edit_menu_header[i].rectangle) == true)
         ++ *verif_close_menu;
     if (is_mouse_over_rectangle_shape
-        (button_header[1].rectangle, mouse_pos) == true) {
+        (button_header[1].rectangle) == true) {
         ++ *verif_close_menu;
     }
 }
 
-void gestion_header_edit_menu(sfRenderWindow *window, sfVector2i mouse_pos)
+void gestion_header_edit_menu(sfRenderWindow *window)
 {
     static bool verif_open_file_menu = false;
     int verif_close_menu = 0;
     if (mouse_button_pressed == true) {
         if (is_mouse_over_rectangle_shape
-            (button_header[1].rectangle, mouse_pos)) {
+            (button_header[1].rectangle)) {
                 verif_open_file_menu = true;
         }
     }

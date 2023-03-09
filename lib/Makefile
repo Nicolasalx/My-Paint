@@ -31,7 +31,7 @@ SRCLINKEDLIST=	linked_list/create_node.c \
 				linked_list/my_listlen.c \
 				linked_list/insert_node.c
 
-SRCGRAPHICAL=	graphical/mouse_is_over.c \
+SRCGRAPHICAL=	graphical/is_mouse_over.c \
 				graphical/get_button_state.c \
 				graphical/get_mouse_pos_on_sprite.c \
 				graphical/resize_texture.c \

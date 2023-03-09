@@ -22,23 +22,20 @@ void display_icon_view(sfRenderWindow *window)
 
 void close_menu_view(int i, int *verif_close_menu)
 {
-    if (is_mouse_over_rectangle_shape
-        (view_menu_header[i].rectangle, mouse_pos) == true)
+    if (is_mouse_over_rectangle_shape(view_menu_header[i].rectangle) == true)
         ++ *verif_close_menu;
-    if (is_mouse_over_rectangle_shape
-        (button_header[2].rectangle, mouse_pos) == true) {
+    if (is_mouse_over_rectangle_shape(button_header[2].rectangle) == true) {
         ++ *verif_close_menu;
     }
 }
 
-void gestion_header_view_menu(sfRenderWindow *window, sfVector2i mouse_pos)
+void gestion_header_view_menu(sfRenderWindow *window)
 {
     static bool verif_open_file_menu = false;
     int verif_close_menu = 0;
     if (mouse_button_pressed == true) {
-        if (is_mouse_over_rectangle_shape
-            (button_header[2].rectangle, mouse_pos)) {
-                verif_open_file_menu = true;
+        if (is_mouse_over_rectangle_shape(button_header[2].rectangle)) {
+            verif_open_file_menu = true;
         }
     }
     if (verif_open_file_menu == true) {
