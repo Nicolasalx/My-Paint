@@ -153,12 +153,11 @@ void close_menu_help(int i, int *verif_close_menu)
     }
 }
 
-void gestion_header_help_menu(sfRenderWindow *window, sfVector2i mouse_pos,
-    bool is_button_pressed)
+void gestion_header_help_menu(sfRenderWindow *window, sfVector2i mouse_pos)
 {
     static bool verif_open_file_menu = false;
     int verif_close_menu = 0;
-    if (is_button_pressed == true) {
+    if (mouse_button_pressed == true) {
         if (is_mouse_over_rectangle_shape
             (button_header[4].rectangle, mouse_pos)) {
             verif_open_file_menu = true;
@@ -172,7 +171,7 @@ void gestion_header_help_menu(sfRenderWindow *window, sfVector2i mouse_pos,
             close_menu_help(i, &verif_close_menu);
         }
     }
-    if (verif_close_menu == 0 && is_button_pressed == true) {
+    if (verif_close_menu == 0 && mouse_button_pressed == true) {
         verif_open_file_menu = false;
     }
 }
