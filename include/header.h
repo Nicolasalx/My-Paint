@@ -34,6 +34,7 @@ typedef struct {
     sfVector2f pos;
     char *path;
     sfVector2f size;
+    void (*redirect)(void);
 } file_menu_header_t;
 
 typedef struct {
@@ -44,6 +45,11 @@ typedef struct {
     char *font_path;
 } text_file_header_t;
 
+typedef struct {
+    sfText *text;
+    char *content_text;
+    sfVector2f pos_text;
+} file_name_t;
 
 typedef struct {
     sfRectangleShape *rectangle;
@@ -117,6 +123,7 @@ extern const int size_help_menu_header;
 extern text_help_header_t text_help_header[];
 extern const int size_text_help_header;
 
+extern file_name_t *file_name;
 
 extern edit_menu_header_t edit_menu_header[];
 extern const int size_edit_menu_header;
@@ -149,19 +156,13 @@ extern text_file_header_t text_file_header[];
 extern const int size_text_file_header;
 
 void ini_file_menu_header(void);
-void gestion_header_file_menu(sfRenderWindow *window,
-    sfVector2i mouse_pos, bool is_button_pressed);
-void gestion_header_edit_menu(sfRenderWindow *window,
-    sfVector2i mouse_pos, bool is_button_pressed);
-void gestion_header_view_menu(sfRenderWindow *window,
-    sfVector2i mouse_pos, bool is_button_pressed);
-void gestion_header_layer_menu(sfRenderWindow *window,
-    sfVector2i mouse_pos, bool is_button_pressed);
-void gestion_header_help_menu(sfRenderWindow *window,
-    sfVector2i mouse_pos, bool is_button_pressed);
-void gestion_header_menu(sfVector2i mouse_pos, bool is_button_pressed,
-    int *stay_on_icon_header);
-void management_button_header(sfRenderWindow *window, bool is_button_pressed,
+void gestion_header_file_menu(sfRenderWindow *window, sfVector2i mouse_pos);
+void gestion_header_edit_menu(sfRenderWindow *window, sfVector2i mouse_pos);
+void gestion_header_view_menu(sfRenderWindow *window, sfVector2i mouse_pos);
+void gestion_header_layer_menu(sfRenderWindow *window, sfVector2i mouse_pos);
+void gestion_header_help_menu(sfRenderWindow *window, sfVector2i mouse_pos);
+void gestion_header_menu(sfVector2i mouse_pos, int *stay_on_icon_header);
+void management_button_header(sfRenderWindow *window,
     int *stay_on_icon_header);
 void ini_help_text(void);
 void ini_edit_menu_header_rectangle_icon(void);
@@ -178,5 +179,12 @@ void ini_file_menu_header(void);
 
 void description_edit_menu(void);
 void about_edit_menu(void);
+
+void new_file(void);
+void open_file(void);
+void save_img_file(void);
+void exit_file(void);
+
+void import_from_files(void);
 
 #endif /* !HEADER_H_ */

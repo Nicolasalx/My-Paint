@@ -8,12 +8,36 @@
 #include "my.h"
 #include "header.h"
 #include "my_graphical.h"
+#include <stdio.h>
+
+void new_file(void)
+{
+    return;
+}
+
+void open_file(void)
+{
+    return;
+}
+
+void save_img_file(void)
+{
+    return;
+}
+
+void exit_file(void)
+{
+    return;
+}
 
 void display_icon_file(sfRenderWindow *window)
 {
     for (int i = 0; i < size_file_menu_header; ++i) {
         sfRenderWindow_drawRectangleShape(window, file_menu_header[i].rectangle,
             NULL);
+        if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_rectangle_shape(file_menu_header[i].rectangle, mouse_pos)) {
+            file_menu_header[i].redirect();
+        }
         for (int i = 0; i < size_text_file_header; ++i) {
             sfRenderWindow_drawText(window, text_file_header[i].text, NULL);
         }

@@ -43,7 +43,8 @@ HEADER_SRC	=	src/header/ini/declaration/declaration_header.c \
 				src/header/ini/initialisation/ini_button_edit.c \
 				src/header/ini/initialisation/ini_button_view.c \
 				src/header/ini/initialisation/ini_button_layer.c \
-				src/header/ini/initialisation/ini_button_help.c
+				src/header/ini/initialisation/ini_button_help.c \
+				src/header/render/import_from_file.c
 
 UI_LAYER_SRC=	src/ui_layer/declaration_layer.c \
 				src/ui_layer/ini_layer.c

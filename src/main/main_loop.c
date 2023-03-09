@@ -55,8 +55,8 @@ void main_loop(void)
         display_ui(window);
 
         display_color_selection_icon(window, event, &index_button_color);
-        management_button_header(window, is_button_pressed, &stay_on_icon_header);
-        display_toolbar(window, event, is_button_pressed);
+        management_button_header(window, &stay_on_icon_header);
+        display_toolbar(window, event);
         render_overview(window);
         display_undo_redo(window);
 

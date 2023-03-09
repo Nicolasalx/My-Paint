@@ -8,6 +8,7 @@
 #include "my.h"
 #include "layer.h"
 #include "my_graphical.h"
+#include "header.h"
 
 void import_image(char *image_path)
 {

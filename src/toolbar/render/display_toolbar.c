@@ -47,8 +47,7 @@ void interaction_front_toolbar(void)
     }
 }
 
-void display_toolbar(sfRenderWindow *window, sfEvent event,
-    bool is_button_pressed)
+void display_toolbar(sfRenderWindow *window, sfEvent event)
 {
     for (int i = 0; i < size_icon_rectangle; ++i) {
         sfRenderWindow_drawRectangleShape(window, icon_rectangle[i].rectangle,
@@ -59,5 +58,5 @@ void display_toolbar(sfRenderWindow *window, sfEvent event,
     }
     interaction_front_toolbar();
 
-    set_size_pen(window, event, is_button_pressed);
+    set_size_pen(window, event);
 }

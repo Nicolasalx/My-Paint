@@ -70,10 +70,9 @@ void check_pos_mouse(void)
     }
 }
 
-void set_size_pen(sfRenderWindow *window, sfEvent event,
-    bool is_button_pressed)
+void set_size_pen(sfRenderWindow *window, sfEvent event)
 {
-    if (is_button_pressed == true || (is_button_pressed == true &&
+    if (mouse_button_pressed == true || (mouse_button_maintain == true &&
         event.type == sfEvtMouseMoved)) {
         check_pos_mouse();
     }
