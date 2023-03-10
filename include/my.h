@@ -13,6 +13,7 @@
     #include <SFML/Graphics.h>
 
     #define BG_COLOR {128, 128, 128, 255}
+    #define DEFAULT_IMAGE_PADDING 20.0f
 
     #define FPS 144
 
