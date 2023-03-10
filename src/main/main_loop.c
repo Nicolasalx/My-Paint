@@ -28,6 +28,7 @@ sfVector2i mouse_pos = {0, 0};
 sfBool mouse_button_pressed = false;
 sfBool mouse_button_maintain = false;
 sfBool mouse_button_released = false;
+sfRectangleShape *edition_zone;
 
 void main_loop(void)
 {
@@ -43,9 +44,13 @@ void main_loop(void)
     sfRenderWindow_setFramerateLimit(window, FPS);
     int index_button_color = 0;
     int stay_on_icon_header = 0;
+    edition_zone = sfRectangleShape_create();
+    sfRectangleShape_setFillColor(edition_zone, (sfColor) {255, 0, 0, 255});
+    sfRectangleShape_setPosition(edition_zone, (sfVector2f) {51, 80});
     while (sfRenderWindow_isOpen(window)) {
         update_window_data(window, window_view);
         manage_event(window, &event, window_view);
+        sfRectangleShape_setSize(edition_zone, (sfVector2f) {window_size.x - (350 + 51), window_size.y - (31 + 80)});
         sfRenderWindow_clear(window, (sfColor) BG_COLOR);
 
         render_layer(window);
