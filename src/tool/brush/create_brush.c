@@ -9,8 +9,7 @@
 
 void create_brush(void)
 {
-    brush.texture = sfTexture_createFromFile
-        ("game_data/tool/brush_texture.png", NULL);
+    brush.texture = sfTexture_createFromFile("game_data/tool/brush_texture.png", NULL);
     brush.texture_size = sfTexture_getSize(brush.texture);
     brush.sprite = sfSprite_create();
     sfSprite_setTexture(brush.sprite, brush.texture, sfTrue);

@@ -46,5 +46,4 @@ front_toolbar_t front_toolbar = {
     .verif = false
 };
 
-const int size_icon_sprite = sizeof(icon_sprite) /
-    sizeof(icon_sprite_t);
+const int size_icon_sprite = sizeof(icon_sprite) / sizeof(icon_sprite_t);

@@ -5,6 +5,8 @@
 ** render_all_tool
 */
 
+#include "my.h"
+#include "my_graphical.h"
 #include "tool.h"
 
 void render_all_tool(void)
@@ -14,7 +16,7 @@ void render_all_tool(void)
     int nb_tool_func = sizeof(tool_func_list) / sizeof(tool_func_list[0]);
 
     for (int i = 0; i < nb_tool_func; ++i) {
-        if (i == (int) selected_tool) {
+        if (i == (int) selected_tool && is_mouse_over_rectangle_shape(edition_zone)) {
             (*tool_func_list[i])();
         }
     }
