@@ -9,6 +9,7 @@
     #define MY_GRAPHICAL
 
     #include <SFML/Graphics.h>
+    #include <stdbool.h>
 
 typedef enum {
     BUTTON_IDLE,
@@ -30,6 +31,14 @@ typedef enum {
     BOTTOM
 } expand_direction_t;
 
+typedef struct {
+    sfColor disable;
+    sfColor idle;
+    sfColor overed;
+    sfColor maintain;
+    sfVector2f move;
+} button_anim_t;
+
 sfBool is_mouse_over_rectangle_shape(sfRectangleShape *rectangle_shape);
 sfBool is_mouse_over_sprite(sfSprite *sprite);
 sfBool is_mouse_over_text(sfText* text);
@@ -44,5 +53,6 @@ sfFloatRect compute_rect_pos_and_scale(sfFloatRect parent_rect,
 sfBool is_window_resized(void);
 button_state_t get_sprite_button_state(sfSprite *button);
 button_state_t get_rectangle_shape_button_state(sfRectangleShape *button);
+void handle_sprite_button_state(sfSprite *sprite, button_anim_t *button_anim, bool enable);
 
 #endif /* !MY_GRAPHICAL */

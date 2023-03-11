@@ -29,5 +29,6 @@ bool load_image(char *image_path)
     append_node(&GET_DATA(selected_layer, layer_t)->head_undo,
     create_node(create_screen_shot(
         GET_DATA(selected_layer, layer_t)->texture_render_texture)));
+    GET_DATA(selected_layer, layer_t)->current_version = GET_DATA(selected_layer, layer_t)->head_undo;
     return SUCCESS;
 }

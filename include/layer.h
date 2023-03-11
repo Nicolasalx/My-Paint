@@ -30,6 +30,9 @@
     #define UNDO_REDO_OVERED_COLOR {255, 255, 255, 170}
     #define UNDO_REDO_MAINTAIN_COLOR {200, 255, 200, 255}
 
+    #define UNDO 0
+    #define REDO 1
+
 typedef struct {
     bool hidden;
     char layer_name[MAX_LAYER_NAME_SIZE];
@@ -37,12 +40,8 @@ typedef struct {
     sfTexture *texture_render_texture;
     sfSprite *render_sprite;
     node_t *head_undo;
+    node_t *current_version;
 } layer_t;
-
-typedef struct {
-    sfSprite *screen_shoot;
-    bool is_active;
-} undo_t;
 
 typedef struct {
     sfSprite *sprite;
@@ -64,7 +63,7 @@ extern const int size_icon_undo_redo;
 
 void create_default_layer(void);
 void create_new_layer(char *layer_name);
-sfSprite *create_screen_shot(sfTexture *texture_render_texture);
+sfTexture *create_screen_shot(sfTexture *texture_render_texture);
 void render_layer(sfRenderWindow *window);
 void render_background(sfRenderWindow *window);
 void render_overview(sfRenderWindow *window);

@@ -13,7 +13,7 @@
 
 void render_feather_pen(void)
 {
-    if (sfMouse_isButtonPressed(sfMouseLeft) == true) {
+    if (mouse_button_maintain == true) {
         sfVector2f sprite_draw_pos = get_mouse_pos_on_sheet();
 
         sprite_draw_pos.x -=

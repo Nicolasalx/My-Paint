@@ -13,7 +13,7 @@
 
 void render_eraser(void)
 {
-    if (sfMouse_isButtonPressed(sfMouseLeft) == true) {
+    if (mouse_button_maintain == true) {
         sfVector2f circle_draw_pos = get_mouse_pos_on_sheet();
 
         circle_draw_pos.x -= eraser.radius;

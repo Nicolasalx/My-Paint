@@ -11,14 +11,14 @@
 
 icon_undo_redo_t icon_undo_redo [] = {
     {
-        .offset = {-470, 15},
+        .offset = {-450, 18},
         .scale = {0.5, 0.5},
         .anchor = TOP_RIGHT,
         .path = "game_data/header/arrow_undo.png",
         .redirect = undo,
         .enable = true
     }, {
-        .offset = {-400, 15},
+        .offset = {-380, 18},
         .scale = {0.5, 0.5},
         .anchor = TOP_RIGHT,
         .path = "game_data/header/arrow_redo.png",
