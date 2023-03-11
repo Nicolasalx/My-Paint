@@ -71,10 +71,10 @@ void check_pos_mouse(void)
     }
 }
 
-void set_size_pen(sfRenderWindow *window, sfEvent event)
+void set_size_pen(sfRenderWindow *window, sfEvent *event)
 {
     if (mouse_button_pressed == true || (mouse_button_maintain == true &&
-        event.type == sfEvtMouseMoved)) {
+        event->type == sfEvtMouseMoved)) {
         check_pos_mouse();
     }
     sfRenderWindow_drawRectangleShape(window, size_pen.rectangle, NULL);

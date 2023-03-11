@@ -53,8 +53,8 @@ extern const int size_icon_sprite;
 
 extern size_pen_t size_pen;
 
-void set_size_pen(sfRenderWindow *window, sfEvent event);
-void display_toolbar(sfRenderWindow *window, sfEvent event);
+void set_size_pen(sfRenderWindow *window, sfEvent *event);
+void display_toolbar(sfRenderWindow *window, sfEvent *event);
 void ini_icon_rectangle(void);
 void ini_icon_sprite(void);
 void ini_size_pen(void);

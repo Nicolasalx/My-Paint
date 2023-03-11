@@ -47,7 +47,7 @@ void interaction_front_toolbar(void)
     }
 }
 
-void display_toolbar(sfRenderWindow *window, sfEvent event)
+void display_toolbar(sfRenderWindow *window, sfEvent *event)
 {
     for (int i = 0; i < size_icon_rectangle; ++i) {
         sfRenderWindow_drawRectangleShape(window, icon_rectangle[i].rectangle,
