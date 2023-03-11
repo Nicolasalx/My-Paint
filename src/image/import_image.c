@@ -13,7 +13,7 @@
 void import_image(char *image_path)
 {
     sfTexture *image_texture = sfTexture_createFromFile(image_path, NULL);
-    if (image_texture != NULL) {
+    if (image_texture == NULL) {
         return;
     }
     char new_layer_name[MAX_LAYER_NAME_SIZE];

@@ -12,8 +12,6 @@
 #include "image.h"
 #include "import_image.h"
 
-int count = 0;
-
 void directory_append_text(struct stat st, const char *path_of_file, sfFont *font, node_t *head)
 {
     if (S_ISDIR(st.st_mode)) {
@@ -26,7 +24,6 @@ void directory_append_text(struct stat st, const char *path_of_file, sfFont *fon
 
 void file_append_text(struct stat st, const char *path_of_file, sfFont *font, node_t *head, char **all_extension)
 {
-    ++count;
     if (S_ISREG(st.st_mode)) {
         int nb_word = count_nb_word(path_of_file, ".");
         int *size_word = count_size_word(path_of_file, ".", nb_word);
