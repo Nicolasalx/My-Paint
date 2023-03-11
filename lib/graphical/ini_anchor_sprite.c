@@ -19,7 +19,7 @@ void ini_anchor_sprite(sfSprite *sprite, anchor_t anchor)
         break;
     case BOTTOM_LEFT:
         sfSprite_setOrigin(sprite, (sfVector2f)
-        {0, sfTexture_getSize(sfSprite_getTexture(sprite)).y});
+            {0, sfTexture_getSize(sfSprite_getTexture(sprite)).y});
         break;
     case BOTTOM_RIGHT:
         sfSprite_setOrigin(sprite, (sfVector2f) {

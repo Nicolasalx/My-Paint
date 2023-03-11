@@ -29,7 +29,8 @@ SRCLINKEDLIST=	linked_list/create_node.c \
 				linked_list/delete_node.c \
 				linked_list/remove_node.c \
 				linked_list/my_listlen.c \
-				linked_list/insert_node.c
+				linked_list/insert_node.c \
+				linked_list/free_linked_list.c
 
 SRCGRAPHICAL=	graphical/is_mouse_over.c \
 				graphical/get_button_state.c \

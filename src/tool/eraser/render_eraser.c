@@ -30,7 +30,9 @@ void render_eraser(void)
             .shader = NULL
         };
 
-        sfRenderTexture_drawCircleShape(GET_DATA(selected_layer, layer_t)->render_texture, eraser.circle, &states);
-        sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
+        sfRenderTexture_drawCircleShape(GET_DATA(selected_layer, layer_t)->
+            render_texture, eraser.circle, &states);
+        sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->
+            render_texture);
     }
 }

@@ -24,7 +24,9 @@ void render_brush(void)
             {(float) (brush.radius * BRUSH_SIZE_MULT) / brush.texture_size.x,
             (float) (brush.radius * BRUSH_SIZE_MULT) / brush.texture_size.y});
         sfSprite_setColor(brush.sprite, brush.color);
-        sfRenderTexture_drawSprite(GET_DATA(selected_layer, layer_t)->render_texture, brush.sprite, NULL);
-        sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
+        sfRenderTexture_drawSprite(GET_DATA(selected_layer,
+            layer_t)->render_texture, brush.sprite, NULL);
+        sfRenderTexture_display(GET_DATA(selected_layer,
+            layer_t)->render_texture);
     }
 }

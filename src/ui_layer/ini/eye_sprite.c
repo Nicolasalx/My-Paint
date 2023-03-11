@@ -33,7 +33,8 @@ void create_button_eye_layer(int i)
     sfRectangleShape_setOutlineColor(button_eye_layer[i].rectangle, sfBlack);
     sfRectangleShape_setSize(button_eye_layer[i].rectangle,
         button_eye_layer[i].size);
-    sfRectangleShape_setFillColor(button_eye_layer[i].rectangle, (sfColor) BG_COLOR);
+    sfRectangleShape_setFillColor(button_eye_layer[i].rectangle,
+        (sfColor) BG_COLOR);
     sfRectangleShape_setPosition(button_eye_layer[i].rectangle,
         button_eye_layer[i].pos);
 }

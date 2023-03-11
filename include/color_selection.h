@@ -54,11 +54,12 @@ extern chromatic_wheel_t chromatic_wheel;
 extern text_color_selection_t text_color_selection[];
 extern const int size_text_selection_color;
 
-void display_color_selection_icon(sfRenderWindow *window,
-    sfEvent event, int *index_button_color);
+void display_color_selection_icon(sfRenderWindow *window, sfEvent *event);
 void init_all_button_selection(void);
 void ini_chromatic_wheel(void);
 void init_all_text_selection_color(void);
 void create_button(int i);
+void change_color_tool(sfColor color_chromatic);
+void select_color_chromatic_wheel(void);
 
 #endif /* !BUTTON_H_ */

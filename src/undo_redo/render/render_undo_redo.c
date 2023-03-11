@@ -36,7 +36,7 @@ void render_undo_redo(sfRenderWindow *window)
     for (int i = 0; i < size_icon_undo_redo; ++i) {
 
         if (is_mouse_over_sprite(icon_undo_redo[i].sprite) && mouse_button_pressed) {
-            printf("CALL ! \n");
+//            printf("CALL ! \n");
             icon_undo_redo[i].redirect();
         }
         sfRenderWindow_drawSprite(window, icon_undo_redo[i].sprite, NULL);

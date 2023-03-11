@@ -15,6 +15,10 @@
     #define BG_COLOR {128, 128, 128, 255}
     #define DEFAULT_IMAGE_PADDING 20.0f
 
+    #define DEFAULT_WINDOW_SIZE_X 1920
+    #define DEFAULT_WINDOW_SIZE_Y 1080
+    #define FONT sfFont_createFromFile("game_data/font/JetBrainsMono-Regular.ttf")
+
     #define FPS 144
 
     #define FAIL 0

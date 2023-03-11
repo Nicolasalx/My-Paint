@@ -9,10 +9,17 @@
 #include "header.h"
 
 file_menu_header_t file_menu_header [] = {
-    {.color = {255, 255, 255}, .pos = {60, 70}, .size = {190, 30}, .redirect = new_file},
-    {.color = {255, 255, 255}, .pos = {60, 100}, .size = {190, 30}, .redirect = import_from_files},
-    {.color = {255, 255, 255}, .pos = {60, 130}, .size = {190, 30}, .redirect = save_img_file},
-    {.color = {255, 255, 255}, .pos = {60, 160}, .size = {190, 30}, .redirect = exit_file}
+    {.color = {255, 255, 255}, .pos = {60, 70}, .size = {190, 30},
+    .redirect = new_file},
+
+    {.color = {255, 255, 255}, .pos = {60, 100}, .size = {190, 30},
+    .redirect = import_from_files},
+
+    {.color = {255, 255, 255}, .pos = {60, 130}, .size = {190, 30},
+    .redirect = save_img_file},
+
+    {.color = {255, 255, 255}, .pos = {60, 160}, .size = {190, 30},
+    .redirect = exit_file}
 };
 
 const int size_file_menu_header =

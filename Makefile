@@ -18,13 +18,15 @@ UI_SRC 		=	src/user_interface/ini/ini_user_interface.c \
 
 COLOR_SRC	=	src/color_selection/ini/ini_color_select.c \
 				src/color_selection/ini/declaration_button_color.c \
-				src/color_selection/render/interaction_tool_color.c
+				src/color_selection/render/interaction_tool_color.c \
+				src/color_selection/render/select_color_chromatic_wheel.c
 
 TOOL_BAR_SRC= 	src/toolbar/ini/declaration_toolbar.c \
 				src/toolbar/ini/ini_toolbar.c \
 				src/toolbar/ini/declaration_icon.c \
 				src/toolbar/render/size_pen.c \
-				src/toolbar/render/display_toolbar.c
+				src/toolbar/render/display_toolbar.c \
+				src/toolbar/render/interaction_button.c
 
 HEADER_SRC	=	src/header/ini/declaration/declaration_header.c \
 				src/header/ini/initialisation/ini_button_header.c \
@@ -44,7 +46,13 @@ HEADER_SRC	=	src/header/ini/declaration/declaration_header.c \
 				src/header/ini/initialisation/ini_button_view.c \
 				src/header/ini/initialisation/ini_button_layer.c \
 				src/header/ini/initialisation/ini_button_help.c \
-				src/header/render/import_from_file.c
+				src/header/render/import_file/import_from_file.c \
+				src/header/render/import_file/window_import.c \
+				src/header/render/import_file/create_text_import.c \
+				src/header/render/import_file/event_window_import.c \
+				src/header/render/import_file/declaration_import.c \
+				src/header/render/help_option_menu/descritpion_help_menu.c \
+				src/header/render/help_option_menu/about_help_menu.c \
 
 UI_LAYER_SRC=	src/ui_layer/declaration_layer.c \
 				src/ui_layer/ini_layer.c

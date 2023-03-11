@@ -9,8 +9,11 @@
 #include "header.h"
 
 edit_menu_header_t edit_menu_header [] = {
-    {.color = {255, 255, 255}, .pos = {160, 70}, .size = {210, 30}, .tool_to_select = PENCIL},
-    {.color = {255, 255, 255}, .pos = {160, 100}, .size = {210, 30}, .tool_to_select = ERASER}
+    {.color = {255, 255, 255}, .pos = {160, 70},
+    .size = {210, 30}, .tool_to_select = PENCIL},
+
+    {.color = {255, 255, 255}, .pos = {160, 100},
+    .size = {210, 30}, .tool_to_select = ERASER}
 };
 
 const int size_edit_menu_header =
