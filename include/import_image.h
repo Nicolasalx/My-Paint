@@ -29,7 +29,7 @@ void detect_type_of_files(struct stat st, const char *filename, sfFont *font, ch
 bool is_key_up_pressed_and_released(void);
 bool is_key_down_pressed_and_released(void);
 void manage_event_file(sfRenderWindow *window, sfEvent *event);
-bool create_window_all_file(node_t *head);
+int create_window_from_file(node_t *head);
 file_name_t *create_text(char *str, sfFont *font, bool is_a_dir);
 void event_text_display(node_t *head, node_t *current);
 bool is_mouse_over_texte(sfText* text, sfRenderWindow* window);

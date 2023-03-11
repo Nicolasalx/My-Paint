@@ -28,6 +28,7 @@ typedef struct {
     sfVector2f pos;
     char *path;
     sfVector2f size;
+    bool can_draw;
 } selection_color_t;
 
 typedef struct {

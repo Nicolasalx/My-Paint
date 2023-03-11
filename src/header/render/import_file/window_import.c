@@ -12,7 +12,7 @@
 #include "image.h"
 #include "import_image.h"
 
-bool create_window_all_file(node_t *head)
+int create_window_from_file(node_t *head)
 {
     sfVideoMode desktop = sfVideoMode_getDesktopMode();
     sfVideoMode mode = {640, 720, desktop.bitsPerPixel};
@@ -47,7 +47,7 @@ bool create_window_all_file(node_t *head)
                             my_strcat(new_path, sfText_getString(GET_DATA(current, file_name_t)->text));
                             my_strcat(new_path, "/");
                             path_to_open_dir = new_path;
-                            printf("THE PATH_TO_OPEN_DIR : [%s]\n\n", path_to_open_dir);
+                            print(path_to_open_dir, "\n");
                         } else {
                             path_to_open_dir = malloc_str(my_strlen(sfText_getString(GET_DATA(current, file_name_t)->text)) + 1);
                             my_strcpy(path_to_open_dir, sfText_getString(GET_DATA(current, file_name_t)->text));
@@ -56,7 +56,7 @@ bool create_window_all_file(node_t *head)
                     }
                     sfRenderWindow_close(window);
                     can_free_dir = true;
-                    return true;
+                    return 2;
                 } else {
                     // Vérifier si image fonctionne
                     sfRenderWindow_close(window);
@@ -67,14 +67,16 @@ bool create_window_all_file(node_t *head)
                     const char* name_of_files = sfText_getString(GET_DATA(current, file_name_t)->text);
                     char* copy_of_name = my_strdup(name_of_files);
                     copy_of_name[my_strlen(copy_of_name) - 1] = '\0';
-                    
+
                     my_strcpy(new_path, path_to_open_dir);
                     my_strcat(new_path, copy_of_name);
-                    import_image(new_path);
+                    if (import_image(new_path) == false) {
+                        return 84;
+                    }
 
                     free(new_path);
                     free(copy_of_name);
-                    return false;
+                    return 1;
                 }
             }
             current = current->next;
@@ -83,5 +85,5 @@ bool create_window_all_file(node_t *head)
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
-    return false;
+    return 0;
 }

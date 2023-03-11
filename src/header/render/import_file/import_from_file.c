@@ -69,29 +69,35 @@ void open_new_directory(struct stat st, sfFont* font, char **all_extension, node
     DIR *dir;
     struct dirent *file;
     pos_text.y = 0;
-
     char previous_dir[] = "[X]| BACK TO THE PREVIOUS DIRECTORY\n";
     append_node(&head, create_node(create_text(previous_dir, font, true)));
     pos_text.y += INCREMATION_SIZE;
     dir = opendir(path_to_open_dir);
     file = readdir(dir);
-
     while (file != NULL) {
         detect_type_of_files(st, file->d_name, font, all_extension, head);
         file = readdir(dir);
     }
-    
-    if (create_window_all_file(head) == true) {
-        free(file_name);
-        free_linked_list(&head);
-        open_new_directory(st, font, all_extension, head);
-    } else {
-        free(file_name);
-        free_linked_list(&head);
-        free(path_to_open_dir);
-        path_to_open_dir = malloc_str(2);
-        path_to_open_dir = "./";
-        return;
+    switch (create_window_from_file(head))
+    {
+        case 1:
+            free(file_name);
+            free_linked_list(&head);
+            free(path_to_open_dir);
+            path_to_open_dir = malloc_str(2);
+            path_to_open_dir = "./";
+            return;
+        break;
+        case 2:
+            free(file_name);
+            free_linked_list(&head);
+            open_new_directory(st, font, all_extension, head);
+        break;
+        case 84:
+            return;
+        break;
+        default:
+        break;
     }
     closedir(dir);
 }

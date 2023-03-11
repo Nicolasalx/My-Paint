@@ -9,15 +9,15 @@
 #include "color_selection.h"
 
 selection_color_t selection_color [] = {
-    {.color = RED, .pos = {1630, 300}, .size = {30, 30}},
-    {.color = MAGENTA, .pos = {1630, 350}, .size = {30, 30}},
-    {.color = BLUE, .pos = {1700, 300}, .size = {30, 30}},
-    {.color = CYAN, .pos = {1700, 350}, .size = {30, 30}},
-    {.color = YELLOW, .pos = {1770, 300}, .size = {30, 30}},
-    {.color = GREEN, .pos = {1770, 350}, .size = {30, 30}},
-    {.color = BLACK, .pos = {1840, 300}, .size = {30, 30}},
-    {.color = WHITE, .pos = {1840, 350}, .size = {30, 30}},
-    {.color = BG_COLOR, .pos = {1600, 500}, .size = {290, 200}}
+    {.color = RED, .pos = {1630, 300}, .size = {30, 30}, .can_draw = true},
+    {.color = MAGENTA, .pos = {1630, 350}, .size = {30, 30}, .can_draw = true},
+    {.color = BLUE, .pos = {1700, 300}, .size = {30, 30}, .can_draw = true},
+    {.color = CYAN, .pos = {1700, 350}, .size = {30, 30}, .can_draw = true},
+    {.color = YELLOW, .pos = {1770, 300}, .size = {30, 30}, .can_draw = true},
+    {.color = GREEN, .pos = {1770, 350}, .size = {30, 30}, .can_draw = true},
+    {.color = BLACK, .pos = {1840, 300}, .size = {30, 30}, .can_draw = true},
+    {.color = WHITE, .pos = {1840, 350}, .size = {30, 30}, .can_draw = true},
+    {.color = BG_COLOR, .pos = {1600, 500}, .size = {290, 200}, .can_draw = false}
 };
 
 const int size_selection_color =

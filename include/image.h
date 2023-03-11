@@ -10,7 +10,7 @@
 
     #include <stdbool.h>
 
-void import_image(char *image_path);
+bool import_image(char *image_path);
 void export_image(char *image_name);
 bool load_image(char *image_path);
 

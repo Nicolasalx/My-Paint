@@ -10,11 +10,11 @@
 #include "my_graphical.h"
 #include "header.h"
 
-void import_image(char *image_path)
+bool import_image(char *image_path)
 {
     sfTexture *image_texture = sfTexture_createFromFile(image_path, NULL);
     if (image_texture == NULL) {
-        return;
+        return false;
     }
     char new_layer_name[MAX_LAYER_NAME_SIZE];
 
@@ -27,4 +27,5 @@ void import_image(char *image_path)
     append_node(&GET_DATA(selected_layer, layer_t)->head_undo,
     create_node(create_screen_shot(
         GET_DATA(selected_layer, layer_t)->texture_render_texture)));
+    return true;
 }
