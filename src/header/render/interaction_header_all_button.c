@@ -37,7 +37,8 @@ void gestion_header_menu(int *stay_on_icon_header)
         if (is_mouse_over_rectangle_shape(button_header[i].rectangle) == true
             && mouse_button_pressed == true) {
             sfRectangleShape_setFillColor
-                (button_header[*stay_on_icon_header].rectangle, (sfColor) BG_COLOR);
+                (button_header[*stay_on_icon_header].rectangle,
+                    (sfColor) BG_COLOR);
             sfRectangleShape_setFillColor(button_header[i].rectangle, sfBlue);
             * stay_on_icon_header = i;
             ++ pressed_min_one_time;
@@ -94,17 +95,16 @@ void interaction_view_and_layer_header(sfRenderWindow *window)
     } gestion_header_layer_menu(window);
 }
 
-void management_button_header(sfRenderWindow *window,
-    int *stay_on_icon_header)
+void management_button_header(sfRenderWindow *window)
 {
+    static int stay_on_icon_header = 0;
     for (int i = 0; i < size_button_header; ++i) {
         sfRenderWindow_drawRectangleShape(window, button_header[i].rectangle,
             NULL);
     }
     for (int i = 0; i < size_text_button_header; ++i) {
         sfRenderWindow_drawText(window, text_button_header[i].text, NULL);
-    }
-    gestion_header_menu(stay_on_icon_header);
+    } gestion_header_menu(&stay_on_icon_header);
     interaction_file_and_edit_header(window);
     interaction_view_and_layer_header(window);
     for (int i = 0; i < size_help_menu_header; ++i) {

@@ -10,19 +10,24 @@
 
 icon_rectangle_t icon_rectangle [] = {
     {.color = BG_COLOR, .pos = {5, 90},
-    .size = {40, 40}, .can_draw = true, .tool_to_select = MOUSE}, // Souris -> 0
+    .size = {40, 40}, .can_draw = true,
+    .tool_to_select = MOUSE}, // Souris -> 0
 
     {.color = BG_COLOR, .pos = {5, 150},
-    .size = {40, 40}, .can_draw = true, .tool_to_select = PENCIL}, // Stylo -> 1
+    .size = {40, 40}, .can_draw = true,
+    .tool_to_select = PENCIL}, // Stylo -> 1
 
     {.color = BG_COLOR, .pos = {5, 200},
-    .size = {40, 40}, .can_draw = true, .tool_to_select = ERASER}, // Gomme -> 1
+    .size = {40, 40}, .can_draw = true,
+    .tool_to_select = ERASER}, // Gomme -> 1
 
     {.color = BG_COLOR, .pos = {5, 250},
-    .size = {40, 40}, .can_draw = true, .tool_to_select = BRUSH}, // Pencil -> 1
+    .size = {40, 40}, .can_draw = true,
+    .tool_to_select = BRUSH}, // Pencil -> 1
 
     {.color = BG_COLOR, .pos = {5, 300},
-    .size = {40, 40}, .can_draw = true, .tool_to_select = FEATHER_PEN}, // Sceau -> 1
+    .size = {40, 40}, .can_draw = true,
+    .tool_to_select = FEATHER_PEN}, // Sceau -> 1
 
     {.color = BG_COLOR, .pos = {5, 360},
     .size = {40, 40}, .can_draw = true}, // Rond pour dessiner -> 2

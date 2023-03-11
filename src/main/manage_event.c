@@ -48,6 +48,12 @@ void manage_event(sfRenderWindow *window, sfEvent *event, sfView *window_view)
         if (event->type == sfEvtMouseButtonReleased) {
             mouse_button_released = true;
         }
+        if (event->type == sfEvtResized) {
+            window_size = sfRenderWindow_getSize(window);
+            sfView_reset(window_view, (sfFloatRect)
+                {0, 0, window_size.x, window_size.y});
+            sfRenderWindow_setView(window, window_view);
+        }
     }
     manage_window_resize(window, window_view);
 }

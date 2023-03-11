@@ -28,7 +28,24 @@ sfVector2i mouse_pos = {0, 0};
 sfBool mouse_button_pressed = false;
 sfBool mouse_button_maintain = false;
 sfBool mouse_button_released = false;
-sfRectangleShape *edition_zone;
+
+void render_all_data(sfRenderWindow *window, sfEvent *event,
+    sfView *window_view)
+{
+    update_window_data(window, window_view);
+    manage_event(window, event, window_view);
+    sfRenderWindow_clear(window, (sfColor) BG_COLOR);
+    render_layer(window);
+    render_all_tool();
+    layer_display(window, event);
+    display_ui(window);
+    display_toolbar(window, event);
+    render_overview(window);
+    display_undo_redo(window);
+    display_color_selection_icon(window, event);
+    management_button_header(window);
+    sfRenderWindow_display(window);
+}
 
 void main_loop(void)
 {
@@ -40,32 +57,11 @@ void main_loop(void)
         print_fatal_error_and_exit(WINDOW_CREATION_FAIL);
     }
     set_render_window_icon(window, "game_data/user_interface/logo.png");
-    sfView *window_view = sfView_createFromRect((sfFloatRect) {0, 0, window_size.x, window_size.y});
+    sfView *window_view = sfView_createFromRect((sfFloatRect)
+        {0, 0, window_size.x, window_size.y});
     sfRenderWindow_setFramerateLimit(window, FPS);
-    int index_button_color = 0;
-    int stay_on_icon_header = 0;
-    edition_zone = sfRectangleShape_create();
-    sfRectangleShape_setPosition(edition_zone, (sfVector2f) {51, 80});
-
     while (sfRenderWindow_isOpen(window)) {
-        sfRectangleShape_setSize(edition_zone, (sfVector2f) {window_size.x - (350 + 51), window_size.y - (31 + 80)});
-        update_window_data(window, window_view);
-        manage_event(window, &event, window_view);
-        sfRenderWindow_clear(window, (sfColor) BG_COLOR);
-
-        render_layer(window);
-        render_all_tool();
-        layer_display(window, &event);
-
-        display_ui(window);
-
-        display_color_selection_icon(window, event, &index_button_color);
-        management_button_header(window, &stay_on_icon_header);
-        display_toolbar(window, event);
-        render_overview(window);
-        display_undo_redo(window);
-
-        sfRenderWindow_display(window);
+        render_all_data(window, &event, window_view);
     }
     sfRenderWindow_destroy(window);
 }

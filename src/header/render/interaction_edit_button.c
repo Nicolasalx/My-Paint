@@ -29,9 +29,10 @@ void select_tool_edit(int i)
 void display_icon_edit(sfRenderWindow *window)
 {
     for (int i = 0; i < size_edit_menu_header; ++i) {
-        sfRenderWindow_drawRectangleShape(window, edit_menu_header[i].rectangle,
-            NULL);
-        if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_rectangle_shape(edit_menu_header[i].rectangle)) {
+        sfRenderWindow_drawRectangleShape(window,
+            edit_menu_header[i].rectangle, NULL);
+        if (sfMouse_isButtonPressed(sfMouseLeft) &&
+            is_mouse_over_rectangle_shape(edit_menu_header[i].rectangle)) {
             select_tool_edit(i);
         }
         for (int i = 0; i < size_text_edit_header; ++i) {

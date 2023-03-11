@@ -33,9 +33,10 @@ void exit_file(void)
 void display_icon_file(sfRenderWindow *window)
 {
     for (int i = 0; i < size_file_menu_header; ++i) {
-        sfRenderWindow_drawRectangleShape(window, file_menu_header[i].rectangle,
-            NULL);
-        if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_rectangle_shape(file_menu_header[i].rectangle)) {
+        sfRenderWindow_drawRectangleShape(window,
+            file_menu_header[i].rectangle, NULL);
+        if (sfMouse_isButtonPressed(sfMouseLeft) &&
+            is_mouse_over_rectangle_shape(file_menu_header[i].rectangle)) {
             file_menu_header[i].redirect();
         }
         for (int i = 0; i < size_text_file_header; ++i) {
