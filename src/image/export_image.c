@@ -12,12 +12,13 @@ void export_image(char *image_name)
 {
     UNUSED(image_name);
 //    sfImage* image = sfTexture_copyToImage(texture);
-//    sfImage_saveToFile(image, "render_texture.png")
+//    sfImage_saveToFile(image, "render_texture.png");
 //    sfImage_destroy(image);
 
-//    sfTexture_copyToImage()
+//    sfTexture_copyToImage();
 
 //    sfImage* image = sfImage_createFromHandle(0, textureHandle);
 
 //    sfImage_saveToFile(, image_name);
+
 }
