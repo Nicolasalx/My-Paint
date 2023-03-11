@@ -91,7 +91,7 @@ void file_append_text(struct stat st, const char *path_of_file, sfFont *font, no
         if (nb_word > 1) {
             int total_size = 1;
             for (int i = 0; i < nb_word - 1; ++i) {
-                total_size += strlen(words[i]);
+                total_size += my_strlen(words[i]);
             }
             char *name_of_file = malloc_str(total_size);
             name_of_file[0] = '\0';
@@ -118,7 +118,7 @@ void detect_type_of_files(struct stat st, const char *filename, sfFont *font, ch
 {
     if (filename[0] != '.') {
         char path[100] = "./";
-        strcpy(path + strlen(path), filename);
+        my_strcpy(path + my_strlen(path), filename);
         stat(path, &st);
         directory_append_text(st, filename, font, head);
         file_append_text(st, filename, font, head, all_extension);

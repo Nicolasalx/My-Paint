@@ -63,7 +63,7 @@ void main_loop(void)
         management_button_header(window, &stay_on_icon_header);
         display_toolbar(window, event);
         render_overview(window);
-        display_undo_redo(window);
+        render_undo_redo(window);
 
         sfRenderWindow_display(window);
     }

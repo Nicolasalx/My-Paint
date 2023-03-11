@@ -75,9 +75,11 @@ TOOL_SRC	=	src/tool/create_all_tool.c \
 				src/tool/feather_pen/render_feather_pen.c \
 				src/tool/hand/render_hand.c
 
-UNDO_REDO_SRC=	src/undo_redo/ini/declaration_icon.c \
-				src/undo_redo/ini/ini_undo_redo.c \
-				src/undo_redo/render/display_icon.c
+UNDO_REDO_SRC=	src/undo_redo/ini/create_undo_redo.c \
+				src/undo_redo/ini/declaration_undo_redo.c \
+				src/undo_redo/render/render_undo_redo.c \
+				src/undo_redo/undo.c \
+				src/undo_redo/redo.c
 
 IMAGE_SRC	=	src/image/import_image.c \
 				src/image/export_image.c \
@@ -95,8 +97,7 @@ SRC			=	$(MAIN_SRC) \
 				$(IMAGE_SRC)
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include \
-				-lcsfml-system -lcsfml-graphics \
-				-lcsfml-window
+				-lcsfml-system -lcsfml-graphics -lcsfml-window
 
 NAME		=	my_paint
 

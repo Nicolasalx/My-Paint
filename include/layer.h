@@ -11,9 +11,10 @@
     #include "my_linkedlist.h"
     #include "SFML/Graphics.h"
     #include "stdbool.h"
+    #include "my_graphical.h"
 
     #define BACKGROUND_OUTLINE_COLOR {50, 50, 50, 255}
-    #define BACKGROUND_OUTLINE_THICKNESS 3.0f
+    #define BACKGROUND_OUTLINE_THICKNESS 2.0f
 
     #define DEFAULT_LAYER_COLOR {255, 255, 255, 255}
 
@@ -22,6 +23,12 @@
 
     #define OVERVIEW_POS {1611, 524}
     #define OVERVIEW_SCALE {0.14, 0.14}
+    #define OVERVIEW_BACKGROUND_OUTLINE_THICKNESS 6.0f
+
+    #define UNDO_REDO_DISABLE_COLOR {255, 255, 255, 100}
+    #define UNDO_REDO_ENABLE_COLOR {255, 255, 255, 255}
+    #define UNDO_REDO_OVERED_COLOR {255, 255, 255, 170}
+    #define UNDO_REDO_MAINTAIN_COLOR {200, 255, 200, 255}
 
 typedef struct {
     bool hidden;
@@ -40,11 +47,12 @@ typedef struct {
 typedef struct {
     sfSprite *sprite;
     sfTexture *texture;
-    sfVector2f pos;
-    sfVector2f size;
+    sfVector2f offset;
+    sfVector2f scale;
+    anchor_t anchor;
     char *path;
     void (*redirect)(void);
-    bool can_make_it;
+    bool enable;
 } icon_undo_redo_t;
 
 extern sfRectangleShape *background;
@@ -60,8 +68,8 @@ sfSprite *create_screen_shot(sfTexture *texture_render_texture);
 void render_layer(sfRenderWindow *window);
 void render_background(sfRenderWindow *window);
 void render_overview(sfRenderWindow *window);
-void ini_icon_undo_redo(void);
-void display_undo_redo(sfRenderWindow *window);
+void create_undo_redo(void);
+void render_undo_redo(sfRenderWindow *window);
 void redo(void);
 void undo(void);
 char *create_layer_name(char *layer_name_str);
