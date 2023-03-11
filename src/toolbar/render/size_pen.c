@@ -53,28 +53,23 @@ void change_size_tool(int size_tool)
 
 void check_pos_mouse(void)
 {
-    if (mouse_pos.x >= icon_rectangle[size_icon_rectangle].pos.x &&
-        mouse_pos.x <= icon_rectangle[size_icon_rectangle].pos.x +
-        icon_rectangle[size_icon_rectangle].size.x) {
-        if (mouse_pos.y <= icon_rectangle[size_icon_rectangle].pos.y &&
-            mouse_pos.y >= icon_rectangle[size_icon_rectangle].pos.y -
-            icon_rectangle[size_icon_rectangle - 1].size.y) {
-            int size_difference = size_pen.pos.y - mouse_pos.y;
-            sfRectangleShape_setSize(size_pen.rectangle,
-                (sfVector2f) {40, -size_difference});
-            if (size_difference == 190) {
-                change_size_tool(100);
-            } else {
-                change_size_tool((size_difference * 100) / 190);
-            }
+    if (is_mouse_over_rectangle_shape
+        (icon_rectangle[size_icon_rectangle].rectangle) == true) {
+        int size_difference = size_pen.pos.y - mouse_pos.y;
+        sfRectangleShape_setSize(size_pen.rectangle,
+            (sfVector2f) {40, -size_difference});
+        if (size_difference == 190) {
+            change_size_tool(100);
+        } else {
+            change_size_tool((size_difference * 100) / 190);
         }
     }
 }
 
-void set_size_pen(sfRenderWindow *window, sfEvent event)
+void set_size_pen(sfRenderWindow *window, sfEvent *event)
 {
     if (mouse_button_pressed == true || (mouse_button_maintain == true &&
-        event.type == sfEvtMouseMoved)) {
+        event->type == sfEvtMouseMoved)) {
         check_pos_mouse();
     }
     sfRenderWindow_drawRectangleShape(window, size_pen.rectangle, NULL);

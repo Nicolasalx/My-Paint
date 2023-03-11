@@ -29,7 +29,8 @@ SRCLINKEDLIST=	linked_list/create_node.c \
 				linked_list/delete_node.c \
 				linked_list/remove_node.c \
 				linked_list/my_listlen.c \
-				linked_list/insert_node.c
+				linked_list/insert_node.c \
+				linked_list/free_linked_list.c
 
 SRCGRAPHICAL=	graphical/is_mouse_over.c \
 				graphical/get_button_state.c \
@@ -38,9 +39,7 @@ SRCGRAPHICAL=	graphical/is_mouse_over.c \
 				graphical/set_render_window_icon.c \
 				graphical/set_pos_sprite_with_anchor.c \
 				graphical/ini_anchor_sprite.c \
-				graphical/expand_sprite_with_anchor.c \
-				graphical/compute_rect_pos_and_scale.c \
-				graphical/is_window_resize.c
+				graphical/expand_sprite_with_anchor.c
 
 SRCMALLOC	=	malloc/my_malloc.c \
 				malloc/malloc_board.c \

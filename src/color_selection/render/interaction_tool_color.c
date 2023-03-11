@@ -28,32 +28,9 @@ void change_color_tool(sfColor color_chromatic)
 
 void select_color_icon(int i)
 {
-    if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_rectangle_shape(selection_color[i].rectangle)) {
+    if (sfMouse_isButtonPressed(sfMouseLeft) &&
+        is_mouse_over_rectangle_shape(selection_color[i].rectangle)) {
         change_color_tool(selection_color[i].color);
-    }
-}
-
-void select_color_chromatic_wheel(void)
-{
-    if (sfMouse_isButtonPressed(sfMouseLeft) && is_mouse_over_sprite(chromatic_wheel.sprite)) {
-        sfVector2f render_texture_pos = {
-            (mouse_pos.x - chromatic_wheel.pos.x) / chromatic_wheel.size.x,
-            (mouse_pos.y - chromatic_wheel.pos.y) / chromatic_wheel.size.y
-        };
-        sfVector2f render_texture_size = {
-            (float) 500.0f / 0.5f,
-            (float) 500.0f / 0.5f
-        };
-        sfVector2f result_pos = {
-            render_texture_pos.x + (1.0f / render_texture_size.x),
-            render_texture_pos.y + (1.0f / render_texture_size.y)
-        };
-        sfImage* image_chromatic_wheel = sfImage_createFromFile(chromatic_wheel.path);
-        sfColor color_chromatic = sfImage_getPixel(image_chromatic_wheel, result_pos.x, result_pos.y);
-        if (color_chromatic.a != sfTransparent.a) {
-            change_color_tool(color_chromatic);
-        }
-        sfImage_destroy(image_chromatic_wheel);
     }
 }
 
@@ -74,9 +51,9 @@ void set_thickness_icon(int i, int * index_button_color)
     }
 }
 
-void display_color_selection_icon(sfRenderWindow *window, sfEvent event,
-    int *index_button_color)
+void display_color_selection_icon(sfRenderWindow *window, sfEvent *event)
 {
+    static int index_button_color = 0;
     for (int i = 0; i < size_selection_color; ++i) {
         sfRenderWindow_drawRectangleShape(window,
             selection_color[i].rectangle, NULL);
@@ -86,9 +63,9 @@ void display_color_selection_icon(sfRenderWindow *window, sfEvent event,
     for (int i = 0; i < size_text_selection_color; ++i) {
         sfRenderWindow_drawText(window, text_color_selection[i].text, NULL);
     }
-    if (event.type == sfEvtMouseButtonPressed) {
+    if (event->type == sfEvtMouseButtonPressed) {
         for (int i = 0; i < size_selection_color; ++i) {
-            set_thickness_icon(i, index_button_color);
+            set_thickness_icon(i, &index_button_color);
         }
     }
     select_color_chromatic_wheel();

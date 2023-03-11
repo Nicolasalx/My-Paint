@@ -13,7 +13,9 @@
     #include <SFML/Graphics.h>
 
     #define BG_COLOR {128, 128, 128, 255}
-    #define DEFAULT_IMAGE_PADDING 20.0f
+    #define DEFAULT_WINDOW_SIZE_X 1920
+    #define DEFAULT_WINDOW_SIZE_Y 1080
+    #define FONT sfFont_createFromFile("game_data/font/JetBrainsMono-Regular.ttf")
 
     #define FPS 144
 
@@ -29,7 +31,6 @@ extern sfVector2i mouse_pos;
 extern sfBool mouse_button_pressed;
 extern sfBool mouse_button_maintain;
 extern sfBool mouse_button_released;
-extern sfRectangleShape *edition_zone;
 
 void main_loop(void);
 void update_window_data(sfRenderWindow *window, sfView *window_view);

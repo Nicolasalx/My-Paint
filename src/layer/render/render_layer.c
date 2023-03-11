@@ -24,7 +24,8 @@ void render_layer(sfRenderWindow *window)
         sfSprite_setScale(GET_DATA(current, layer_t)->render_sprite,
             render_sheet_scale);
 
-        sfRenderWindow_drawSprite(window, GET_DATA(current, layer_t)->render_sprite, NULL);
+        sfRenderWindow_drawSprite(window, GET_DATA(current, layer_t)->
+            render_sprite, NULL);
         current = current->next;
     } while (current != head_layer);
 }

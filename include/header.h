@@ -9,7 +9,8 @@
     #define HEADER_H_
     #define SIZE_OUTLINE_BUTTON 2
     #define COLOR_OVERHEAD_HEADER (sfColor) {0, 204, 204, 255}
-
+    #define DESCRIPTION true
+    #define ABOUT false
     #include "tool.h"
 
 typedef struct {
@@ -49,6 +50,7 @@ typedef struct {
     sfText *text;
     char *content_text;
     sfVector2f pos_text;
+    bool is_a_dir;
 } file_name_t;
 
 typedef struct {
@@ -117,6 +119,27 @@ typedef struct {
     char *font_path;
 } text_help_header_t;
 
+typedef struct {
+    sfText *text;
+    char *content_text;
+    int size_text;
+    bool choose_option;
+} option_text_menu_help_t;
+
+typedef struct {
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2f pos;
+    sfVector2f size;
+    char *path_img;
+} img_about_option_help_t;
+
+extern option_text_menu_help_t option_text_menu_help[];
+extern const int size_option_text_menu_help;
+
+extern img_about_option_help_t img_about_option_help[];
+extern const int size_img_about_option_help;
+
 extern help_menu_header_t help_menu_header[];
 extern const int size_help_menu_header;
 
@@ -162,8 +185,7 @@ void gestion_header_view_menu(sfRenderWindow *window);
 void gestion_header_layer_menu(sfRenderWindow *window);
 void gestion_header_help_menu(sfRenderWindow *window);
 void gestion_header_menu(int *stay_on_icon_header);
-void management_button_header(sfRenderWindow *window,
-    int *stay_on_icon_header);
+void management_button_header(sfRenderWindow *window);
 void ini_help_text(void);
 void ini_edit_menu_header_rectangle_icon(void);
 void ini_layer_menu_header_rectangle_icon(void);
@@ -177,14 +199,14 @@ void ini_button_header(void);
 void ini_text_button_header(void);
 void ini_file_menu_header(void);
 
-void description_edit_menu(void);
-void about_edit_menu(void);
-
 void new_file(void);
 void open_file(void);
 void save_img_file(void);
 void exit_file(void);
 
 void import_from_files(void);
+
+void about_help_menu(void);
+void description_help_menu(void);
 
 #endif /* !HEADER_H_ */

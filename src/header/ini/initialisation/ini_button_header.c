@@ -18,7 +18,8 @@ void create_button_header(int i)
     sfRectangleShape_setOutlineColor(button_header[i].rectangle, sfBlack);
     sfRectangleShape_setSize(button_header[i].rectangle,
         button_header[i].size);
-    sfRectangleShape_setFillColor(button_header[i].rectangle, (sfColor) BG_COLOR);
+    sfRectangleShape_setFillColor(button_header[i].rectangle,
+        (sfColor) BG_COLOR);
     sfRectangleShape_setPosition(button_header[i].rectangle,
         button_header[i].pos);
 }
