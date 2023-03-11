@@ -209,4 +209,6 @@ void import_from_files(void);
 void about_help_menu(void);
 void description_help_menu(void);
 
+void save_from_file(void);
+
 #endif /* !HEADER_H_ */

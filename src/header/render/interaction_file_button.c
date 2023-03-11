@@ -15,16 +15,6 @@ void new_file(void)
     return;
 }
 
-void open_file(void)
-{
-    return;
-}
-
-void save_img_file(void)
-{
-    return;
-}
-
 void exit_file(void)
 {
     return;

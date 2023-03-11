@@ -47,7 +47,6 @@ int create_window_from_file(node_t *head)
                             my_strcat(new_path, sfText_getString(GET_DATA(current, file_name_t)->text));
                             my_strcat(new_path, "/");
                             path_to_open_dir = new_path;
-                            print(path_to_open_dir, "\n");
                         } else {
                             path_to_open_dir = malloc_str(my_strlen(sfText_getString(GET_DATA(current, file_name_t)->text)) + 1);
                             my_strcpy(path_to_open_dir, sfText_getString(GET_DATA(current, file_name_t)->text));

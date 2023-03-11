@@ -16,7 +16,7 @@ file_menu_header_t file_menu_header [] = {
     .redirect = import_from_files},
 
     {.color = {255, 255, 255}, .pos = {60, 130}, .size = {190, 30},
-    .redirect = save_img_file},
+    .redirect = save_from_file},
 
     {.color = {255, 255, 255}, .pos = {60, 160}, .size = {190, 30},
     .redirect = exit_file}

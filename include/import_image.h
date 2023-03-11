@@ -8,7 +8,7 @@
 #ifndef IMPORT_IMAGE_H_
 #define IMPORT_IMAGE_H_
     #include <SFML/Graphics.h>
-
+    #include "header.h"
     #define INCREMATION_SIZE 30
     #define SIZE_EXTENSION 2
     #define POSITION_TEXT {0, 0}

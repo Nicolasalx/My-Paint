@@ -59,7 +59,8 @@ void main_loop(void)
         print_fatal_error_and_exit(WINDOW_CREATION_FAIL);
     }
     set_render_window_icon(window, "game_data/user_interface/logo.png");
-    sfView *window_view = sfView_createFromRect((sfFloatRect) {0, 0, window_size.x, window_size.y});
+    sfView *window_view = sfView_createFromRect((sfFloatRect)
+        {0, 0, window_size.x, window_size.y});
     sfRenderWindow_setFramerateLimit(window, FPS);
     edition_zone = sfRectangleShape_create();
     sfRectangleShape_setPosition(edition_zone, (sfVector2f) {51, 80});

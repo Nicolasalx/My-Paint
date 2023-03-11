@@ -52,6 +52,8 @@ HEADER_SRC	=	src/header/ini/declaration/declaration_header.c \
 				src/header/render/import_file/declaration_import.c \
 				src/header/render/help_option_menu/descritpion_help_menu.c \
 				src/header/render/help_option_menu/about_help_menu.c \
+				src/header/render/save_file/save_from_file.c \
+				src/header/render/save_file/declaration_save.c
 
 UI_LAYER_SRC=	src/ui_layer/declaration_layer.c \
 				src/ui_layer/ini_layer.c

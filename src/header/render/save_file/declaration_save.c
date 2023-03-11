@@ -1,0 +1,36 @@
+/*
+** EPITECH PROJECT, 2023
+** B-MUL-200-PAR-2-1-mypaint-thibaud.cathala
+** File description:
+** declaration_save
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <dirent.h>
+#include <string.h>
+#include <sys/stat.h>
+#include "my_malloc.h"
+#include "my_string.h"
+#include "header.h"
+#include "my_linkedlist.h"
+#include "my.h"
+#include "my_graphical.h"
+#include "image.h"
+#include "import_image.h"
+#include <SFML/Graphics.h>
+#include "save_image.h"
+    #define COLOR_BG (sfColor) {128, 128, 128, 255}
+    #define SIZE_BUTTON {120, 100}
+
+selection_extension_button_t selection_extension_button [] = {
+    {.color = COLOR_BG, .pos = {60, 80}, .size = {600, 100}, .content_text = "Entrez un nom de file", .pos_text = {220, 30}, .can_click = false},
+    {.color = COLOR_BG, .pos = {70, 300}, .size = SIZE_BUTTON, .content_text = "png", .pos_text = {105, 335}, .can_click = true},
+    {.color = COLOR_BG, .pos = {230, 300}, .size = SIZE_BUTTON, .content_text = "jpg", .pos_text = {265, 335}, .can_click = true},
+    {.color = COLOR_BG, .pos = {390, 300}, .size = SIZE_BUTTON, .content_text = "bmp", .pos_text = {425, 335}, .can_click = true},
+    {.color = COLOR_BG, .pos = {540, 300}, .size = SIZE_BUTTON, .content_text = "tga", .pos_text = {575, 335}, .can_click = true},
+    {.color = COLOR_BG, .pos = {225, 450}, .size = {300, 70}, .content_text = "Valider", .pos_text = {320, 470}, .validate = true},
+};
+
+const int size_selection_extension_button =
+    sizeof(selection_extension_button) / sizeof(selection_extension_button_t);
