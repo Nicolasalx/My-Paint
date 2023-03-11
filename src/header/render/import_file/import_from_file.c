@@ -96,6 +96,6 @@ void import_from_files(void)
         path_to_open_dir = malloc_str(2);
         my_strcpy(path_to_open_dir, "./");
     }
-    char *all_extension[] = {"png", "jpg", "bmp", "tga", "jpeg"};
+    char *all_extension[] = {"png", "jpg", "bmp"};
     open_new_directory(st, all_extension, head);
 }

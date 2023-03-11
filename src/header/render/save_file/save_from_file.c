@@ -57,7 +57,6 @@ void manage_event_save_file(sfRenderWindow *window, sfEvent *event, char *inputT
                 sfText_setString(text, inputText);
                 }
             }
-
     }
 }
 
@@ -76,7 +75,7 @@ void save_from_file(void)
 
     int posX = (desktop.width - mode.width) / 2;
     int posY = (desktop.height - mode.height) / 2;
-    window = sfRenderWindow_create(mode, "About", 0 | sfClose, NULL);
+    window = sfRenderWindow_create(mode, "Save Image", 0 | sfClose, NULL);
     sfRenderWindow_setPosition(window, (sfVector2i){posX, posY});
 
     sfEvent event;
@@ -126,7 +125,6 @@ void save_from_file(void)
                     strcpy(str, inputText);
                     strcat(str, ".");
                     strcat(str, selection_extension_button[index_can_draw].content_text);
-                    printf("%s\n", str);
                     export_image(str);
                     sfRenderWindow_close(window);
                 }
