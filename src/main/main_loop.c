@@ -30,24 +30,6 @@ sfBool mouse_button_maintain = false;
 sfBool mouse_button_released = false;
 sfRectangleShape *edition_zone;
 
-void render_all_data(sfRenderWindow *window, sfEvent *event,
-    sfView *window_view)
-{
-    update_window_data(window, window_view);
-    manage_event(window, event, window_view);
-    sfRenderWindow_clear(window, (sfColor) BG_COLOR);
-    render_layer(window);
-    render_all_tool();
-    layer_display(window, event);
-    display_ui(window);
-    display_toolbar(window, event);
-    render_overview(window);
-    render_undo_redo(window);
-    display_color_selection_icon(window, event);
-    management_button_header(window);
-    sfRenderWindow_display(window);
-}
-
 void main_loop(void)
 {
     sfRenderWindow *window;
@@ -62,10 +44,26 @@ void main_loop(void)
     sfRenderWindow_setFramerateLimit(window, FPS);
     edition_zone = sfRectangleShape_create();
     sfRectangleShape_setPosition(edition_zone, (sfVector2f) {51, 80});
+
     while (sfRenderWindow_isOpen(window)) {
-        sfRectangleShape_setSize(edition_zone,
-        (sfVector2f) {window_size.x - (350 + 51), window_size.y - (31 + 80)});
-        render_all_data(window, &event, window_view);
+        sfRectangleShape_setSize(edition_zone, (sfVector2f) {window_size.x - (350 + 51), window_size.y - (31 + 80)});
+        update_window_data(window, window_view);
+        manage_event(window, &event, window_view);
+        sfRenderWindow_clear(window, (sfColor) BG_COLOR);
+
+        render_layer(window);
+        render_all_tool();
+        layer_display(window, &event);
+
+        display_ui(window);
+
+        display_color_selection_icon(window, &event);
+        management_button_header(window);
+        display_toolbar(window, event);
+        render_overview(window);
+        render_undo_redo(window);
+
+        sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
 }
