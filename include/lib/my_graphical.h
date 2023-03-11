@@ -38,5 +38,8 @@ void set_render_window_icon(sfRenderWindow* window, char *icon_path);
 void ini_anchor_sprite(sfSprite *sprite, anchor_t anchor);
 void set_pos_sprite_with_anchor(sfSprite *sprite, sfVector2f offset, anchor_t anchor);
 void expand_sprite_with_anchor(sfSprite *sprite, anchor_t anchor);
+sfFloatRect compute_rect_pos_and_scale(sfFloatRect parent_rect,
+    sfFloatRect child_rect, float padding);
+sfBool is_window_resized(void);
 
 #endif /* !MY_GRAPHICAL */

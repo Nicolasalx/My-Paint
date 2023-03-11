@@ -13,7 +13,7 @@
     #include "stdbool.h"
 
     #define BACKGROUND_OUTLINE_COLOR {50, 50, 50, 255}
-    #define BACKGROUND_OUTLINE_THICKNESS 1.0f
+    #define BACKGROUND_OUTLINE_THICKNESS 3.0f
 
     #define DEFAULT_LAYER_COLOR {255, 255, 255, 255}
 

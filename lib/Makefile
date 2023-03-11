@@ -38,7 +38,9 @@ SRCGRAPHICAL=	graphical/is_mouse_over.c \
 				graphical/set_render_window_icon.c \
 				graphical/set_pos_sprite_with_anchor.c \
 				graphical/ini_anchor_sprite.c \
-				graphical/expand_sprite_with_anchor.c
+				graphical/expand_sprite_with_anchor.c \
+				graphical/compute_rect_pos_and_scale.c \
+				graphical/is_window_resize.c
 
 SRCMALLOC	=	malloc/my_malloc.c \
 				malloc/malloc_board.c \
