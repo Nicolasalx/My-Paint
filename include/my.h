@@ -13,13 +13,10 @@
     #include <SFML/Graphics.h>
 
     #define BG_COLOR {128, 128, 128, 255}
-<<<<<<< HEAD
     #define DEFAULT_IMAGE_PADDING 20.0f
-=======
     #define DEFAULT_WINDOW_SIZE_X 1920
     #define DEFAULT_WINDOW_SIZE_Y 1080
     #define FONT sfFont_createFromFile("game_data/font/JetBrainsMono-Regular.ttf")
->>>>>>> 7e77b970a37ae3e90bf7768f5f61f56c6037705b
 
     #define FPS 144
 
