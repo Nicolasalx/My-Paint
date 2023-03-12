@@ -28,5 +28,7 @@ void render_feather_pen(void)
         sfSprite_setColor(feather_pen.sprite, feather_pen.color);
         sfRenderTexture_drawSprite(GET_DATA(selected_layer, layer_t)->render_texture, feather_pen.sprite, NULL);
         sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
+    } else if (mouse_button_released) {
+        save_change();
     }
 }

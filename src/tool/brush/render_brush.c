@@ -26,5 +26,7 @@ void render_brush(void)
         sfSprite_setColor(brush.sprite, brush.color);
         sfRenderTexture_drawSprite(GET_DATA(selected_layer, layer_t)->render_texture, brush.sprite, NULL);
         sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
+    } else if (mouse_button_released) {
+        save_change();
     }
 }
