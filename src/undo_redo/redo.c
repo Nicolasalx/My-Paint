@@ -10,6 +10,17 @@
 
 void redo(void)
 {
-    
+    GET_DATA(selected_layer, layer_t)->current_version = GET_DATA(selected_layer, layer_t)->current_version->next;
+    sfSprite *tmp_strite = sfSprite_create();
+    sfSprite_setTexture(tmp_strite, GET_DATA(selected_layer, layer_t)->current_version->data, sfTrue);
+    sfRenderStates states = {
+        .blendMode = sfBlendNone,
+        .transform = sfTransform_Identity,
+        .texture = NULL,
+        .shader = NULL
+    };
+    sfRenderTexture_drawSprite(GET_DATA(selected_layer, layer_t)->render_texture, tmp_strite, &states);
+    sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
+    sfSprite_destroy(tmp_strite);
     return;
 }
