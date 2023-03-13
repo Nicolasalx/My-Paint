@@ -13,6 +13,7 @@
 #include "header.h"
 #include "toolbar.h"
 #include "user_interface.h"
+#include "icon_to_draw.h"
 
 void create_layer(void)
 {
@@ -38,6 +39,7 @@ void create_tool(void)
     ini_layer_box();
     ini_eye_sprite();
     ini_button_eye_layer();
+    create_all_icon_to_draw();
 }
 
 void create_all_data(void)

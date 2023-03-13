@@ -57,7 +57,6 @@ int create_window_from_file(node_t *head)
                     can_free_dir = true;
                     return 2;
                 } else {
-                    // Vérifier si image fonctionne
                     sfRenderWindow_close(window);
                     size_name_of_file = my_strlen(sfText_getString(GET_DATA(current, file_name_t)->text));
                     new_size_path = size_name_of_file + my_strlen(path_to_open_dir) + 1;

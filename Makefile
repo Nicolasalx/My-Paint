@@ -94,6 +94,10 @@ IMAGE_SRC	=	src/image/import_image.c \
 				src/image/export_image.c \
 				src/image/load_image.c
 
+DRAW_ICON_SRC = src/icon_to_draw/ini/declaration.c \
+				src/icon_to_draw/ini/initialisation.c \
+				src/icon_to_draw/render/display_icon_to_draw.c
+
 SRC			=	$(MAIN_SRC) \
 				$(UI_SRC) \
 				$(COLOR_SRC) \
@@ -103,10 +107,11 @@ SRC			=	$(MAIN_SRC) \
 				$(TOOL_SRC) \
 				$(TOOL_BAR_SRC) \
 				$(UNDO_REDO_SRC) \
-				$(IMAGE_SRC)
+				$(IMAGE_SRC) \
+				$(DRAW_ICON_SRC)
 
 CFLAGS		=	-W -Wall -Wextra -I ./include/lib -I ./include \
-				-lcsfml-system -lcsfml-graphics -lcsfml-window
+				-lcsfml-system -lcsfml-graphics -lcsfml-window -lm
 
 NAME		=	my_paint
 

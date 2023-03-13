@@ -26,6 +26,33 @@
 bool mouse_button_pressed_save_file = false;
 bool mouse_button_released_save_file = false;
 
+void get_input_text_user(sfEvent *event, char *inputText, sfText *text)
+{
+    if (strlen(inputText) < MAX_TEXT_LENGTH - 1) {
+        char c = event->text.unicode;
+        if (c >= 32 && c <= 126) {
+            inputText[strlen(inputText)] = c;
+        }
+    }
+    sfText_setString(text, inputText);
+}
+
+void event_input_text_save_file(sfEvent *event, char *inputText, sfText *text)
+{
+    if (event->type == sfEvtTextEntered) {
+        if (event->type == sfEvtTextEntered) {
+            get_input_text_user(event, inputText, text);
+        }
+    }
+    if (event->type == sfEvtKeyPressed && event->key.code == sfKeyBackspace) {
+        size_t len = strlen(inputText);
+        if (len > 0) {
+            inputText[len - 1] = '\0';
+            sfText_setString(text, inputText);
+        }
+    }
+}
+
 void manage_event_save_file(sfRenderWindow *window, sfEvent *event, char *inputText, sfText *text)
 {
     mouse_button_pressed_save_file = false;
@@ -39,24 +66,8 @@ void manage_event_save_file(sfRenderWindow *window, sfEvent *event, char *inputT
     while (sfRenderWindow_pollEvent(window, event)) {
         if (event->type == sfEvtClosed) {
             sfRenderWindow_close(window);
-        } else if (event->type == sfEvtTextEntered) {
-        if (event->type == sfEvtTextEntered) {
-            if (strlen(inputText) < MAX_TEXT_LENGTH - 1) {
-                char c = event->text.unicode;
-                if (c >= 32 && c <= 126) {
-                    inputText[strlen(inputText)] = c;
-                    }
-                }
-                sfText_setString(text, inputText);
-            }
         }
-        if (event->type == sfEvtKeyPressed && event->key.code == sfKeyBackspace) {
-            size_t len = strlen(inputText);
-            if (len > 0) {
-                inputText[len - 1] = '\0';
-                sfText_setString(text, inputText);
-                }
-            }
+        event_input_text_save_file(event, inputText, text);
     }
 }
 
@@ -65,6 +76,43 @@ sfBool is_mouse_over_rectangle_shape_save_file(sfRectangleShape* rectangle_shape
     sfFloatRect rectangle_bound =
     sfRectangleShape_getGlobalBounds(rectangle_shape);
     return sfFloatRect_contains(&rectangle_bound, mouse_position_save.x, mouse_position_save.y);
+}
+
+void loop_save_from_file(sfRenderWindow *window, sfEvent *event, char *inputText, sfText *text)
+{
+    int index_can_draw = 0;
+    bool can_press = false;
+    sfVector2i mouse_position_save;
+    while (sfRenderWindow_isOpen(window)) {
+        manage_event_save_file(window, event, inputText, text);
+        sfRenderWindow_clear(window, COLOR_BACKGROUND);
+        mouse_position_save = sfMouse_getPositionRenderWindow(window);
+        for (int i = 0; i < size_selection_extension_button; ++i) {
+            if (is_mouse_over_rectangle_shape_save_file(selection_extension_button[i].rectangle, mouse_position_save) == true && mouse_button_pressed_save_file == true) {
+                if (selection_extension_button[i].can_click == true) {
+                    if (can_press == true) {
+                        sfRectangleShape_setFillColor(selection_extension_button[index_can_draw].rectangle, selection_extension_button[i].color);
+                    }
+                    sfRectangleShape_setFillColor(selection_extension_button[i].rectangle, COLOR_BUTTON_PRESSED);
+                    can_press = true;
+                    index_can_draw = i;
+                }
+                if (selection_extension_button[i].validate == true && can_press == true && my_strlen(inputText) > 0) {
+                    char str[40];
+                    strcpy(str, inputText);
+                    strcat(str, ".");
+                    strcat(str, selection_extension_button[index_can_draw].content_text);
+                    export_image(str);
+                    sfRenderWindow_close(window);
+                }
+            }
+            sfRenderWindow_drawRectangleShape(window, selection_extension_button[i].rectangle, NULL);
+            sfRenderWindow_drawText(window, selection_extension_button[i].text, NULL);
+
+        }
+        sfRenderWindow_drawText(window, text, NULL);
+        sfRenderWindow_display(window);
+    }
 }
 
 void save_from_file(void)
@@ -102,43 +150,8 @@ void save_from_file(void)
         sfText_setPosition(selection_extension_button[i].text, selection_extension_button[i].pos_text);
         sfText_setString(selection_extension_button[i].text, selection_extension_button[i].content_text);
     }
-    int index_can_draw = 0;
-    bool can_press = false;
-
-    sfVector2i mouse_position_save;
-    while (sfRenderWindow_isOpen(window)) {
-        manage_event_save_file(window, &event, inputText, text);
-        sfRenderWindow_clear(window, COLOR_BACKGROUND);
-        mouse_position_save = sfMouse_getPositionRenderWindow(window);
-        for (int i = 0; i < size_selection_extension_button; ++i) {
-            if (is_mouse_over_rectangle_shape_save_file(selection_extension_button[i].rectangle, mouse_position_save) == true && mouse_button_pressed_save_file == true) {
-                if (selection_extension_button[i].can_click == true) {
-                    if (can_press == true) {
-                        sfRectangleShape_setFillColor(selection_extension_button[index_can_draw].rectangle, selection_extension_button[i].color);
-                    }
-                    sfRectangleShape_setFillColor(selection_extension_button[i].rectangle, COLOR_BUTTON_PRESSED);
-                    can_press = true;
-                    index_can_draw = i;
-                }
-                if (selection_extension_button[i].validate == true && can_press == true && my_strlen(inputText) > 0) {
-                    char str[40];
-                    strcpy(str, inputText);
-                    strcat(str, ".");
-                    strcat(str, selection_extension_button[index_can_draw].content_text);
-                    export_image(str);
-                    sfRenderWindow_close(window);
-                }
-            }
-            sfRenderWindow_drawRectangleShape(window, selection_extension_button[i].rectangle, NULL);
-            sfRenderWindow_drawText(window, selection_extension_button[i].text, NULL);
-
-        }
-        sfRenderWindow_drawText(window, text, NULL);
-        sfRenderWindow_display(window);
-    }
-
+    loop_save_from_file(window, &event, inputText, text);
     sfText_destroy(text);
     sfFont_destroy(font);
     sfRenderWindow_destroy(window);
 }
-
