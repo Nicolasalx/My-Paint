@@ -19,7 +19,7 @@ int size_already_name_malloc = 0;
 
 int define_file_to_import(void)
 {
-    
+    return 0;
 }
 
 int loop_file_import(sfRenderWindow *window, sfEvent *event, node_t *head)
