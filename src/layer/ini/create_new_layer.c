@@ -7,6 +7,7 @@
 
 #include "my.h"
 #include "layer.h"
+#include "ui_layer.h"
 #include "my_malloc.h"
 #include "my_string.h"
 
@@ -25,4 +26,5 @@ void create_new_layer(char *layer_name)
         sfRenderTexture_getTexture(new_layer->render_texture);
     new_layer->render_sprite = sfSprite_create();
     append_node(&head_layer, create_node(new_layer));
+    create_ui_layer(new_layer);
 }

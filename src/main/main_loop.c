@@ -39,7 +39,7 @@ void render_all_data(sfRenderWindow *window, sfEvent *event, sfView *window_view
     sfRenderWindow_clear(window, (sfColor) BG_COLOR);
     render_layer(window);
     render_all_tool();
-    layer_display(window, event);
+    render_ui_layer(window, event);
     display_ui(window);
     display_color_selection_icon(window, event);
     management_button_header(window);

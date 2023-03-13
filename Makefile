@@ -67,9 +67,8 @@ LAYER_SRC	=	src/layer/ini/declaration_layer.c \
 				src/layer/render/render_overview.c \
 				src/layer/ini/create_layer_name.c
 
-UI_LAYER_SRC=	src/ui_layer/ini/declaration_layer.c \
-				src/ui_layer/ini/layer_box.c \
-				src/ui_layer/ini/eye_sprite.c
+UI_LAYER_SRC=	src/ui_layer/ini/create_ui_layer.c \
+				src/ui_layer/render/render_ui_layer.c
 
 TOOL_SRC	=	src/tool/create_all_tool.c \
 				src/tool/render_all_tool.c \

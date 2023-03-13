@@ -29,3 +29,26 @@ void ini_anchor_sprite(sfSprite *sprite, anchor_t anchor)
         break;
     }
 }
+
+void ini_anchor_rect(sfRectangleShape *rect, anchor_t anchor)
+{
+    switch (anchor) {
+    case TOP_LEFT:
+        sfRectangleShape_setOrigin(rect, (sfVector2f) {0, 0});
+        break;
+    case TOP_RIGHT:
+        sfRectangleShape_setOrigin(rect, (sfVector2f) {
+            sfRectangleShape_getSize(rect).x, 0});
+        break;
+    case BOTTOM_LEFT:
+        sfRectangleShape_setOrigin(rect, (sfVector2f)
+            {0, sfRectangleShape_getSize(rect).y});
+        break;
+    case BOTTOM_RIGHT:
+        sfRectangleShape_setOrigin(rect, (sfVector2f) {
+            sfRectangleShape_getSize(rect).x,
+            sfRectangleShape_getSize(rect).y
+        });
+        break;
+    }
+}

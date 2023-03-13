@@ -12,6 +12,7 @@
     #include "SFML/Graphics.h"
     #include "stdbool.h"
     #include "my_graphical.h"
+    #include "ui_layer.h"
 
     #define BACKGROUND_OUTLINE_COLOR {50, 50, 50, 255}
     #define BACKGROUND_OUTLINE_THICKNESS 2.0f
@@ -41,6 +42,7 @@ typedef struct {
     sfSprite *render_sprite;
     node_t *head_undo;
     node_t *current_version;
+    ui_layer_t ui_layer;
 } layer_t;
 
 typedef struct {
@@ -73,5 +75,6 @@ void redo(void);
 void undo(void);
 char *create_layer_name(char *layer_name_str);
 void save_change(void);
+void create_ui_layer(layer_t *layer);
 
 #endif /* !LAYER_H_ */
