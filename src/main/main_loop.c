@@ -42,12 +42,12 @@ void render_all_data(sfRenderWindow *window, sfEvent *event, sfView *window_view
     render_all_tool();
     render_ui_layer(window, event);
     display_ui(window);
-    display_icon_to_draw(window);
     display_color_selection_icon(window, event);
     management_button_header(window);
     display_toolbar(window, event);
     render_overview(window);
     render_undo_redo(window);
+    display_icon_to_draw(window);
     sfRenderWindow_display(window);
 }
 
