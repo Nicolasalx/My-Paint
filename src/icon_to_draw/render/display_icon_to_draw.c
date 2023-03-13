@@ -23,23 +23,79 @@
 
 #include "math.h"
 
-void set_circle_shape_draw(sfRenderWindow *window, int i, float radius_size)
+void set_circle_shape_draw(sfRenderWindow *window, int i, float *radius_size)
 {
-        sfCircleShape_setRadius(icon_to_draw[i].circle, radius_size);
-        sfVector2f circle_pos = sfCircleShape_getPosition(icon_to_draw[i].circle);
-        float radius = sfCircleShape_getRadius(icon_to_draw[i].circle);
+    sfCircleShape_setRadius(icon_to_draw[i].circle, * radius_size);
+    sfVector2f circle_pos =
+        sfCircleShape_getPosition(icon_to_draw[i].circle);
+    float radius = sfCircleShape_getRadius(icon_to_draw[i].circle);
+    float distance = sqrt((mouse_pos.x - circle_pos.x) *
+        (mouse_pos.x - circle_pos.x) + (mouse_pos.y - circle_pos.y) *
+            (mouse_pos.y - circle_pos.y));
+    float percentage = distance / radius * 100;
+    if (percentage > 100) {
+        percentage = 100;
+    }
+    float new_x = mouse_pos.x - percentage * radius / 100;
+    float new_y = mouse_pos.y - percentage * radius / 100;
+    sfCircleShape_setPosition(icon_to_draw[i].circle, (sfVector2f)
+        {new_x, new_y});
+    sfRenderWindow_drawCircleShape(window, icon_to_draw[i].circle, NULL);
+}
 
-        float distance = sqrt((mouse_pos.x - circle_pos.x) * (mouse_pos.x - circle_pos.x) + (mouse_pos.y - circle_pos.y) * (mouse_pos.y - circle_pos.y));
-        float percentage = distance / radius * 100;
-        if (percentage > 100)
-            percentage = 100;
+void pen_size_tool(sfRenderWindow *window, float *radius_size, int i)
+{
+    if (pencil.radius <= 30) {
+        * radius_size = pencil.radius - 8.0f;
+    } else if (pencil.radius > 30 && pencil.radius <= 80) {
+        * radius_size = pencil.radius - 16.0f;
+    } else if (pencil.radius > 80) {
+        * radius_size = pencil.radius - 25.0f;
+    }
+    if (icon_to_draw[i].tool_to_select == PENCIL) {
+        sfSprite_setPosition(icon_to_draw[i].sprite, (sfVector2f)
+            {mouse_pos.x, mouse_pos.y - 50});
+        sfRenderWindow_drawSprite(window, icon_to_draw[i].sprite, NULL);
+        sfCircleShape_setOutlineColor(icon_to_draw[i].circle, pencil.color);
+        set_circle_shape_draw(window, i, radius_size);
+    }
+}
 
-        float new_x = mouse_pos.x - percentage * radius / 100;
-        float new_y = mouse_pos.y - percentage * radius / 100;
+void eraser_size_tool(sfRenderWindow *window, float *radius_size, int i)
+{
+    if (eraser.radius <= 30) {
+        * radius_size = eraser.radius - 8.0f;
+    } else if (eraser.radius > 30 && eraser.radius <= 80) {
+        * radius_size = eraser.radius - 16.0f;
+    } else if (eraser.radius > 80) {
+        * radius_size = eraser.radius - 25.0f;
+    }
+    if (icon_to_draw[i].tool_to_select == ERASER) {
+        sfSprite_setPosition(icon_to_draw[i].sprite, (sfVector2f)
+            {mouse_pos.x, mouse_pos.y - 50});
+        sfRenderWindow_drawSprite(window, icon_to_draw[i].sprite, NULL);
+        sfCircleShape_setOutlineColor(icon_to_draw[i].circle,
+            (sfColor) {128, 128, 128, 255});
+        set_circle_shape_draw(window, i, radius_size);
+    }
+}
 
-        sfCircleShape_setPosition(icon_to_draw[i].circle, (sfVector2f){new_x, new_y});
-
-        sfRenderWindow_drawCircleShape(window, icon_to_draw[i].circle, NULL);
+void brush_size_tool(sfRenderWindow *window, float *radius_size, int i)
+{
+    if (brush.radius <= 30) {
+        * radius_size = brush.radius - 8.0f;
+    } else if (brush.radius > 30 && brush.radius <= 80) {
+        * radius_size = brush.radius - 16.0f;
+    } else if (brush.radius > 80) {
+        * radius_size = brush.radius - 25.0f;
+    }
+    if (icon_to_draw[i].tool_to_select == BRUSH) {
+        sfSprite_setPosition(icon_to_draw[i].sprite, (sfVector2f)
+            {mouse_pos.x, mouse_pos.y - 50});
+        sfRenderWindow_drawSprite(window, icon_to_draw[i].sprite, NULL);
+        sfCircleShape_setOutlineColor(icon_to_draw[i].circle, brush.color);
+        set_circle_shape_draw(window, i, radius_size);
+    }
 }
 
 void display_icon_to_draw(sfRenderWindow *window)
@@ -48,51 +104,13 @@ void display_icon_to_draw(sfRenderWindow *window)
         float radius_size = 0;
         switch (selected_tool) {
         case PENCIL:
-            if (pencil.radius <= 30) {
-                radius_size = pencil.radius - 8.0f;
-            } else if (pencil.radius > 30 && pencil.radius <= 80) {
-                radius_size = pencil.radius - 16.0f;
-            } else if (pencil.radius > 80) {
-                radius_size = pencil.radius - 25.0f;
-            }
-            if (icon_to_draw[i].tool_to_select == PENCIL) {
-                sfSprite_setPosition(icon_to_draw[i].sprite, (sfVector2f) {mouse_pos.x, mouse_pos.y - 50});
-                sfRenderWindow_drawSprite(window, icon_to_draw[i].sprite, NULL);
-                sfCircleShape_setOutlineColor(icon_to_draw[i].circle, pencil.color);
-                set_circle_shape_draw(window, i, radius_size);
-            }
+            pen_size_tool(window, &radius_size, i);
         break;
-
         case ERASER:
-            if (eraser.radius <= 30) {
-                radius_size = eraser.radius - 8.0f;
-            } else if (eraser.radius > 30 && eraser.radius <= 80) {
-                radius_size = eraser.radius - 16.0f;
-            } else if (eraser.radius > 80) {
-                radius_size = eraser.radius - 25.0f;
-            }
-            if (icon_to_draw[i].tool_to_select == ERASER) {
-                sfSprite_setPosition(icon_to_draw[i].sprite, (sfVector2f) {mouse_pos.x, mouse_pos.y - 50});
-                sfRenderWindow_drawSprite(window, icon_to_draw[i].sprite, NULL);
-                sfCircleShape_setOutlineColor(icon_to_draw[i].circle, (sfColor) {128, 128, 128, 255});
-                set_circle_shape_draw(window, i, radius_size);
-            }
+            eraser_size_tool(window, &radius_size, i);
         break;
-
         case BRUSH:
-            if (brush.radius <= 30) {
-                radius_size = brush.radius - 8.0f;
-            } else if (brush.radius > 30 && brush.radius <= 80) {
-                radius_size = brush.radius - 16.0f;
-            } else if (brush.radius > 80) {
-                radius_size = brush.radius - 25.0f;
-            }
-            if (icon_to_draw[i].tool_to_select == BRUSH) {
-                sfSprite_setPosition(icon_to_draw[i].sprite, (sfVector2f) {mouse_pos.x, mouse_pos.y - 50});
-                sfRenderWindow_drawSprite(window, icon_to_draw[i].sprite, NULL);
-                sfCircleShape_setOutlineColor(icon_to_draw[i].circle, brush.color);
-                set_circle_shape_draw(window, i, radius_size);
-            }
+            brush_size_tool(window, &radius_size, i);
             break;
         default:
             break;
