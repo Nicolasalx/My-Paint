@@ -64,7 +64,7 @@ void detect_type_of_files(struct stat st, const char *filename, char **all_exten
     if (filename[0] != '.') {
         char path[100];
         my_strcpy(path, path_to_open_dir);
-        strcpy(path + my_strlen(path), filename);
+        my_strcpy(path + my_strlen(path), filename);
         stat(path, &st);
         directory_append_text(st, filename, head);
         file_append_text(st, filename, head, all_extension);

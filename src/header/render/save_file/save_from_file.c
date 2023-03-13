@@ -30,10 +30,10 @@ sfVector2i mouse_position_save;
 
 void get_input_text_user(sfEvent *event, char *inputText, sfText *text)
 {
-    if (strlen(inputText) < MAX_TEXT_LENGTH - 1) {
+    if (my_strlen(inputText) < MAX_TEXT_LENGTH - 1) {
         char c = event->text.unicode;
         if (c >= 32 && c <= 126) {
-            inputText[strlen(inputText)] = c;
+            inputText[my_strlen(inputText)] = c;
         }
     }
     sfText_setString(text, inputText);
@@ -47,7 +47,7 @@ void event_input_text_save_file(sfEvent *event, char *inputText, sfText *text)
         }
     }
     if (event->type == sfEvtKeyPressed && event->key.code == sfKeyBackspace) {
-        size_t len = strlen(inputText);
+        size_t len = my_strlen(inputText);
         if (len > 0) {
             inputText[len - 1] = '\0';
             sfText_setString(text, inputText);
