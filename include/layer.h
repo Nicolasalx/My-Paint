@@ -72,5 +72,6 @@ void render_undo_redo(sfRenderWindow *window);
 void redo(void);
 void undo(void);
 char *create_layer_name(char *layer_name_str);
+void save_change(void);
 
 #endif /* !LAYER_H_ */

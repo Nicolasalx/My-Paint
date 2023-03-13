@@ -88,7 +88,8 @@ UNDO_REDO_SRC=	src/undo_redo/ini/create_undo_redo.c \
 				src/undo_redo/ini/declaration_undo_redo.c \
 				src/undo_redo/render/render_undo_redo.c \
 				src/undo_redo/undo.c \
-				src/undo_redo/redo.c
+				src/undo_redo/redo.c \
+				src/undo_redo/save_change.c
 
 IMAGE_SRC	=	src/image/import_image.c \
 				src/image/export_image.c \

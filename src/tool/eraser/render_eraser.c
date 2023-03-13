@@ -32,5 +32,7 @@ void render_eraser(void)
 
         sfRenderTexture_drawCircleShape(GET_DATA(selected_layer, layer_t)->render_texture, eraser.circle, &states);
         sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
+    } else if (mouse_button_released) {
+        save_change();
     }
 }
