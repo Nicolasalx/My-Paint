@@ -45,6 +45,7 @@ void set_circle_shape_draw(sfRenderWindow *window, int i, float *radius_size)
 
 void pen_size_tool(sfRenderWindow *window, float *radius_size, int i)
 {
+    sfRenderWindow_setMouseCursorVisible(window, false);
     if (pencil.radius <= 30) {
         * radius_size = pencil.radius - 8.0f;
     } else if (pencil.radius > 30 && pencil.radius <= 80) {
@@ -63,6 +64,7 @@ void pen_size_tool(sfRenderWindow *window, float *radius_size, int i)
 
 void eraser_size_tool(sfRenderWindow *window, float *radius_size, int i)
 {
+    sfRenderWindow_setMouseCursorVisible(window, false);
     if (eraser.radius <= 30) {
         * radius_size = eraser.radius - 8.0f;
     } else if (eraser.radius > 30 && eraser.radius <= 80) {
@@ -82,6 +84,7 @@ void eraser_size_tool(sfRenderWindow *window, float *radius_size, int i)
 
 void brush_size_tool(sfRenderWindow *window, float *radius_size, int i)
 {
+    sfRenderWindow_setMouseCursorVisible(window, false);
     if (brush.radius <= 30) {
         * radius_size = brush.radius - 8.0f;
     } else if (brush.radius > 30 && brush.radius <= 80) {
@@ -112,7 +115,7 @@ void display_icon_to_draw(sfRenderWindow *window)
         case BRUSH:
             brush_size_tool(window, &radius_size, i);
             break;
-        default:
+        default: sfRenderWindow_setMouseCursorVisible(window, true);
             break;
         }
     }

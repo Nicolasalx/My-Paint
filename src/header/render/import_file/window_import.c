@@ -12,27 +12,25 @@
 #include "image.h"
 #include "import_image.h"
 
-int create_window_from_file(node_t *head)
+char *new_path = '\0';
+int new_size_path = 0;
+int size_name_of_file = 0;
+int size_already_name_malloc = 0;
+
+int define_file_to_import(void)
 {
-    sfVideoMode desktop = sfVideoMode_getDesktopMode();
-    sfVideoMode mode = {640, 720, desktop.bitsPerPixel};
-    sfRenderWindow* window;
-    sfEvent event;
-    int posX = (desktop.width - mode.width) / 2;
-    int posY = (desktop.height - mode.height) / 2;
-    window = sfRenderWindow_create(mode, "Import Image", 0 | sfClose, NULL);
-    sfRenderWindow_setPosition(window, (sfVector2i){posX, posY});
-    char *new_path = '\0';
-    int new_size_path = 0;
-    int size_name_of_file = 0;
-    int size_already_name_malloc = 0;
+    
+}
+
+int loop_file_import(sfRenderWindow *window, sfEvent *event, node_t *head)
+{
     while (sfRenderWindow_isOpen(window)) {
-        manage_event_file(window, &event);
+        manage_event_file(window, event);
         sfRenderWindow_clear(window, (sfColor) BACKGROUND_COLOR_IMG_IMPORT);
         node_t *current = head;
         do {
             sfRenderWindow_drawText(window, GET_DATA(current, file_name_t)->text, NULL);
-            if (is_mouse_over_texte(GET_DATA(current, file_name_t)->text, window) == true && event.type == sfEvtMouseButtonPressed) {
+            if (is_mouse_over_texte(GET_DATA(current, file_name_t)->text, window) == true && event->type == sfEvtMouseButtonPressed) {
                 if (GET_DATA(current, file_name_t)->is_a_dir == true) {
                     if (my_strcmp(sfText_getString(GET_DATA(current, file_name_t)->text), "[X]| BACK TO THE PREVIOUS DIRECTORY\n") == 0) {
                         char *new_path = malloc_str(my_strlen(path_to_open_dir) + 3);
@@ -82,6 +80,24 @@ int create_window_from_file(node_t *head)
         event_text_display(head, current);
         sfRenderWindow_display(window);
     }
+    return 0;
+}
+
+int create_window_from_file(node_t *head)
+{
+    sfVideoMode desktop = sfVideoMode_getDesktopMode();
+    sfVideoMode mode = {640, 720, desktop.bitsPerPixel};
+    sfRenderWindow* window;
+    sfEvent event;
+    int posX = (desktop.width - mode.width) / 2;
+    int posY = (desktop.height - mode.height) / 2;
+    window = sfRenderWindow_create(mode, "Import Image", 0 | sfClose, NULL);
+    sfRenderWindow_setPosition(window, (sfVector2i){posX, posY});
+    new_path = '\0';
+    new_size_path = 0;
+    size_name_of_file = 0;
+    size_already_name_malloc = 0;
+    return (loop_file_import(window, &event, head));
     sfRenderWindow_destroy(window);
     return 0;
 }

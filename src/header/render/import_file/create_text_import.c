@@ -22,7 +22,8 @@ void directory_append_text(struct stat st, const char *path_of_file, node_t *hea
     }
 }
 
-void append_text_to_linked(int nb_word, char **words, char **all_extension, node_t *head)
+void append_text_to_linked(int nb_word, char **words, char **all_extension,
+    node_t *head)
 {
     int total_size = 1;
     for (int i = 0; i < nb_word - 1; ++i) {
@@ -35,7 +36,8 @@ void append_text_to_linked(int nb_word, char **words, char **all_extension, node
     }
     for (int i = 0; i < SIZE_EXTENSION; ++i) {
         if (my_strcmp(all_extension[i], words[nb_word - 1]) == 0) {
-            char *is_a_file = malloc_str(my_strlen(name_of_file) + my_strlen(words[nb_word - 1]) + 2);
+            char *is_a_file = malloc_str(my_strlen(name_of_file) +
+                my_strlen(words[nb_word - 1]) + 2);
             my_strcpy(is_a_file, name_of_file);
             my_strcat(is_a_file, ".");
             my_strcat(is_a_file, words[nb_word - 1]);
@@ -47,7 +49,8 @@ void append_text_to_linked(int nb_word, char **words, char **all_extension, node
     free(name_of_file);
 }
 
-void file_append_text(struct stat st, const char *path_of_file, node_t *head, char **all_extension)
+void file_append_text(struct stat st, const char *path_of_file, node_t *head,
+    char **all_extension)
 {
     if (S_ISREG(st.st_mode)) {
         int nb_word = count_nb_word(path_of_file, ".");
@@ -59,7 +62,8 @@ void file_append_text(struct stat st, const char *path_of_file, node_t *head, ch
     }
 }
 
-void detect_type_of_files(struct stat st, const char *filename, char **all_extension, node_t *head)
+void detect_type_of_files(struct stat st, const char *filename,
+    char **all_extension, node_t *head)
 {
     if (filename[0] != '.') {
         char path[100];
