@@ -13,6 +13,7 @@
 #include "header.h"
 #include "toolbar.h"
 #include "user_interface.h"
+#include "icon_to_draw.h"
 
 void create_layer(void)
 {
@@ -34,6 +35,7 @@ void create_tool(void)
     ini_layer_text();
     ini_help_menu_header_rectangle_icon();
     ini_help_text();
+    create_all_icon_to_draw();
 }
 
 void create_all_data(void)

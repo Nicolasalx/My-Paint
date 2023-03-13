@@ -18,6 +18,7 @@
 #include "ui_layer.h"
 #include <SFML/Graphics.h>
 #include "tool.h"
+#include "icon_to_draw.h"
 
 sfVector2i window_pos = {0, 0};
 sfVector2u window_size = {1920, 1080};
@@ -41,6 +42,7 @@ void render_all_data(sfRenderWindow *window, sfEvent *event, sfView *window_view
     render_all_tool();
     render_ui_layer(window, event);
     display_ui(window);
+    display_icon_to_draw(window);
     display_color_selection_icon(window, event);
     management_button_header(window);
     display_toolbar(window, event);
