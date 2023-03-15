@@ -36,6 +36,7 @@ void create_tool(void)
     ini_help_menu_header_rectangle_icon();
     ini_help_text();
     create_all_icon_to_draw();
+    ini_zoom();
 }
 
 void create_all_data(void)

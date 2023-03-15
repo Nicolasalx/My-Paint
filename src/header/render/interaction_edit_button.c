@@ -13,13 +13,18 @@
 
 void select_tool_edit(int i)
 {
-    selected_tool = ERASER;
     switch (edit_menu_header[i].tool_to_select) {
         case PENCIL:
             selected_tool = PENCIL;
+            pencil.draw_mode = edit_menu_header[i].draw_mode;
         break;
         case ERASER:
             selected_tool = ERASER;
+            eraser.draw_mode = edit_menu_header[i].draw_mode;
+        break;
+        case BRUSH:
+            selected_tool = BRUSH;
+            brush.draw_mode = edit_menu_header[i].draw_mode;
         break;
         default:
         break;

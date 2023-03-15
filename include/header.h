@@ -60,6 +60,7 @@ typedef struct {
     char *path;
     sfVector2f size;
     tool_t tool_to_select;
+    draw_mode_t draw_mode;
 } edit_menu_header_t;
 
 typedef struct {

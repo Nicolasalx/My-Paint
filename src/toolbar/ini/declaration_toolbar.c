@@ -30,9 +30,6 @@ icon_rectangle_t icon_rectangle [] = {
     {.color = BG_COLOR, .pos = {5, 410},
     .size = {40, 40}, .can_draw = true}, // Rectangle pour dessiner -> 2
 
-
-
-
     {.color = BG_COLOR, .pos = {5, 470},
     .size = {40, 40}, .can_draw = true}, // Ligne Forme -> 3
 
@@ -50,7 +47,6 @@ icon_rectangle_t icon_rectangle [] = {
     .size = {40, 40}, .can_draw = true}, // Pipette -> 4
 
 
-
     {.color = BG_COLOR, .pos = {5, 740},
     .size = {40, 40}, .can_draw = true, .tool_to_select = HAND}, // Loupe -> 5
 
@@ -64,3 +60,11 @@ const int size_icon_rectangle =
 
 size_pen_t size_pen = {.pos = {5, 992}, .size = {40, 0},
     .color = {255, 102, 102, 255}};
+
+zoom_shape_t zoom_shape[] = {
+    {.pos = {575, 20}, .size = {200, 40}, .color = BG_COLOR},
+    {.pos = {575, 20}, .size = {200, 40}, .color = {255, 102, 102, 255}}
+};
+
+const int size_zoom_shape =
+    sizeof(zoom_shape) / sizeof(zoom_shape_t);
