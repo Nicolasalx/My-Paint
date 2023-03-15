@@ -12,6 +12,27 @@
 #include "toolbar.h"
 #include "tool.h"
 
+void change_shape_to_draw(int i)
+{
+    switch (selected_tool) {
+    case PENCIL:
+        switch (edit_menu_header[i].draw_mode) {
+            case RECTANGLE_DRAW: pencil.draw_mode = RECTANGLE_DRAW; break;
+            case CIRCLE_DRAW: pencil.draw_mode = CIRCLE_DRAW; break;
+            case BRUSH_DRAW: pencil.draw_mode = BRUSH_DRAW; break;
+        }
+    break;
+    case ERASER:
+        switch (edit_menu_header[i].draw_mode) {
+            case RECTANGLE_DRAW: eraser.draw_mode = RECTANGLE_DRAW; break;
+            case CIRCLE_DRAW: eraser.draw_mode = CIRCLE_DRAW; break;
+            case BRUSH_DRAW: eraser.draw_mode = BRUSH_DRAW; break;
+        }
+        break;
+    default: break;
+    }
+}
+
 void select_tool_edit(int i)
 {
     if (edit_menu_header[i].tool_draw_shape == false) {
@@ -28,43 +49,7 @@ void select_tool_edit(int i)
                 break;
         }
     } else {
-        switch (selected_tool)
-        {
-        case PENCIL:
-            switch (edit_menu_header[i].draw_mode)
-            {
-                case RECTANGLE_DRAW:
-                    pencil.draw_mode = RECTANGLE_DRAW;
-                break;
-                case CIRCLE_DRAW:
-                    pencil.draw_mode = CIRCLE_DRAW;
-                break;
-                case BRUSH_DRAW:
-                    pencil.draw_mode = BRUSH_DRAW;
-                break;
-            }
-        
-        break;
-        
-        
-        case ERASER:
-            switch (edit_menu_header[i].draw_mode)
-            {
-                case RECTANGLE_DRAW:
-                    eraser.draw_mode = RECTANGLE_DRAW;
-                break;
-                case CIRCLE_DRAW:
-                    eraser.draw_mode = CIRCLE_DRAW;
-                break;
-                case BRUSH_DRAW:
-                    eraser.draw_mode = BRUSH_DRAW;
-                break;
-            }
-            break;
-        default:
-            break;
-        }
-
+        change_shape_to_draw(i);
     }
 }
 

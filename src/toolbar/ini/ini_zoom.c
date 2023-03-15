@@ -21,7 +21,6 @@ void create_zoom_shape(int i)
 
 void ini_zoom(void)
 {
-    
     for (int i = 0; i < size_zoom_shape; ++i) {
         create_zoom_shape(i);
     }

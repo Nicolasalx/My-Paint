@@ -30,6 +30,7 @@ sfBool mouse_button_pressed = false;
 sfBool mouse_button_maintain = false;
 sfBool mouse_button_released = false;
 sfRectangleShape *edition_zone;
+bool need_to_exit = false;
 
 void render_all_data(sfRenderWindow *window, sfEvent *event, sfView *window_view)
 {
@@ -71,6 +72,9 @@ void main_loop(void)
 
     while (sfRenderWindow_isOpen(window)) {
         render_all_data(window, &event, window_view);
+        if (need_to_exit == true) {
+            break;
+        }
     }
     sfRenderWindow_destroy(window);
 }

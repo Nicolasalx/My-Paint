@@ -21,7 +21,7 @@
 #include "save_image.h"
 #include "save_file.h"
     #define MAX_TEXT_LENGTH 30
-    #define COLOR_BACKGROUND (sfColor) {128, 128, 128, 255}
+    #define COLOR_BACKGROUND 128, 128, 128, 255
     #define COLOR_BUTTON_PRESSED (sfColor) {0, 73, 153, 255}
 
 bool mouse_button_pressed_save_file = false;
@@ -59,7 +59,7 @@ void loop_save_from_file(sfRenderWindow *window, sfEvent *event,
     can_press = false;
     while (sfRenderWindow_isOpen(window)) {
         manage_event_save_file(window, event, inputText, text);
-        sfRenderWindow_clear(window, COLOR_BACKGROUND);
+        sfRenderWindow_clear(window, (sfColor) {COLOR_BACKGROUND});
         mouse_position_save = sfMouse_getPositionRenderWindow(window);
         for (int i = 0; i < size_selection_extension_button; ++i) {
             interaction_button_save(window, &index_can_draw, inputText, i);

@@ -34,6 +34,7 @@ extern sfBool mouse_button_pressed;
 extern sfBool mouse_button_maintain;
 extern sfBool mouse_button_released;
 extern sfRectangleShape *edition_zone;
+extern bool need_to_exit;
 
 void main_loop(void);
 void update_window_data(sfRenderWindow *window, sfView *window_view);

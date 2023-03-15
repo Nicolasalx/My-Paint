@@ -94,6 +94,7 @@ typedef struct {
     sfVector2f pos;
     char *path;
     sfVector2f size;
+    void (*redirect)(void);
 } layer_menu_header_t;
 
 typedef struct {

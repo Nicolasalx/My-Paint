@@ -17,7 +17,7 @@ void new_file(void)
 
 void exit_file(void)
 {
-    return;
+    need_to_exit = true;
 }
 
 void display_icon_file(sfRenderWindow *window)

@@ -14,6 +14,9 @@ void display_icon_layer(sfRenderWindow *window)
     for (int i = 0; i < size_layer_menu_header; ++i) {
         sfRenderWindow_drawRectangleShape(window,
             layer_menu_header[i].rectangle, NULL);
+        if (is_mouse_over_rectangle_shape(layer_menu_header[i].rectangle) == true && mouse_button_pressed) {
+            layer_menu_header[i].redirect();
+        }
         for (int i = 0; i < size_text_layer_header; ++i) {
             sfRenderWindow_drawText(window, text_layer_header[i].text, NULL);
         }
