@@ -115,7 +115,8 @@ SRC			=	$(SRCGRAPHICAL) \
 
 OBJ			=	$(SRC:.c=.o)
 
-CFLAGS		=	-W -Wall -Wextra -I ../include/lib -I ../include/ -O2 -fno-builtin
+CFLAGS		=	-W -Wall -Wextra -I ../include/lib -I ../include/ \
+				-O2 -fno-builtin
 
 LIBFLAG		=
 

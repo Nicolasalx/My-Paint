@@ -17,11 +17,17 @@ void delete_current_layer(void)
     node_t *node_to_delete = remove_node(&head_layer, selected_layer->prev);
     sfSprite_destroy(GET_DATA(node_to_delete, layer_t)->render_sprite);
     sfRenderTexture_destroy(GET_DATA(node_to_delete, layer_t)->render_texture);
-    sfRectangleShape_destroy(GET_DATA(node_to_delete, layer_t)->ui_layer.box_ui_layer.box);
-    sfText_destroy(GET_DATA(node_to_delete, layer_t)->ui_layer.box_ui_layer.text);
-    sfFont_destroy(GET_DATA(node_to_delete, layer_t)->ui_layer.box_ui_layer.font);
-    sfRectangleShape_destroy(GET_DATA(node_to_delete, layer_t)->ui_layer.eye_ui_layer.box);
-    sfSprite_destroy(GET_DATA(node_to_delete, layer_t)->ui_layer.eye_ui_layer.sprite);
-    sfTexture_destroy(GET_DATA(node_to_delete, layer_t)->ui_layer.eye_ui_layer.texture);
+    sfRectangleShape_destroy(GET_DATA(
+        node_to_delete, layer_t)->ui_layer.box_ui_layer.box);
+    sfText_destroy(GET_DATA(
+        node_to_delete, layer_t)->ui_layer.box_ui_layer.text);
+    sfFont_destroy(GET_DATA(
+        node_to_delete, layer_t)->ui_layer.box_ui_layer.font);
+    sfRectangleShape_destroy(GET_DATA(
+        node_to_delete, layer_t)->ui_layer.eye_ui_layer.box);
+    sfSprite_destroy(GET_DATA(
+        node_to_delete, layer_t)->ui_layer.eye_ui_layer.sprite);
+    sfTexture_destroy(GET_DATA(
+        node_to_delete, layer_t)->ui_layer.eye_ui_layer.texture);
     free(node_to_delete);
 }

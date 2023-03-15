@@ -25,13 +25,17 @@ void compute_overview_pos(void)
 void render_overview(sfRenderWindow *window)
 {
     compute_overview_pos();
-    sfSprite_setPosition(GET_DATA(selected_layer, layer_t)->render_sprite, (sfVector2f) overview_pos);
-    sfSprite_setScale(GET_DATA(selected_layer, layer_t)->render_sprite, (sfVector2f) overview_scale);
-    sfRenderWindow_drawSprite(window, GET_DATA(selected_layer, layer_t)->render_sprite, NULL);
+    sfSprite_setPosition(GET_DATA(
+        selected_layer, layer_t)->render_sprite, (sfVector2f) overview_pos);
+    sfSprite_setScale(GET_DATA(selected_layer, layer_t)->render_sprite,
+        (sfVector2f) overview_scale);
+    sfRenderWindow_drawSprite(window,
+        GET_DATA(selected_layer, layer_t)->render_sprite, NULL);
     sfRectangleShape_setOutlineThickness(
         background, OVERVIEW_BACKGROUND_OUTLINE_THICKNESS);
     sfRectangleShape_setPosition(background, (sfVector2f) overview_pos);
-    sfRectangleShape_setSize(background, (sfVector2f) {render_sheet_res.x, render_sheet_res.y});
+    sfRectangleShape_setSize(background,
+        (sfVector2f) {render_sheet_res.x, render_sheet_res.y});
     sfRectangleShape_setScale(background, (sfVector2f) overview_scale);
     sfRenderWindow_drawRectangleShape(window, background, NULL);
     sfRectangleShape_setOutlineThickness(
