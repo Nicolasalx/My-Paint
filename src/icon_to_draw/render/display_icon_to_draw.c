@@ -47,7 +47,8 @@ void pen_size_tool(sfRenderWindow *window, float *radius_size, int i)
 {
     sfRenderWindow_setMouseCursorVisible(window, false);
     if (pencil.radius > 0) {
-        *radius_size = pencil.radius * fmin(render_sheet_scale.x, render_sheet_scale.y);
+        *radius_size = pencil.radius * fmin(render_sheet_scale.x,
+            render_sheet_scale.y);
     } else {
         *radius_size = 1.0f;
     }
@@ -64,7 +65,8 @@ void eraser_size_tool(sfRenderWindow *window, float *radius_size, int i)
 {
     sfRenderWindow_setMouseCursorVisible(window, false);
     if (eraser.radius > 0) {
-        *radius_size = eraser.radius * fmin(render_sheet_scale.x, render_sheet_scale.y);
+        *radius_size = eraser.radius * fmin(render_sheet_scale.x,
+            render_sheet_scale.y);
     } else {
         *radius_size = 1.0f;
     }
@@ -82,7 +84,8 @@ void brush_size_tool(sfRenderWindow *window, float *radius_size, int i)
 {
     sfRenderWindow_setMouseCursorVisible(window, false);
     if (brush.radius > 0) {
-        *radius_size = brush.radius * fmin(render_sheet_scale.x, render_sheet_scale.y);
+        *radius_size = brush.radius * fmin(render_sheet_scale.x,
+            render_sheet_scale.y);
     } else {
         *radius_size = 1.0f;
     }

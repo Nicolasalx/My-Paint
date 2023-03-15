@@ -38,8 +38,7 @@ void open_new_directory(struct stat st, char **all_extension, node_t *head)
         file = readdir(dir);
     }
     switch (create_window_from_file(head)) {
-        case 1:
-            free(file_name); free_linked_list(&head);
+        case 1: free(file_name); free_linked_list(&head);
             free(path_to_open_dir); path_to_open_dir = malloc_str(2);
             path_to_open_dir = "./"; return;
         break;

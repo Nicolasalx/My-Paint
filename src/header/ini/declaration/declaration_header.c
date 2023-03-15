@@ -7,7 +7,6 @@
 
 #include "my.h"
 #include "header.h"
-    #define SIZE_IMG_ABOUT_HELP {2, 2}
 
 button_header_t button_header [] = {
     {.color = BG_COLOR, .pos = {60, 15}, .size = {75, 50}},
@@ -74,9 +73,9 @@ const int size_option_text_menu_help =
 
 img_about_option_help_t img_about_option_help [] = {
     {.path_img = "game_data/creator/thibaud_creator.png",
-    .pos = {70, 100}, .size = SIZE_IMG_ABOUT_HELP},
+    .pos = {70, 100}, .size = {2, 2}},
     {.path_img = "game_data/creator/nicolas_creator.png",
-    .pos = {400, 100}, .size = SIZE_IMG_ABOUT_HELP},
+    .pos = {400, 100}, .size = {2, 2}},
 };
 
 const int size_img_about_option_help =

@@ -20,8 +20,7 @@
 #include "import_image.h"
 #include <SFML/Graphics.h>
 #include "save_image.h"
-    #define COLOR_BG 128, 128, 128, 255
-    #define SIZE_BUTTON 120, 100
+
 
 selection_extension_button_t selection_extension_button [] = {
     {.color = (sfColor) {COLOR_BG}, .pos = {60, 80}, .size = {600, 100},
