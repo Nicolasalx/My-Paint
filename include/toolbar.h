@@ -38,6 +38,14 @@ typedef struct {
 } size_pen_t;
 
 typedef struct {
+    sfRectangleShape *rectangle;
+    sfColor color;
+    sfVector2f pos;
+    char *path;
+    sfVector2f size;
+} zoom_shape_t;
+
+typedef struct {
     int index_button_pressed;
     int index_button_hovered;
     bool verif;
@@ -53,6 +61,9 @@ extern const int size_icon_sprite;
 
 extern size_pen_t size_pen;
 
+extern zoom_shape_t zoom_shape[];
+extern const int size_zoom_shape;
+
 void set_size_pen(sfRenderWindow *window, sfEvent *event);
 void display_toolbar(sfRenderWindow *window, sfEvent *event);
 void ini_icon_rectangle(void);
@@ -60,5 +71,7 @@ void ini_icon_sprite(void);
 void ini_size_pen(void);
 void interaction_front_toolbar(void);
 void set_size_tool_selected(void);
+void ini_zoom(void);
+void set_zoom_size(sfRenderWindow *window, sfEvent *event);
 
 #endif /* !TOOLBAR_H_ */

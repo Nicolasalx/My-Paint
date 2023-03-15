@@ -49,6 +49,7 @@ void render_all_data(sfRenderWindow *window, sfEvent *event, sfView *window_view
     render_overview(window);
     render_undo_redo(window);
     display_icon_to_draw(window);
+    set_zoom_size(window, event);
     sfRenderWindow_display(window);
 }
 

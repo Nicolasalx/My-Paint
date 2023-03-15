@@ -25,7 +25,9 @@ TOOL_BAR_SRC= 	src/toolbar/ini/declaration_toolbar.c \
 				src/toolbar/ini/ini_toolbar.c \
 				src/toolbar/ini/declaration_icon.c \
 				src/toolbar/render/size_pen.c \
-				src/toolbar/render/display_toolbar.c
+				src/toolbar/render/display_toolbar.c \
+				src/toolbar/ini/ini_zoom.c \
+				src/toolbar/render/size_zoom.c
 
 HEADER_SRC	=	src/header/ini/declaration/declaration_header.c \
 				src/header/ini/initialisation/ini_button_header.c \
@@ -54,7 +56,8 @@ HEADER_SRC	=	src/header/ini/declaration/declaration_header.c \
 				src/header/render/help_option_menu/about_help_menu.c \
 				src/header/render/save_file/save_from_file.c \
 				src/header/render/save_file/declaration_save.c \
-				src/header/render/save_file/interaction_text.c
+				src/header/render/save_file/interaction_text.c \
+				src/header/render/import_file/define_fd.c
 
 UI_LAYER_SRC=	src/ui_layer/declaration_layer.c \
 				src/ui_layer/ini_layer.c
@@ -88,7 +91,7 @@ TOOL_SRC	=	src/tool/create_all_tool.c \
 				src/tool/brush/render_brush.c \
 				src/tool/feather_pen/create_feather_pen.c \
 				src/tool/feather_pen/render_feather_pen.c \
-				src/tool/hand/render_hand.c
+				src/tool/hand/render_hand.c \
 
 UNDO_REDO_SRC=	src/undo_redo/ini/create_undo_redo.c \
 				src/undo_redo/ini/declaration_undo_redo.c \
