@@ -21,6 +21,10 @@ extern bool state_button_pressed;
 extern bool state_button_released;
 extern char *path_to_open_dir;
 extern bool can_free_dir;
+extern char *new_path;
+extern int new_size_path;
+extern int size_name_of_file;
+extern int size_already_name_malloc;
 
 void directory_append_text(struct stat st, const char *path_of_file, node_t *head);
 void file_append_text(struct stat st, const char *path_of_file, node_t *head, char **all_extension);
