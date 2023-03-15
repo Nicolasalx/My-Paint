@@ -14,20 +14,20 @@
     #include "my_graphical.h"
     #include "ui_layer.h"
 
-    #define BACKGROUND_OUTLINE_COLOR {50, 50, 50, 255}
+    #define BACKGROUND_OUTLINE_COLOR 50, 50, 50, 255
     #define BACKGROUND_OUTLINE_THICKNESS 2.0f
 
-    #define DEFAULT_LAYER_COLOR {255, 255, 255, 255}
+    #define DEFAULT_LAYER_COLOR 255, 255, 255, 255
 
     #define MAX_LAYER_NAME_SIZE 20
     #define DEFAULT_LAYER_NAME "layer_"
 
     #define OVERVIEW_BACKGROUND_OUTLINE_THICKNESS 6.0f
 
-    #define UNDO_REDO_DISABLE_COLOR {255, 255, 255, 100}
-    #define UNDO_REDO_ENABLE_COLOR {255, 255, 255, 255}
-    #define UNDO_REDO_OVERED_COLOR {255, 255, 255, 170}
-    #define UNDO_REDO_MAINTAIN_COLOR {200, 255, 200, 255}
+    #define UNDO_REDO_DISABLE_COLOR 255, 255, 255, 100
+    #define UNDO_REDO_ENABLE_COLOR 255, 255, 255, 255
+    #define UNDO_REDO_OVERED_COLOR 255, 255, 255, 170
+    #define UNDO_REDO_MAINTAIN_COLOR 200, 255, 200, 255
 
     #define UNDO 0
     #define REDO 1

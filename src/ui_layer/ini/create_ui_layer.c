@@ -15,7 +15,7 @@ void create_background_ui_layer(void)
 {
     background_ui_layer = sfRectangleShape_create();
     sfRectangleShape_setSize(background_ui_layer, (sfVector2f) {290, 215});
-    sfRectangleShape_setFillColor(background_ui_layer, (sfColor) BG_COLOR);
+    sfRectangleShape_setFillColor(background_ui_layer, (sfColor) {BG_COLOR});
     ini_anchor_rect(background_ui_layer, TOP_RIGHT);
 }
 

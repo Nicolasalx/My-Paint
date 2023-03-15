@@ -18,7 +18,7 @@ selection_color_t selection_color [] = {
     {.color = {GREEN}, .pos = {1770, 350}, .size = {30, 30}, .can_draw = true},
     {.color = {BLACK}, .pos = {1840, 300}, .size = {30, 30}, .can_draw = true},
     {.color = {WHITE}, .pos = {1840, 350}, .size = {30, 30}, .can_draw = true},
-    {.color = BG_COLOR, .pos = {1600, 500}, .size = {290, 200},
+    {.color = {BG_COLOR}, .pos = {1600, 500}, .size = {290, 200},
     .can_draw = false}
 };
 

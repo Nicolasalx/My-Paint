@@ -9,11 +9,11 @@
 #include "header.h"
 
 button_header_t button_header [] = {
-    {.color = BG_COLOR, .pos = {60, 15}, .size = {75, 50}},
-    {.color = BG_COLOR, .pos = {160, 15}, .size = {75, 50}},
-    {.color = BG_COLOR, .pos = {260, 15}, .size = {75, 50}},
-    {.color = BG_COLOR, .pos = {360, 15}, .size = {75, 50}},
-    {.color = BG_COLOR, .pos = {460, 15}, .size = {75, 50}}
+    {.color = {BG_COLOR}, .pos = {60, 15}, .size = {75, 50}},
+    {.color = {BG_COLOR}, .pos = {160, 15}, .size = {75, 50}},
+    {.color = {BG_COLOR}, .pos = {260, 15}, .size = {75, 50}},
+    {.color = {BG_COLOR}, .pos = {360, 15}, .size = {75, 50}},
+    {.color = {BG_COLOR}, .pos = {460, 15}, .size = {75, 50}}
 };
 
 const int size_button_header = sizeof(button_header) / sizeof(button_header_t);

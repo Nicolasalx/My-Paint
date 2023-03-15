@@ -24,7 +24,7 @@ void reset_menu_header(int pressed_min_one_time,
         size_button_header) {
         for (int i = 0; i < size_button_header; ++i) {
             sfRectangleShape_setFillColor(button_header[i].rectangle,
-                (sfColor) BG_COLOR);
+                (sfColor) {BG_COLOR});
         }
     }
 }
@@ -38,7 +38,7 @@ void gestion_header_menu(int *stay_on_icon_header)
             && mouse_button_pressed == true) {
             sfRectangleShape_setFillColor
                 (button_header[*stay_on_icon_header].rectangle,
-                    (sfColor) BG_COLOR);
+                    (sfColor) {BG_COLOR});
             sfRectangleShape_setFillColor(button_header[i].rectangle, sfBlue);
             * stay_on_icon_header = i;
             ++ pressed_min_one_time;

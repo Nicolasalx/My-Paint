@@ -29,10 +29,10 @@ void render_undo_redo(sfRenderWindow *window)
 {
     check_undo_redo_possibility();
     button_anim_t button_anim = {
-        .disable = UNDO_REDO_DISABLE_COLOR,
-        .idle = UNDO_REDO_ENABLE_COLOR,
-        .overed = UNDO_REDO_OVERED_COLOR,
-        .maintain = UNDO_REDO_MAINTAIN_COLOR,
+        .disable = {UNDO_REDO_DISABLE_COLOR},
+        .idle = {UNDO_REDO_ENABLE_COLOR},
+        .overed = {UNDO_REDO_OVERED_COLOR},
+        .maintain = {UNDO_REDO_MAINTAIN_COLOR},
         .move = {0, 5}};
     for (int i = 0; i < size_icon_undo_redo; ++i) {
         handle_sprite_button_state(icon_undo_redo[i].sprite, &button_anim,

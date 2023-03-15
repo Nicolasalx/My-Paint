@@ -38,7 +38,7 @@ void render_all_data(sfRenderWindow *window, sfEvent *event, sfView *window_view
         {window_size.x - (350 + 51), window_size.y - (31 + 80)});
     update_window_data(window, window_view);
     manage_event(window, event, window_view);
-    sfRenderWindow_clear(window, (sfColor) BG_COLOR);
+    sfRenderWindow_clear(window, (sfColor) {BG_COLOR});
     render_layer(window);
     render_all_tool();
     render_ui_layer(window, event);

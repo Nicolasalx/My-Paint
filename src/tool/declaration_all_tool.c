@@ -11,7 +11,7 @@ tool_t selected_tool = HAND;
 
 pencil_t pencil = {
     .radius = DEFAULT_PENCIL_RADIUS,
-    .color = DEFAULT_PENCIL_COLOR
+    .color = {DEFAULT_PENCIL_COLOR}
 };
 
 eraser_t eraser = {
@@ -20,10 +20,10 @@ eraser_t eraser = {
 
 brush_t brush = {
     .radius = DEFAULT_BRUSH_RADIUS,
-    .color = DEFAULT_BRUSH_COLOR
+    .color = {DEFAULT_BRUSH_COLOR}
 };
 
 feather_pen_t feather_pen = {
     .radius = DEFAULT_FEATHER_PEN_RADIUS,
-    .color = DEFAULT_FEATHER_PEN_COLOR
+    .color = {DEFAULT_FEATHER_PEN_COLOR}
 };

@@ -26,7 +26,7 @@ void set_color_button_pressed(void)
             mouse_button_pressed && icon_rectangle[i].can_draw == true) {
             select_tool(i, BUTTON_PRESSED);
             sfRectangleShape_setFillColor(icon_rectangle[front_toolbar.
-                index_button_pressed].rectangle, (sfColor) BG_COLOR);
+                index_button_pressed].rectangle, (sfColor) {BG_COLOR});
             sfRectangleShape_setFillColor(icon_rectangle[i].rectangle,
                 (sfColor) {51, 51, 255, 255});
             front_toolbar.index_button_pressed = i;
@@ -61,7 +61,7 @@ void interaction_front_toolbar(void)
         is_mouse_over_rectangle_shape(icon_rectangle[i].rectangle) ==
             false) {
             sfRectangleShape_setFillColor(icon_rectangle[i].rectangle,
-                (sfColor) BG_COLOR);
+                (sfColor) {BG_COLOR});
         }
     }
 }

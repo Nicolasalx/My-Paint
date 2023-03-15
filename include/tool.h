@@ -11,17 +11,17 @@
     #include "SFML/Graphics.h"
 
     #define DEFAULT_PENCIL_RADIUS 10
-    #define DEFAULT_PENCIL_COLOR {0, 0, 0, 255}
+    #define DEFAULT_PENCIL_COLOR 0, 0, 0, 255
 
     #define DEFAULT_ERASER_RADIUS 10
 
     #define BRUSH_SIZE_MULT 2.25f
     #define DEFAULT_BRUSH_RADIUS 10
-    #define DEFAULT_BRUSH_COLOR {0, 0, 0, 150}
+    #define DEFAULT_BRUSH_COLOR 0, 0, 0, 150
 
     #define FEATHER_PEN_SIZE_MULT 2.25f
     #define DEFAULT_FEATHER_PEN_RADIUS 10
-    #define DEFAULT_FEATHER_PEN_COLOR {0, 0, 0, 255}
+    #define DEFAULT_FEATHER_PEN_COLOR 0, 0, 0, 255
 
 typedef enum {
     PENCIL,
