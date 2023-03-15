@@ -17,32 +17,32 @@ button_ui_layer_t button_ui_layer[] = {
         .size = {40, 40},
         .scale = {0.3, 0.3},
         .anchor = TOP_RIGHT,
-        .offset = {-200, 975},
-        .offset_sprite = {-205, 980},
+        .offset = {-200 - 28, 975},
+        .offset_sprite = {-205 - 28, 980},
         .redirect = add_new_layer
     }, {
         .path = "game_data/ui_layer/push_up.png",
         .size = {40, 40},
         .scale = {0.3, 0.3},
         .anchor = TOP_RIGHT,
-        .offset = {-150, 975},
-        .offset_sprite = {-155, 985},
+        .offset = {-150 - 28, 975},
+        .offset_sprite = {-155 - 28, 985},
         .redirect = push_layer_up
     }, {
         .path = "game_data/ui_layer/push_down.png",
         .size = {40, 40},
         .scale = {0.3, 0.3},
         .anchor = TOP_RIGHT,
-        .offset = {-100, 975},
-        .offset_sprite = {-105, 985},
+        .offset = {-100 - 28, 975},
+        .offset_sprite = {-105 - 28, 985},
         .redirect = push_layer_down
     }, {
         .path = "game_data/ui_layer/delete_layer.png",
         .size = {40, 40},
         .scale = {0.3, 0.3},
         .anchor = TOP_RIGHT,
-        .offset = {-50, 975},
-        .offset_sprite = {-57, 980},
+        .offset = {-50 - 28, 975},
+        .offset_sprite = {-57 - 28, 980},
         .redirect = delete_current_layer
     }
 };
