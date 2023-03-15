@@ -46,58 +46,52 @@ void set_circle_shape_draw(sfRenderWindow *window, int i, float *radius_size)
 void pen_size_tool(sfRenderWindow *window, float *radius_size, int i)
 {
     sfRenderWindow_setMouseCursorVisible(window, false);
-    if (pencil.radius <= 30) {
-        * radius_size = pencil.radius - 8.0f;
-    } else if (pencil.radius > 30 && pencil.radius <= 80) {
-        * radius_size = pencil.radius - 16.0f;
-    } else if (pencil.radius > 80) {
-        * radius_size = pencil.radius - 25.0f;
+    if (pencil.radius > 0) {
+        *radius_size = pencil.radius * fmin(render_sheet_scale.x, render_sheet_scale.y);
+    } else {
+        *radius_size = 1.0f;
     }
     if (icon_to_draw[i].tool_to_select == PENCIL) {
         sfSprite_setPosition(icon_to_draw[i].sprite, (sfVector2f)
             {mouse_pos.x, mouse_pos.y - 50});
-        sfRenderWindow_drawSprite(window, icon_to_draw[i].sprite, NULL);
         sfCircleShape_setOutlineColor(icon_to_draw[i].circle, pencil.color);
         set_circle_shape_draw(window, i, radius_size);
+        sfRenderWindow_drawSprite(window, icon_to_draw[i].sprite, NULL);
     }
 }
 
 void eraser_size_tool(sfRenderWindow *window, float *radius_size, int i)
 {
     sfRenderWindow_setMouseCursorVisible(window, false);
-    if (eraser.radius <= 30) {
-        * radius_size = eraser.radius - 8.0f;
-    } else if (eraser.radius > 30 && eraser.radius <= 80) {
-        * radius_size = eraser.radius - 16.0f;
-    } else if (eraser.radius > 80) {
-        * radius_size = eraser.radius - 25.0f;
+    if (eraser.radius > 0) {
+        *radius_size = eraser.radius * fmin(render_sheet_scale.x, render_sheet_scale.y);
+    } else {
+        *radius_size = 1.0f;
     }
     if (icon_to_draw[i].tool_to_select == ERASER) {
         sfSprite_setPosition(icon_to_draw[i].sprite, (sfVector2f)
             {mouse_pos.x, mouse_pos.y - 50});
-        sfRenderWindow_drawSprite(window, icon_to_draw[i].sprite, NULL);
         sfCircleShape_setOutlineColor(icon_to_draw[i].circle,
             (sfColor) {128, 128, 128, 255});
         set_circle_shape_draw(window, i, radius_size);
+        sfRenderWindow_drawSprite(window, icon_to_draw[i].sprite, NULL);
     }
 }
 
 void brush_size_tool(sfRenderWindow *window, float *radius_size, int i)
 {
     sfRenderWindow_setMouseCursorVisible(window, false);
-    if (brush.radius <= 30) {
-        * radius_size = brush.radius - 8.0f;
-    } else if (brush.radius > 30 && brush.radius <= 80) {
-        * radius_size = brush.radius - 16.0f;
-    } else if (brush.radius > 80) {
-        * radius_size = brush.radius - 25.0f;
+    if (brush.radius > 0) {
+        *radius_size = brush.radius * fmin(render_sheet_scale.x, render_sheet_scale.y);
+    } else {
+        *radius_size = 1.0f;
     }
     if (icon_to_draw[i].tool_to_select == BRUSH) {
         sfSprite_setPosition(icon_to_draw[i].sprite, (sfVector2f)
             {mouse_pos.x, mouse_pos.y - 50});
-        sfRenderWindow_drawSprite(window, icon_to_draw[i].sprite, NULL);
         sfCircleShape_setOutlineColor(icon_to_draw[i].circle, brush.color);
         set_circle_shape_draw(window, i, radius_size);
+        sfRenderWindow_drawSprite(window, icon_to_draw[i].sprite, NULL);
     }
 }
 

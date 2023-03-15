@@ -12,3 +12,5 @@
 sfRectangleShape *background;
 node_t *head_layer = NULL;
 node_t *selected_layer = NULL;
+sfVector2f overview_pos = {1611, 524};
+sfVector2f overview_scale = {0.14, 0.14};

@@ -22,8 +22,6 @@
     #define MAX_LAYER_NAME_SIZE 20
     #define DEFAULT_LAYER_NAME "layer_"
 
-    #define OVERVIEW_POS {1611, 524}
-    #define OVERVIEW_SCALE {0.14, 0.14}
     #define OVERVIEW_BACKGROUND_OUTLINE_THICKNESS 6.0f
 
     #define UNDO_REDO_DISABLE_COLOR {255, 255, 255, 100}
@@ -59,6 +57,8 @@ typedef struct {
 extern sfRectangleShape *background;
 extern node_t *head_layer;
 extern node_t *selected_layer;
+extern sfVector2f overview_pos;
+extern sfVector2f overview_scale;
 
 extern icon_undo_redo_t icon_undo_redo[];
 extern const int size_icon_undo_redo;
