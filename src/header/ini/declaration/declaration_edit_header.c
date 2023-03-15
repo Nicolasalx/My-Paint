@@ -11,22 +11,19 @@
 
 edit_menu_header_t edit_menu_header [] = {
     {.color = {255, 255, 255}, .pos = {160, 70},
-    .size = {220, 30}, .tool_to_select = PENCIL},
+    .size = {220, 30}, .tool_to_select = PENCIL, .tool_draw_shape = false},
 
     {.color = {255, 255, 255}, .pos = {160, 100},
-    .size = {220, 30}, .tool_to_select = ERASER},
+    .size = {220, 30}, .tool_to_select = ERASER, .tool_draw_shape = false},
 
-    {.color = {255, 255, 255}, .pos = {160, 130},
-    .size = {220, 30}, .tool_to_select = BRUSH},
+        {.color = {255, 255, 255}, .pos = {160, 130},
+    .size = {220, 30}, .draw_mode = CIRCLE_DRAW, .tool_draw_shape = true},
 
-        {.color = {255, 255, 255}, .pos = {160, 160},
-    .size = {220, 30}, .draw_mode = CIRCLE_DRAW},
+    {.color = {255, 255, 255}, .pos = {160, 160},
+    .size = {220, 30}, .draw_mode = RECTANGLE_DRAW, .tool_draw_shape = true},
 
     {.color = {255, 255, 255}, .pos = {160, 190},
-    .size = {220, 30}, .draw_mode = RECTANGLE_DRAW},
-
-    {.color = {255, 255, 255}, .pos = {160, 220},
-    .size = {220, 30}, .draw_mode = BRUSH_DRAW}
+    .size = {220, 30}, .draw_mode = BRUSH_DRAW, .tool_draw_shape = true}
 };
 
 const int size_edit_menu_header =
@@ -38,15 +35,13 @@ text_edit_header_t text_edit_header [] = {
     {.pos = {170, 100}, .path = "Choose Eraser",
         .font_path = "game_data/font/JetBrainsMono-Regular.ttf"},
 
-    {.pos = {170, 130}, .path = "Choose Brush",
-        .font_path = "game_data/font/JetBrainsMono-Regular.ttf"},
-    {.pos = {170, 160}, .path = "Draw cirle",
+    {.pos = {170, 130}, .path = "Draw cirle",
         .font_path = "game_data/font/JetBrainsMono-Regular.ttf"},
 
-    {.pos = {170, 190}, .path = "Draw rectangle",
+    {.pos = {170, 160}, .path = "Draw rectangle",
         .font_path = "game_data/font/JetBrainsMono-Regular.ttf"},
 
-    {.pos = {170, 220}, .path = "Draw Brush",
+    {.pos = {170, 190}, .path = "Draw Brush",
         .font_path = "game_data/font/JetBrainsMono-Regular.ttf"}
 };
 

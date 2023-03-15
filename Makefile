@@ -19,7 +19,8 @@ UI_SRC 		=	src/user_interface/ini/ini_user_interface.c \
 COLOR_SRC	=	src/color_selection/ini/ini_color_select.c \
 				src/color_selection/ini/declaration_button_color.c \
 				src/color_selection/render/interaction_tool_color.c \
-				src/color_selection/render/select_color_chromatic_wheel.c
+				src/color_selection/render/select_color_chromatic_wheel.c \
+				src/color_selection/destroy/destroy.c
 
 TOOL_BAR_SRC= 	src/toolbar/ini/declaration_toolbar.c \
 				src/toolbar/ini/ini_toolbar.c \
@@ -106,7 +107,8 @@ IMAGE_SRC	=	src/image/import_image.c \
 
 DRAW_ICON_SRC = src/icon_to_draw/ini/declaration.c \
 				src/icon_to_draw/ini/initialisation.c \
-				src/icon_to_draw/render/display_icon_to_draw.c
+				src/icon_to_draw/render/display_icon_to_draw.c \
+				src/icon_to_draw/destroy/destroy.c
 
 SRC			=	$(MAIN_SRC) \
 				$(UI_SRC) \

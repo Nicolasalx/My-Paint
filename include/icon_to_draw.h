@@ -7,6 +7,7 @@
 
 #ifndef ICON_TO_DRAW_H_
     #define ICON_TO_DRAW_H_
+    #include "tool.h"
 
 typedef struct {
     sfRectangleShape *rectangle;
@@ -33,5 +34,6 @@ extern const int size_icon_to_draw;
 
 void create_all_icon_to_draw(void);
 void display_icon_to_draw(sfRenderWindow *window);
+void destroy_icon_to_draw(void);
 
 #endif /* !ICON_TO_DRAW_H_ */
