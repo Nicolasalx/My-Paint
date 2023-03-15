@@ -17,7 +17,7 @@ int new_size_path = 0;
 int size_name_of_file = 0;
 int size_already_name_malloc = 0;
 
-int move_to_a_dir()
+int move_to_a_dir(void)
 {
     return 0;
 }
