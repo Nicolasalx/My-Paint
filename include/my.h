@@ -17,7 +17,8 @@
 
     #define DEFAULT_WINDOW_SIZE_X 1920
     #define DEFAULT_WINDOW_SIZE_Y 1080
-    #define FONT sfFont_createFromFile("game_data/font/JetBrainsMono-Regular.ttf")
+    #define DEFAULT_FONT_PATH "game_data/font/JetBrainsMono-Regular.ttf"
+    #define FONT sfFont_createFromFile(DEFAULT_FONT_PATH)
 
     #define FPS 144
 
