@@ -57,6 +57,7 @@ sfFloatRect compute_rect_pos_and_scale(sfFloatRect parent_rect,
 sfBool is_window_resized(void);
 button_state_t get_sprite_button_state(sfSprite *button);
 button_state_t get_rectangle_shape_button_state(sfRectangleShape *button);
-void handle_sprite_button_state(sfSprite *sprite, button_anim_t *button_anim, bool enable);
+void handle_sprite_button_state(sfSprite *sprite, button_anim_t *button_anim,
+    bool enable);
 
 #endif /* !MY_GRAPHICAL */

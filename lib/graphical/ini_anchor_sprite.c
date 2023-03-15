@@ -9,22 +9,23 @@
 
 void ini_anchor_sprite(sfSprite *sprite, anchor_t anchor)
 {
+    sfVector2u texture_size = sfTexture_getSize(sfSprite_getTexture(sprite));
     switch (anchor) {
     case TOP_LEFT:
         sfSprite_setOrigin(sprite, (sfVector2f) {0, 0});
         break;
     case TOP_RIGHT:
         sfSprite_setOrigin(sprite, (sfVector2f) {
-            sfTexture_getSize(sfSprite_getTexture(sprite)).x, 0});
+            texture_size.x, 0});
         break;
     case BOTTOM_LEFT:
-        sfSprite_setOrigin(sprite, (sfVector2f)
-            {0, sfTexture_getSize(sfSprite_getTexture(sprite)).y});
+        sfSprite_setOrigin(sprite, (sfVector2f) {0,
+        texture_size.y});
         break;
     case BOTTOM_RIGHT:
         sfSprite_setOrigin(sprite, (sfVector2f) {
-            sfTexture_getSize(sfSprite_getTexture(sprite)).x,
-            sfTexture_getSize(sfSprite_getTexture(sprite)).y
+            texture_size.x,
+            texture_size.y
         });
         break;
     }
@@ -32,23 +33,22 @@ void ini_anchor_sprite(sfSprite *sprite, anchor_t anchor)
 
 void ini_anchor_rect(sfRectangleShape *rect, anchor_t anchor)
 {
+    sfVector2f rect_size = sfRectangleShape_getSize(rect);
     switch (anchor) {
     case TOP_LEFT:
         sfRectangleShape_setOrigin(rect, (sfVector2f) {0, 0});
         break;
     case TOP_RIGHT:
         sfRectangleShape_setOrigin(rect, (sfVector2f) {
-            sfRectangleShape_getSize(rect).x, 0});
+            rect_size.x, 0});
         break;
     case BOTTOM_LEFT:
-        sfRectangleShape_setOrigin(rect, (sfVector2f)
-            {0, sfRectangleShape_getSize(rect).y});
+        sfRectangleShape_setOrigin(rect, (sfVector2f) {0,
+            rect_size.y
+        });
         break;
     case BOTTOM_RIGHT:
-        sfRectangleShape_setOrigin(rect, (sfVector2f) {
-            sfRectangleShape_getSize(rect).x,
-            sfRectangleShape_getSize(rect).y
-        });
+        sfRectangleShape_setOrigin(rect, rect_size);
         break;
     }
 }
