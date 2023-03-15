@@ -20,10 +20,9 @@ void pencile_circle_mode(void)
     sfCircleShape_setPosition(pencil.circle, circle_draw_pos);
     sfCircleShape_setRadius(pencil.circle, pencil.radius);
     sfCircleShape_setFillColor(pencil.circle, pencil.color);
-    sfRenderTexture_drawCircleShape(GET_DATA(selected_layer, layer_t)->
-        render_texture, pencil.circle, NULL);
-    sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->
-        render_texture);
+    sfRenderTexture_drawCircleShape(GET_DATA(
+        selected_layer, layer_t)->render_texture, pencil.circle, NULL);
+    sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
 }
 
 void pencil_rect_mode(void)
@@ -33,12 +32,12 @@ void pencil_rect_mode(void)
     rect_draw_pos.y -= pencil.radius;
 
     sfRectangleShape_setPosition(pencil.rect, rect_draw_pos);
-    sfRectangleShape_setSize(pencil.rect, (sfVector2f) {pencil.radius * 2.0f, pencil.radius * 2.0f});
+    sfRectangleShape_setSize(pencil.rect,
+        (sfVector2f) {pencil.radius * 2.0f, pencil.radius * 2.0f});
     sfRectangleShape_setFillColor(pencil.rect, pencil.color);
-    sfRenderTexture_drawRectangleShape(GET_DATA(selected_layer, layer_t)->
-        render_texture, pencil.rect, NULL);
-    sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->
-        render_texture);
+    sfRenderTexture_drawRectangleShape(GET_DATA(
+        selected_layer, layer_t)->render_texture, pencil.rect, NULL);
+    sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
 }
 
 void pencil_brush_mode(void)
@@ -53,7 +52,8 @@ void pencil_brush_mode(void)
         {(float) (pencil.radius * BRUSH_SIZE_MULT) / pencil.texture_size.x,
         (float) (pencil.radius * BRUSH_SIZE_MULT) / pencil.texture_size.y});
     sfSprite_setColor(pencil.sprite, pencil.color);
-    sfRenderTexture_drawSprite(GET_DATA(selected_layer, layer_t)->render_texture, pencil.sprite, NULL);
+    sfRenderTexture_drawSprite(GET_DATA(
+        selected_layer, layer_t)->render_texture, pencil.sprite, NULL);
     sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
 }
 
