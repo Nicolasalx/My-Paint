@@ -27,4 +27,5 @@ icon_undo_redo_t icon_undo_redo [] = {
     }
 };
 
-const int size_icon_undo_redo = sizeof(icon_undo_redo) / sizeof(icon_undo_redo_t);
+const int size_icon_undo_redo =
+    sizeof(icon_undo_redo) / sizeof(icon_undo_redo_t);
