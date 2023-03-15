@@ -58,20 +58,22 @@ void eraser_rect_mode(void)
 void eraser_brush_mode(void)
 {
     sfVector2f sprite_draw_pos = get_mouse_pos_on_sheet();
-
     sprite_draw_pos.x -= (eraser.radius * BRUSH_SIZE_MULT) / 2.0f;
     sprite_draw_pos.y -= (eraser.radius * BRUSH_SIZE_MULT) / 2.0f;
-
     sfSprite_setPosition(eraser.sprite, sprite_draw_pos);
     sfSprite_setScale(eraser.sprite, (sfVector2f)
         {(float) (eraser.radius * BRUSH_SIZE_MULT) / eraser.texture_size.x,
         (float) (eraser.radius * BRUSH_SIZE_MULT) / eraser.texture_size.y});
-    sfSprite_setColor(eraser.sprite, sfTransparent);
+    sfSprite_setColor(eraser.sprite, (sfColor) {255, 255, 255, 255});
     sfRenderStates states = {
-        .blendMode = sfBlendNone,
-        .transform = sfTransform_Identity,
-        .texture = NULL,
-        .shader = NULL
+        .blendMode = {
+            .colorSrcFactor = sfBlendFactorZero,
+            .colorDstFactor = sfBlendFactorDstColor,
+            .colorEquation = sfBlendEquationAdd,
+            .alphaSrcFactor = sfBlendFactorZero,
+            .alphaDstFactor = sfBlendFactorOneMinusSrcAlpha,
+            .alphaEquation = sfBlendEquationAdd
+        }, .transform = sfTransform_Identity, .texture = NULL, .shader = NULL
     };
     sfRenderTexture_drawSprite(GET_DATA(selected_layer, layer_t)->render_texture, eraser.sprite, &states);
     sfRenderTexture_display(GET_DATA(selected_layer, layer_t)->render_texture);
@@ -85,13 +87,13 @@ void render_eraser(void)
                 eraser_circle_mode();
                 break;
             case RECTANGLE_DRAW:
-                eraser_rect_mode();
+                eraser_brush_mode();
                 break;
             case BRUSH_DRAW:
                 eraser_brush_mode();
                 break;
             default:
-                eraser_circle_mode();
+                eraser_brush_mode();
                 break;
         }
     } else if (mouse_button_released) {
