@@ -8,6 +8,7 @@
 #ifndef USER_INTERFACE_H_
     #define USER_INTERFACE_H_
 
+    #include <SFML/Graphics.h>
     #include "my_graphical.h"
 
 typedef struct {

@@ -69,7 +69,13 @@ LAYER_SRC	=	src/layer/ini/declaration_layer.c \
 				src/layer/ini/create_layer_name.c
 
 UI_LAYER_SRC=	src/ui_layer/ini/create_ui_layer.c \
-				src/ui_layer/render/render_ui_layer.c
+				src/ui_layer/ini/declaration_button_ui_layer.c \
+				src/ui_layer/render/render_ui_layer.c \
+				src/ui_layer/render/render_button_ui_layer.c \
+				src/ui_layer/render/add_new_layer.c \
+				src/ui_layer/render/push_layer_down.c \
+				src/ui_layer/render/push_layer_up.c \
+				src/ui_layer/render/delete_current_layer.c
 
 TOOL_SRC	=	src/tool/create_all_tool.c \
 				src/tool/render_all_tool.c \

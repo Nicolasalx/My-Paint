@@ -23,5 +23,6 @@ node_t *remove_node(node_t **head, node_t *node);
 void delete_node(node_t **head, node_t *node);
 void free_linked_list(node_t **head);
 int my_listlen(node_t **head);
+void swap_node(node_t **head, node_t *node_1, node_t *node_2);
 
 #endif /* !MY_LINKEDLIST_H_ */

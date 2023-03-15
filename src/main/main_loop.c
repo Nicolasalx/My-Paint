@@ -44,6 +44,7 @@ void render_all_data(sfRenderWindow *window, sfEvent *event, sfView *window_view
     display_ui(window);
     display_color_selection_icon(window, event);
     management_button_header(window);
+    render_button_ui_layer(window);
     display_toolbar(window, event);
     render_overview(window);
     render_undo_redo(window);
