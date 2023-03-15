@@ -11,8 +11,10 @@
 #include "ui_layer.h"
 
 layer_menu_header_t layer_menu_header [] = {
-    {.color = {255, 255, 255}, .pos = {360, 70}, .size = {300, 30}, .redirect = add_new_layer},
-    {.color = {255, 255, 255}, .pos = {360, 100}, .size = {300, 30}, .redirect = delete_current_layer}
+    {.color = {255, 255, 255}, .pos = {360, 70}, .size = {300, 30},
+    .redirect = add_new_layer},
+    {.color = {255, 255, 255}, .pos = {360, 100}, .size = {300, 30},
+    .redirect = delete_current_layer}
 };
 
 const int size_layer_menu_header =

@@ -12,7 +12,6 @@
     #define INCREMATION_SIZE 30
     #define SIZE_EXTENSION 2
     #define POSITION_TEXT {0, 0}
-    #define BACKGROUND_COLOR_IMG_IMPORT {170, 170, 170, 255}
     #define MOVE_TEXT_SCREEN 20
 
 extern sfVector2f pos_text;
