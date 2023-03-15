@@ -11,7 +11,10 @@
     #define COLOR_OVERHEAD_HEADER (sfColor) {0, 204, 204, 255}
     #define DESCRIPTION true
     #define ABOUT false
+    #define COLOR_BG 128, 128, 128, 255
+    #define SIZE_BUTTON 120, 100
     #include "tool.h"
+    
 
 typedef struct {
     sfRectangleShape *rectangle;

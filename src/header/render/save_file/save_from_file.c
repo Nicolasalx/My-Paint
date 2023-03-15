@@ -20,9 +20,6 @@
 #include <SFML/Graphics.h>
 #include "save_image.h"
 #include "save_file.h"
-    #define MAX_TEXT_LENGTH 30
-    #define COLOR_BACKGROUND 128, 128, 128, 255
-    #define COLOR_BUTTON_PRESSED (sfColor) {0, 73, 153, 255}
 
 bool mouse_button_pressed_save_file = false;
 bool mouse_button_released_save_file = false;
@@ -59,7 +56,7 @@ void loop_save_from_file(sfRenderWindow *window, sfEvent *event,
     can_press = false;
     while (sfRenderWindow_isOpen(window)) {
         manage_event_save_file(window, event, inputText, text);
-        sfRenderWindow_clear(window, (sfColor) {COLOR_BACKGROUND});
+        sfRenderWindow_clear(window, (sfColor) {128, 128, 128, 255});
         mouse_position_save = sfMouse_getPositionRenderWindow(window);
         for (int i = 0; i < size_selection_extension_button; ++i) {
             interaction_button_save(window, &index_can_draw, inputText, i);
@@ -115,7 +112,7 @@ void save_from_file(void)
     sfText_setCharacterSize(text, 30);
     sfText_setFillColor(text, sfBlack);
     sfText_setPosition(text, (sfVector2f){100, 100});
-    char inputText[MAX_TEXT_LENGTH] = "";
+    char inputText[30] = "";
     initialise_save_from_file();
     loop_save_from_file(window, &event, inputText, text);
     sfText_destroy(text);

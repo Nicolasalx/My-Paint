@@ -18,7 +18,7 @@
     #define BLACK 0, 0, 0, 255
     #define WHITE 255, 255, 255, 255
 
-    #define SIZE_BUTTON {30, 30}
+    //#define SIZE_BUTTON {30, 30}
 
     #define SIZE_OUTLINE_BUTTON_SEL_COLOR 2
 
