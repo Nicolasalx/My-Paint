@@ -15,7 +15,8 @@ void create_zoom_shape(int i)
         SIZE_OUTLINE_BUTTON);
     sfRectangleShape_setOutlineColor(zoom_shape[i].rectangle, sfBlack);
     sfRectangleShape_setSize(zoom_shape[i].rectangle, zoom_shape[i].size);
-    sfRectangleShape_setFillColor(zoom_shape[i].rectangle, zoom_shape[i].color);
+    sfRectangleShape_setFillColor(
+        zoom_shape[i].rectangle, zoom_shape[i].color);
     sfRectangleShape_setPosition(zoom_shape[i].rectangle, zoom_shape[i].pos);
 }
 
