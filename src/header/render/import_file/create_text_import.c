@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2023
+** B-MUL-200-PAR-2-1-mypaint-thibaud.cathala
+** File description:
+** create_text_import
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <dirent.h>
@@ -12,7 +19,8 @@
 #include "image.h"
 #include "import_image.h"
 
-void directory_append_text(struct stat st, const char *path_of_file, node_t *head)
+void directory_append_text(struct stat st, const char *path_of_file,
+    node_t *head)
 {
     if (S_ISDIR(st.st_mode)) {
         char *is_a_dir = malloc_str(my_strlen(path_of_file));
@@ -29,8 +37,7 @@ void append_text_to_linked(int nb_word, char **words, char **all_extension,
     for (int i = 0; i < nb_word - 1; ++i) {
         total_size += my_strlen(words[i]);
     }
-    char *name_of_file = malloc_str(total_size);
-    name_of_file[0] = '\0';
+    char *name_of_file = malloc_str(total_size); name_of_file[0] = '\0';
     for (int i = 0; i < nb_word - 1; ++i) {
         my_strcat(name_of_file, words[i]);
     }
@@ -45,8 +52,7 @@ void append_text_to_linked(int nb_word, char **words, char **all_extension,
             append_node(&head, create_node(create_text(is_a_file, false)));
             free(is_a_file);
         }
-    }
-    free(name_of_file);
+    } free(name_of_file);
 }
 
 void file_append_text(struct stat st, const char *path_of_file, node_t *head,
