@@ -40,6 +40,10 @@ typedef enum {
 
 typedef struct {
     sfCircleShape *circle;
+    sfRectangleShape *rect;
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2u texture_size;
     float radius;
     sfColor color;
     draw_mode_t draw_mode;
@@ -47,6 +51,10 @@ typedef struct {
 
 typedef struct {
     sfCircleShape *circle;
+    sfRectangleShape *rect;
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2u texture_size;
     float radius;
     draw_mode_t draw_mode;
 } eraser_t;

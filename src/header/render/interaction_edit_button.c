@@ -17,17 +17,13 @@ void select_tool_edit(int i)
         case PENCIL:
             selected_tool = PENCIL;
             pencil.draw_mode = edit_menu_header[i].draw_mode;
-        break;
+            break;
         case ERASER:
             selected_tool = ERASER;
             eraser.draw_mode = edit_menu_header[i].draw_mode;
-        break;
-        case BRUSH:
-            selected_tool = BRUSH;
-            brush.draw_mode = edit_menu_header[i].draw_mode;
-        break;
+            break;
         default:
-        break;
+            break;
     }
 }
 
@@ -62,9 +58,8 @@ void gestion_header_edit_menu(sfRenderWindow *window)
     static bool verif_open_file_menu = false;
     int verif_close_menu = 0;
     if (mouse_button_pressed == true) {
-        if (is_mouse_over_rectangle_shape
-            (button_header[1].rectangle)) {
-                verif_open_file_menu = true;
+        if (is_mouse_over_rectangle_shape(button_header[1].rectangle)) {
+            verif_open_file_menu = true;
         }
     }
     if (verif_open_file_menu == true) {
