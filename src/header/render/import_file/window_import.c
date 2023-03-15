@@ -17,9 +17,30 @@ int new_size_path = 0;
 int size_name_of_file = 0;
 int size_already_name_malloc = 0;
 
-int move_to_a_dir(void)
+int move_to_a_dir(sfRenderWindow *window, node_t *current)
 {
-    return 0;
+    if (my_strcmp(sfText_getString(GET_DATA(current, file_name_t)->text), "[X]| BACK TO THE PREVIOUS DIRECTORY\n") == 0) {
+        char *new_path = malloc_str(my_strlen(path_to_open_dir) + 3);
+        my_strcpy(new_path, path_to_open_dir);
+        my_strcat(new_path, "../");
+        path_to_open_dir = new_path;
+    } else {
+        if (my_strcmp(path_to_open_dir, "./") != 0) {
+            size_already_name_malloc = my_strlen(path_to_open_dir + 1);
+            char *new_path = malloc_str(size_already_name_malloc + my_strlen(sfText_getString(GET_DATA(current, file_name_t)->text)) + 1);
+            my_strcpy(new_path, path_to_open_dir);
+            my_strcat(new_path, sfText_getString(GET_DATA(current, file_name_t)->text));
+            my_strcat(new_path, "/");
+            path_to_open_dir = new_path;
+        } else {
+            path_to_open_dir = malloc_str(my_strlen(sfText_getString(GET_DATA(current, file_name_t)->text)) + 1);
+            my_strcpy(path_to_open_dir, sfText_getString(GET_DATA(current, file_name_t)->text));
+            my_strcat(path_to_open_dir, "/");
+        }
+    }
+    sfRenderWindow_close(window);
+    can_free_dir = true;
+    return 2;
 }
 
 int open_a_file(sfRenderWindow *window, node_t *current)
@@ -47,28 +68,7 @@ int define_file_to_import(sfRenderWindow *window, sfEvent *event, node_t *curren
         sfRenderWindow_drawText(window, GET_DATA(current, file_name_t)->text, NULL);
         if (is_mouse_over_texte(GET_DATA(current, file_name_t)->text, window) == true && event->type == sfEvtMouseButtonPressed) {
             if (GET_DATA(current, file_name_t)->is_a_dir == true) {
-                if (my_strcmp(sfText_getString(GET_DATA(current, file_name_t)->text), "[X]| BACK TO THE PREVIOUS DIRECTORY\n") == 0) {
-                    char *new_path = malloc_str(my_strlen(path_to_open_dir) + 3);
-                    my_strcpy(new_path, path_to_open_dir);
-                    my_strcat(new_path, "../");
-                    path_to_open_dir = new_path;
-                } else {
-                    if (my_strcmp(path_to_open_dir, "./") != 0) {
-                        size_already_name_malloc = my_strlen(path_to_open_dir + 1);
-                        char *new_path = malloc_str(size_already_name_malloc + my_strlen(sfText_getString(GET_DATA(current, file_name_t)->text)) + 1);
-                        my_strcpy(new_path, path_to_open_dir);
-                        my_strcat(new_path, sfText_getString(GET_DATA(current, file_name_t)->text));
-                        my_strcat(new_path, "/");
-                        path_to_open_dir = new_path;
-                    } else {
-                        path_to_open_dir = malloc_str(my_strlen(sfText_getString(GET_DATA(current, file_name_t)->text)) + 1);
-                        my_strcpy(path_to_open_dir, sfText_getString(GET_DATA(current, file_name_t)->text));
-                        my_strcat(path_to_open_dir, "/");
-                    }
-                }
-                sfRenderWindow_close(window);
-                can_free_dir = true;
-                return 2;
+                return (move_to_a_dir(window, current));
             } else {
                 return (open_a_file(window, current));
             }

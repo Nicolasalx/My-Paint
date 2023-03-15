@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2023
+** B-MUL-200-PAR-2-1-mypaint-thibaud.cathala
+** File description:
+** import_from_file
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <dirent.h>
