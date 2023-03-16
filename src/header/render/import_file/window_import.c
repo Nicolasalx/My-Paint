@@ -19,10 +19,10 @@
 #include "image.h"
 #include "import_image.h"
 
-char *new_path = '\0';
-int new_size_path = 0;
-int size_name_of_file = 0;
-int size_already_name_malloc = 0;
+char *new_path;
+int new_size_path;
+int size_name_of_file;
+int size_already_name_malloc;
 
 void define_new_dir(node_t *current)
 {
@@ -113,23 +113,4 @@ int loop_file_import(sfRenderWindow *window, sfEvent *event, node_t *head)
         sfRenderWindow_display(window);
     }
     return value_return;
-}
-
-int create_window_from_file(node_t *head)
-{
-    sfVideoMode desktop = sfVideoMode_getDesktopMode();
-    sfVideoMode mode = {640, 720, desktop.bitsPerPixel};
-    sfRenderWindow* window;
-    sfEvent event;
-    int posX = (desktop.width - mode.width) / 2;
-    int posY = (desktop.height - mode.height) / 2;
-    window = sfRenderWindow_create(mode, "Import Image", 0 | sfClose, NULL);
-    sfRenderWindow_setPosition(window, (sfVector2i){posX, posY});
-    new_path = '\0';
-    new_size_path = 0;
-    size_name_of_file = 0;
-    size_already_name_malloc = 0;
-    return (loop_file_import(window, &event, head));
-    sfRenderWindow_destroy(window);
-    return 0;
 }

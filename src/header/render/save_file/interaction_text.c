@@ -69,8 +69,8 @@ void manage_event_save_file(sfRenderWindow *window, sfEvent *event,
     }
 }
 
-sfBool is_mouse_over_rectangle_shape_save_file(sfRectangleShape*
-    rectangle_shape, sfVector2i mouse_position_save)
+sfBool is_mouse_over_rectangle_shape_save_file(
+    sfRectangleShape *rectangle_shape, sfVector2i mouse_position_save)
 {
     sfFloatRect rectangle_bound =
     sfRectangleShape_getGlobalBounds(rectangle_shape);

@@ -13,6 +13,7 @@
     #define COLOR_BG 128, 128, 128, 255
     #define SIZE_BUTTON 120, 100
     #include "tool.h"
+    #include "my_linkedlist.h"
 
 typedef struct {
     sfRectangleShape *rectangle;
@@ -214,5 +215,7 @@ void about_help_menu(void);
 void description_help_menu(void);
 
 void save_from_file(void);
+int create_window_from_file(node_t *head);
+int loop_file_import(sfRenderWindow *window, sfEvent *event, node_t *head);
 
 #endif /* !HEADER_H_ */

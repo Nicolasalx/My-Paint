@@ -21,9 +21,9 @@
 #include "save_image.h"
 #include "save_file.h"
 
-bool mouse_button_pressed_save_file = false;
-bool mouse_button_released_save_file = false;
-bool can_press = false;
+bool mouse_button_pressed_save_file;
+bool mouse_button_released_save_file;
+bool can_press;
 sfVector2i mouse_position_save;
 
 void interaction_button_save(sfRenderWindow *window, int *index_can_draw,

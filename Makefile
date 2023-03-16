@@ -58,7 +58,8 @@ HEADER_SRC	=	src/header/ini/declaration/declaration_header.c \
 				src/header/render/save_file/save_from_file.c \
 				src/header/render/save_file/declaration_save.c \
 				src/header/render/save_file/interaction_text.c \
-				src/header/render/import_file/define_fd.c
+				src/header/render/import_file/define_fd.c \
+				src/header/render/import_file/create_window_from_file.c
 
 UI_LAYER_SRC=	src/ui_layer/declaration_layer.c \
 				src/ui_layer/ini_layer.c
