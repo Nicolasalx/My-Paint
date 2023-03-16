@@ -32,7 +32,8 @@ sfBool mouse_button_released = false;
 sfRectangleShape *edition_zone;
 bool need_to_exit = false;
 
-void render_all_data(sfRenderWindow *window, sfEvent *event, sfView *window_view)
+void render_all_data(sfRenderWindow *window,
+    sfEvent *event, sfView *window_view)
 {
     sfRectangleShape_setSize(edition_zone, (sfVector2f)
         {window_size.x - (350 + 51), window_size.y - (31 + 80)});
@@ -69,7 +70,6 @@ void main_loop(void)
     sfRenderWindow_setFramerateLimit(window, FPS);
     edition_zone = sfRectangleShape_create();
     sfRectangleShape_setPosition(edition_zone, (sfVector2f) {51, 80});
-
     while (sfRenderWindow_isOpen(window)) {
         render_all_data(window, &event, window_view);
         if (need_to_exit == true) {

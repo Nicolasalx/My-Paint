@@ -41,6 +41,6 @@ void main_loop(void);
 void update_window_data(sfRenderWindow *window, sfView *window_view);
 void manage_event(sfRenderWindow *window, sfEvent *event, sfView *window_view);
 void create_all_data(void);
-void free_all_data();
+void free_all_data(void);
 
 #endif /* !MY_H_ */
