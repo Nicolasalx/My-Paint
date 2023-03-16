@@ -17,7 +17,6 @@ bool import_image(char *image_path)
         return false;
     }
     char new_layer_name[MAX_LAYER_NAME_SIZE];
-
     create_new_layer(create_layer_name(new_layer_name));
     selected_layer = head_layer->prev;
     sfTexture *loaded_image = resize_texture(image_texture, render_sheet_res);

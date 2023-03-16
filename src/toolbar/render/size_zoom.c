@@ -3,6 +3,8 @@
 ** B-MUL-200-PAR-2-1-mypaint-thibaud.cathala
 ** File description:
 ** size_zoom
+** Taille = 100;
+** Taille = (size_difference * 100) / 190
 */
 
 #include "my.h"
@@ -20,9 +22,7 @@ void zoom_shape_interaction(void)
             sfRectangleShape_setSize(zoom_shape[1].rectangle,
                 (sfVector2f) {-size_difference, zoom_shape[1].size.y});
             if (size_difference == 190) {
-                ; // Taille = 100;
             } else {
-                ; // Taille = (size_difference * 100) / 190
             }
         }
     }
