@@ -73,5 +73,6 @@ void interaction_front_toolbar(void);
 void set_size_tool_selected(void);
 void ini_zoom(void);
 void set_zoom_size(sfRenderWindow *window, sfEvent *event);
+void set_color_button_hovered(void);
 
 #endif /* !TOOLBAR_H_ */

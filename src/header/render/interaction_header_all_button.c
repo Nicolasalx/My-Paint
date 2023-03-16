@@ -14,10 +14,9 @@ void reset_menu_header(int pressed_min_one_time,
 {
     if (pressed_min_one_time > 0) {
         for (int i = 0; i < size_button_header; ++i) {
-            if (is_mouse_over_rectangle_shape(button_header[i].rectangle) ==
-                false && mouse_button_pressed == true) {
-                ++ *verif_mouse_in_box;
-            }
+            (is_mouse_over_rectangle_shape(button_header[i].rectangle) ==
+                false && mouse_button_pressed == true) ?
+                ++ *verif_mouse_in_box : *verif_mouse_in_box;
         }
     }
     if (pressed_min_one_time > 0 && *verif_mouse_in_box ==

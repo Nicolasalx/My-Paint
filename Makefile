@@ -28,7 +28,8 @@ TOOL_BAR_SRC= 	src/toolbar/ini/declaration_toolbar.c \
 				src/toolbar/render/size_pen.c \
 				src/toolbar/render/display_toolbar.c \
 				src/toolbar/ini/ini_zoom.c \
-				src/toolbar/render/size_zoom.c
+				src/toolbar/render/size_zoom.c \
+				src/toolbar/render/set_color_button_pressed.c
 
 HEADER_SRC	=	src/header/ini/declaration/declaration_header.c \
 				src/header/ini/initialisation/ini_button_header.c \

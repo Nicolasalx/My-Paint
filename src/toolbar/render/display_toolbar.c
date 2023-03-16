@@ -34,24 +34,6 @@ void set_color_button_pressed(void)
     }
 }
 
-void set_color_button_hovered(void)
-{
-    for (int i = 0; i < size_icon_rectangle; ++i) {
-        if (is_mouse_over_rectangle_shape(icon_rectangle[i].rectangle) &&
-            icon_rectangle[i].can_draw == true) {
-            if (front_toolbar.index_button_pressed != i) {
-                sfRectangleShape_setFillColor(icon_rectangle[i].rectangle,
-                    (sfColor) {51, 153, 255, 255});
-                front_toolbar.index_button_hovered = i;
-            } else if (i == 0) {
-                sfRectangleShape_setFillColor(icon_rectangle[i].rectangle,
-                    (sfColor) {51, 51, 255, 255});
-                front_toolbar.index_button_hovered = i;
-            }
-        }
-    }
-}
-
 void interaction_front_toolbar(void)
 {
     set_color_button_pressed();
