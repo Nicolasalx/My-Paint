@@ -37,7 +37,7 @@ icon_sprite_t icon_sprite [] = {
     .path = "game_data/toolbar/pipette.png"},
 
     {.pos = {4, 739}, .size = {0.4, 0.4},
-    .path = "game_data/toolbar/zoom_tool.png"}
+    .path = "game_data/toolbar/hand.png"}
 };
 
 front_toolbar_t front_toolbar = {

@@ -12,6 +12,25 @@
 #include "stdio.h"
 #include "my_graphical.h"
 
+void render_zoom(double zoom_level)
+{
+    float new_scale = (1 + (zoom_level / 100.0));
+    sfVector2f zoom_point = sfRectangleShape_getPosition(edition_zone);
+
+    zoom_point.x += sfRectangleShape_getSize(edition_zone).x / 2.0;
+    zoom_point.y += sfRectangleShape_getSize(edition_zone).y / 2.0;
+    sfVector2f offset = {
+        (render_sheet_pos.x - zoom_point.x) *
+        (new_scale / render_sheet_scale.x - 1),
+        (render_sheet_pos.y - zoom_point.y) *
+        (new_scale / render_sheet_scale.y - 1)
+    };
+    render_sheet_scale.x = new_scale;
+    render_sheet_scale.y = new_scale;
+    render_sheet_pos.x += offset.x;
+    render_sheet_pos.y += offset.y;
+}
+
 void zoom_shape_interaction(void)
 {
     if (mouse_pos.x >= zoom_shape[1].pos.x &&
@@ -21,9 +40,8 @@ void zoom_shape_interaction(void)
             int size_difference = zoom_shape[1].pos.x - mouse_pos.x;
             sfRectangleShape_setSize(zoom_shape[1].rectangle,
                 (sfVector2f) {-size_difference, zoom_shape[1].size.y});
-            if (size_difference == 190) {
-            } else {
-            }
+            render_zoom(
+                sfRectangleShape_getSize(zoom_shape[1].rectangle).x - 99.0);
         }
     }
 }

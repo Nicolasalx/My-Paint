@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 {
     head_layer = NULL;
     selected_layer = NULL;
-    selected_tool = HAND;
+    selected_tool = MOUSE;
     if (argc != 1) {
         if (load_image(argv[1]) == FAIL) {
             print_error(BOLD_RED(argv[1], ": Invalid file\n"));

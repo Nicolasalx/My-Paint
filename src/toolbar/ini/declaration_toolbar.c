@@ -30,32 +30,36 @@ icon_rectangle_t icon_rectangle [] = {
     .tool_to_select = FEATHER_PEN}, // Sceau -> 1
 
     {.color = {BG_COLOR}, .pos = {5, 360},
-    .size = {40, 40}, .can_draw = true}, // Rond pour dessiner -> 2
+    .size = {40, 40}, .can_draw = true,
+    .tool_to_select = MOUSE}, // Rond pour dessiner -> 2
 
     {.color = {BG_COLOR}, .pos = {5, 410},
-    .size = {40, 40}, .can_draw = true}, // Rectangle pour dessiner -> 2
+    .size = {40, 40}, .can_draw = true,
+    .tool_to_select = MOUSE}, // Rectangle pour dessiner -> 2
 
     {.color = {BG_COLOR}, .pos = {5, 470},
-    .size = {40, 40}, .can_draw = true}, // Ligne Forme -> 3
+    .size = {40, 40}, .can_draw = true,
+    .tool_to_select = MOUSE}, // Ligne Forme -> 3
 
     {.color = {BG_COLOR}, .pos = {5, 520},
-    .size = {40, 40}, .can_draw = true}, // Rectangle Forme -> 3
+    .size = {40, 40}, .can_draw = true,
+    .tool_to_select = MOUSE}, // Rectangle Forme -> 3
 
     {.color = {BG_COLOR}, .pos = {5, 570},
-    .size = {40, 40}, .can_draw = true}, // Cercle Forme -> 3
+    .size = {40, 40}, .can_draw = true,
+    .tool_to_select = MOUSE}, // Cercle Forme -> 3
 
     {.color = {BG_COLOR}, .pos = {5, 620},
-    .size = {40, 40}, .can_draw = true}, // Triangle Forme -> 3
-
+    .size = {40, 40}, .can_draw = true,
+    .tool_to_select = MOUSE}, // Triangle Forme -> 3
 
     {.color = {BG_COLOR}, .pos = {5, 680},
-    .size = {40, 40}, .can_draw = true}, // Pipette -> 4
-
+    .size = {40, 40}, .can_draw = true,
+    .tool_to_select = MOUSE}, // Pipette -> 4
 
     {.color = {BG_COLOR}, .pos = {5, 740},
     .size = {40, 40}, .can_draw = true,
     .tool_to_select = HAND}, // Loupe -> 5
-
 
     {.color = {BG_COLOR}, .pos = {5, 800},
     .size = {40, 190}, .can_draw = false} // Taille Stylo
@@ -69,7 +73,7 @@ size_pen_t size_pen = {.pos = {5, 992}, .size = {40, 0},
 
 zoom_shape_t zoom_shape[] = {
     {.pos = {575, 20}, .size = {200, 40}, .color = {BG_COLOR}},
-    {.pos = {575, 20}, .size = {200, 40}, .color = {255, 102, 102, 255}}
+    {.pos = {575, 20}, .size = {100, 40}, .color = {255, 102, 102, 255}}
 };
 
 const int size_zoom_shape =
